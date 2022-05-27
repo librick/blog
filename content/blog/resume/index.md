@@ -1,5 +1,5 @@
 ---
-title: Resume
+title: Résumé
 
 description: "Why you want to work with me, from a completely non-biased source."
 ---
