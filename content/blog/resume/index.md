@@ -55,7 +55,6 @@ I strive for breath *and* depth of knowledge, recognizing a common time contrain
 ### Git and SCM
 - Familiar with common Git platforms such as GitHub, GitLab, Bitbucket
 - Can generate and add SSH keys without hand-holding
-- Familiar with git commands such as `clone`, `checkout`, `branch`, `config`, etc.
 - Can checkout branches, commit changes, create PRs
 - Understand and can communicate git branching strategies, semantic versioning
 
