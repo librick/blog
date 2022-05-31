@@ -16,7 +16,7 @@ The OSE campus, [Factor e Farm (FeF)](https://www.opensourceecology.org/about-fa
 As a native Ohioan, used to winter-worn roads policied by the praetorian Ohio State Troopers, the drive through Missouri was serene. The freeways are in great shape and the roads stretch for miles into the horizon across America's heartland.
 
 I neared Factor e Farm sometime around 10pm. While close to the freeway, getting to FeF requires
-taking a side road deliniated only by a small mile marker sign; there's not much of an exit ramp. Fortunately, the Missouri freeway system has another endearing quirk. Exits are spaced far apart, but the central median is intersected by small turn-arounds that allow you to change direction. After a driving in a few circles in the dark, I found the side road.
+taking a side road delineated only by a small mile marker sign; there's not much of an exit ramp. Fortunately, the Missouri freeway system has another endearing quirk. Exits are spaced far apart, but the central median is intersected by small turn-arounds that allow you to change direction. After a driving in a few circles in the dark, I found the side road.
 
 A homemade tractor in my driver's side view was the first indicator that I was in the right place.
 From there, I drove up a gravel road and followed the sound of voices to the building that I would affectionately
