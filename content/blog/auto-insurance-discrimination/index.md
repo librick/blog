@@ -10,7 +10,9 @@ As of writing, gender discrimination in auto insurance [has been banned in Calif
 
 No such ban exists in the state of Ohio. **Your insurance company can charge you more based on whether you identify as male, female, or neither.** On All State's site, I could select my gender to be "Male", "Female", or "Non-Binary".
 
-In my opinion, addressing the non-binary option, asking whether you identify as non-binary as a metric for auto insurance is no less egregious than asking if you are lesbian or gay as a metric for auto insurance. That said, gender discrimination in auto insurance affects everybody.
+In my opinion, addressing the non-binary option, asking whether you identify as non-binary as a metric for auto insurance is no less egregious than asking if you are lesbian or gay as a metric for auto insurance.
+
+That said, gender discrimination in auto insurance affects everybody.
 
 - If you're a man and the insurance company thinks that men are more likely to get in car wrecks, you have to pay more for auto insurance.
 - If you're a woman and the insurance company thinks that women are more likely to get in car wrecks, you have to pay more for auto insurance.
