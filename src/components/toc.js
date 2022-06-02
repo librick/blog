@@ -1,5 +1,7 @@
 import * as React from "react"
-const ToC = ({ headings }) => (
+const ToC = ({ headings }) => {
+  if(headings.length == 0) { return null; }
+  return (
     <div id='toc' style={{ paddingBottom: '64px' }}>
       <h2>Table of contents</h2>
       <div>
@@ -20,7 +22,8 @@ const ToC = ({ headings }) => (
         })}
       </div>
     </div>
-  )
+  );
+}
 
 //   const Toc = styled.ul`
 //   ${tw`bg-white fixed hidden lg:flex flex-col rounded p-3 my-3`};
