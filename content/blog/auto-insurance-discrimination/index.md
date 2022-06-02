@@ -21,4 +21,4 @@ If you were born with a certain biological sex or have a certain gender identity
 
 **In Ohio, if someone wants to drive legally, that person has to have auto insurance. Auto insurance companies are allowed to discriminate against someone on the basis of their gender. The fulfillment of a legal requirement is thus predicated dissimilarly and unjustly on their gender. This is in violation of their civil rights.**
 
-Auto insurance companies should not and must not be allowed to offer different rates to different people based on gender. To that end, auto insurance companies should not be allowed to ask for gender as a prequisite for a quote. To do otherwise is to violate a customer's civil rights.
+Auto insurance companies *should not* and *must not* be allowed to offer different rates to different people based on gender. To that end, auto insurance companies *should not* be allowed to ask for gender as a prequisite for a quote. To do otherwise is to violate a customer's civil rights.
