@@ -1,7 +1,7 @@
 ---
 title: Gender Discrimination in Auto Insurance 
 date: "2022-06-02T00:00:00.000Z"
-description: "Why providing your gender for auto insurance violates your civil rights"
+description: "Why providing your gender for auto insurance violates your civil rights."
 ---
 
 I recently decided to change auto insurance providers. As part of getting a quote (in this case, through All State), I was asked to specify my gender.
