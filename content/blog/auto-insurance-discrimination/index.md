@@ -17,7 +17,7 @@ That said, gender discrimination in auto insurance affects everybody.
 - If you're a man and the insurance company thinks that men are more likely to get in car wrecks, you have to pay more for auto insurance.
 - If you're a woman and the insurance company thinks that women are more likely to get in car wrecks, you have to pay more for auto insurance.
 
-If you were born with a certain biological sex or have a certain gender identity, you may have to pay a different amount than your peers to insure yourself against car accidents. Nor should private insurance companies be considered except from compliance with civil liberties legislation and the 14th amendment (and subsequent court precedent). Most states have minimum car insurance requirements.
+If you were born with a certain biological sex or have a certain gender identity, you may have to pay a different amount than your peers to insure yourself against car accidents. Private insurance companies should not be considered except from compliance with civil rights legislation; most states have minimum car insurance requirements.
 
 **In Ohio, if someone wants to drive legally, that person has to have auto insurance. Auto insurance companies are allowed to discriminate against someone on the basis of their gender. The fulfillment of a legal requirement is thus predicated dissimilarly and unjustly on their gender. This is in violation of their civil rights.**
 
