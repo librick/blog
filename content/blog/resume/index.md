@@ -7,10 +7,6 @@ description: "Why you want to work with me, from a completely non-biased source.
 My name is Eric McDonald; technologist, software architect, and consultant.<br>
 I am also the CEO, founder, and owner of my own software consulting LLC.
 
-I have excellent interpersonal and communication skills.
-I have a broad body of computer science knowledge and experience.
-I strive for breath *and* depth of knowledge, recognizing a common time contraint.
-
 - I can communicate effectively.
 - I can elucidate technical problems for people from non-technical backgrounds.
 - I can change my opinions given compelling evidence for others.
