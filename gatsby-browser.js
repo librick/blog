@@ -1,5 +1,6 @@
 // custom typefaces
 import "@fontsource/ubuntu"
+import "@fontsource/averia-libre"
 import "typeface-montserrat"
 import "typeface-merriweather"
 // normalize CSS across browsers
