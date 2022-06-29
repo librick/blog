@@ -42,7 +42,7 @@ I am also the CEO, founder, and owner of my own software consulting LLC.
 - Daily-drive Linux
 - Familiar with systemd, iptables, process management
 - I can quickly deploy and maintain Linux VMs
-- Experience using NGinx for reverse proxies, L4, and L7 tunnels
+- Experience using Nginx for reverse proxies, L4, and L7 tunnels
 - Experience using OpenVPN clients and servers
 - Understanding of Unix/POSIX environment vars, IPC, sockets, and pipes
 - Familiar with Linux users, groups, cgroups, and permissions
