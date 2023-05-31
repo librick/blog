@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready text-sm lg:text-base"
+  style="--bg: #faf6f1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>A Love Letter to Open Source Ecology - Juniperspring</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  <meta name="description" content="Last September (2021), I had the privilege to attend the OSE Summer of Extreme Design-Build. During the early summer months in Cleveland, I signed up to attend one month of the 90-day program. As summer wound down, I wrapped up some software contracting work, picked up a pair of steel toe boots, loaded up my car, and drove 12 hours down to the middle-of-nowhere Missouri.
+If you&rsquo;re not familiar with Marcin Jakubowski or Open Source Ecology (OSE), check out the OSE website and OSE wiki." />
+  <meta name="author" content="Eric McDonald" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://juniperspring.xyz/main.min.css" />
+
+  
+  <script
+    defer
+    src="https://juniperspring.xyz/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+   
+  <link rel="preload" as="image" href="https://juniperspring.xyz/theme.png" />
+
+  
+  
+  
+  
+
+  
+  <link rel="preload" as="image" href="https://juniperspring.xyz/github.svg" />
+  
+  <link rel="preload" as="image" href="https://juniperspring.xyz/rss.svg" />
+  
+  
+
+  
+  
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
+  integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI"
+  crossorigin="anonymous"
+/>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js"
+  integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t"
+  crossorigin="anonymous"
+></script>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js"
+  integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://juniperspring.xyz/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://juniperspring.xyz/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.112.0">
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="A Love Letter to Open Source Ecology" />
+<meta property="og:description" content="Exploring the world of open source and distributive enterprise." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://juniperspring.xyz/posts/love-letter-to-ose/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-05-24T00:00:00+00:00" />
+
+  
+  <meta itemprop="name" content="A Love Letter to Open Source Ecology">
+<meta itemprop="description" content="Exploring the world of open source and distributive enterprise."><meta itemprop="datePublished" content="2022-05-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-05-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1623">
+<meta itemprop="keywords" content="personal,ose," />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A Love Letter to Open Source Ecology"/>
+<meta name="twitter:description" content="Exploring the world of open source and distributive enterprise."/>
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold site-title"
+      href="https://juniperspring.xyz/"
+      >Juniperspring🌱</a
+    >
+    <div
+      class="btn-dark text-[0] ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = `"#faf6f1"`.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/librick"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="https://juniperspring.xyz/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pb-24 pt-16 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">A Love Letter to Open Source Ecology</h1>
+
+    
+    <div class="text-sm opacity-60">
+      
+      <time>May 24, 2022</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><p><img src="2021-09-ose-hablab-cat-and-bed.jpg" alt="Bunk bed and cat" title="Wikey naps above my bed"></p>
+<p>Last September (2021), I had the privilege to attend the <a href="https://www.opensourceecology.org/summer-x-2021/">OSE Summer of Extreme Design-Build</a>. During the early summer months in Cleveland, I signed up to attend one month of the 90-day program. As summer wound down, I wrapped up some software contracting work, picked up a pair of steel toe boots, loaded up my car, and drove 12 hours down to the middle-of-nowhere Missouri.</p>
+<p>If you&rsquo;re not familiar with Marcin Jakubowski or Open Source Ecology (OSE), check out the <a href="https://www.opensourceecology.org/">OSE website</a> and <a href="https://wiki.opensourceecology.org/wiki/Main_page">OSE wiki</a>.</p>
+<p><em>I am not paid by OSE. I am not affiliated with any of the legal/financial aspects of OSE. My opinions are my own and do not necessarily represent the opinions of Marcin Jakubowski nor OSE.</em></p>
+<h2 id="setting-out">Setting Out</h2>
+<p>The OSE campus, <a href="https://www.opensourceecology.org/about-factor-e-farm/">Factor e Farm (FeF)</a>, is located about an hour north of Kansas City.
+As a native Ohioan, used to winter-worn roads policied by the praetorian Ohio State Troopers, the drive through Missouri was serene. The freeways are in great shape and the roads stretch for miles into the horizon across America&rsquo;s heartland.</p>
+<p>I neared Factor e Farm sometime around 10pm. While close to the freeway, getting to FeF requires
+taking a side road delineated only by a small mile marker sign; there&rsquo;s not much of an exit ramp. Fortunately, the Missouri freeway system has another endearing quirk. Exits are spaced far apart, but the central median is intersected by small turn-arounds that allow you to change direction. After a driving in a few circles in the dark, I found the side road.</p>
+<p>A homemade tractor in my driver&rsquo;s side view was the first indicator that I was in the right place.
+From there, I drove up a gravel road and followed the sound of voices to the building that I would affectionately
+come to know as the HabLab. After informal introductions with friends sitting around a fire,
+I made my way inside, and found an open bunk in a side room.</p>
+<h2 id="people">People</h2>
+<p>The people of OSE were and are incredible. The composition of the group changed throughout the month. Some people stayed for a few weeks while others stayed for a few months. But at any given time there were probably around 12 people. Among them were people from Indonesia, Peru, Canada, Austria, Sweden, Germany, Poland, and the states.</p>
+<p>Geographic diversity was matched by a diversity of professions, from mechanical and electrical engineers to software developers and permaculturalists. Nor was collaboration limited to the people on-premise. Daily morning meetings were livestreamed and daily builds were recorded for collaboration around the world.</p>
+<h2 id="projects">Projects</h2>
+<p>The month was divided into five separate projects. In the span of a month we put up the frame of a house, built a greenhouse, assembled 3D printers, and welded together a tractor out of 4x4 square tubing.</p>
+<h3 id="seed-eco-home">Seed Eco-Home</h3>
+<p>September started with the Seed Eco-Home, a modular home design built from individual panels to be assembled like a lego set.
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<a href="https://wiki.opensourceecology.org/wiki/Seed_Eco-Home">OSE Wiki: Seed Eco-Home</a><!-- raw HTML omitted -->
+<a href="https://wiki.opensourceecology.org/wiki/Seed_Home_v2">OSE Wiki: Seed Eco-Home v2</a></p>
+<p><img src="2021-09-ose-seed-home-foundation.jpg" alt="Pouring the Seed Eco-Home foundation" title="Seed Eco-Home foundation"><!-- raw HTML omitted -->
+<img src="2021-09-ose-seed-home-lifetrac.jpg" alt="Assembling Seed Eco-Home wall modules" title="Assembling the wall modules"><!-- raw HTML omitted -->
+<img src="2021-09-ose-seed-home-lifetrac-sunset.jpg" alt="Second floor of the Seed Eco-Home" title="Construction of the second floor"><!-- raw HTML omitted -->
+<img src="2021-09-ose-seed-home-windows.jpg" alt="Second floor with windows" title="Seed Eco-Home windows"></p>
+<h3 id="aquaponic-greenhouse">Aquaponic Greenhouse</h3>
+<p>The aquaponic greenhouse attaches to the Seed Eco-Home.
+The primary design element is a series of vertical pipes that maximize growing space.
+Prior builds used a system of trenches to hold water. Our build used an above-ground reservoir to reduce construction time.
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<a href="https://wiki.opensourceecology.org/wiki/Greenhouses">OSE Wiki: Greenhouse</a><!-- raw HTML omitted -->
+<a href="https://wiki.opensourceecology.org/wiki/Aquaponics">OSE Wiki: Aquaponics</a></p>
+<p><img src="2021-09-ose-aquaponics-frame.jpg" alt="Greenhouse framing" title="Framing the greenhouse"><!-- raw HTML omitted -->
+<img src="2021-09-ose-aquaponics-roof.jpg" alt="Greenhouse with reservoir" title="Looking into the greenhouse and above-ground reservoir"><!-- raw HTML omitted -->
+<img src="2021-09-ose-aquaponics-prototype.jpg" alt="Vertical growing system" title="Vertical growing system in an older greenhouse on Factor e Farm"></p>
+<h3 id="3d-printers">3D Printers</h3>
+<p>The 3D printers were constructed from parts printed by other 3D printers. The goal is self-replication.
+Given a working 3D printer, you should be able to use it to build new ones.<!-- raw HTML omitted --><!-- raw HTML omitted -->
+Open source 3D printer design and construction have been long-term projects within Open Source Ecology.
+They can be found scattereted throughout Factor e Farm, from the HabLab to the spare rooms of one of the older workshop buildings.
+In October, work began on an industrial-scale 3D printer with the long-term goal of printing
+modular housing materials from waste plastic.
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<a href="">OSE Wiki: 3D Printer</a><!-- raw HTML omitted -->
+<a href="https://wiki.opensourceecology.org/wiki/D3D">OSE Wiki: D3D</a></p>
+<p><img src="2021-09-ose-hablab-d3d.jpg" alt="D3D 3D printer" title="D3D 3D printer in the HabLab"><!-- raw HTML omitted -->
+<img src="2021-09-ose-d3d-extruder.jpg" alt="3D printer extruder" title="3D printer extruder assembled from 3D printed parts"><!-- raw HTML omitted -->
+<img src="2021-09-ose-d3d-prototype.jpg" alt="D3D prototype" title="D3D 3D printer in a graveyard of prototypes, found in a disused workshop building on site"></p>
+<h3 id="lifetrac-tractor">LifeTrac Tractor</h3>
+<p>The last week was spent building LifeTrac, an open source, hydraulic tractor.
+Welded out of 4x4 square tubing with bearings and a massive central axle,
+it was assembled completely on-site at the FeF workshop.
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<a href="https://wiki.opensourceecology.org/wiki/Lifetrac">OSE Wiki: LifeTrac</a></p>
+<h4 id="building-the-frame">Building the Frame</h4>
+<p><img src="2021-09-ose-lifetrac-axle.jpg" alt="Tractor bearings and axles" title="LifeTrac tractor frame with bearings and axles"><!-- raw HTML omitted -->
+<img src="2021-09-ose-lifetrac-bearings.jpg" alt="Tractor wheel axel" title="Close-up of a wheel axle and its supporting bearings"><!-- raw HTML omitted -->
+<img src="2021-09-ose-lifetrac-frame-and-winch.jpg" alt="Tractor frame and winch" title="Aligning the central axle with the bearings required plenty of brute-force strength, using a winch to hold the weight"></p>
+<h4 id="lifetrac-wheels">LifeTrac Wheels</h4>
+<p>One of the tenants of Open Source Ecology is lifetime design. Metal wheels prevent the need for tire changes (albeit in exchange for a rougher ride). Marcin has a particular affinity for rebar. Rebar found its way into everything - tractor wheel spokes, the PowerCube frame, and even the FeF mailbox post.</p>
+<p><img src="2021-09-ose-lifetrac-with-wheels.jpg" alt="Tractor wheels with rebar spokes" title="LifeTrac tractor with welded steel wheels, rebar spokes, and a hydraulic drivetrain input"><!-- raw HTML omitted -->
+<img src="2021-09-ose-lifetrac-hydraulic-interface.jpg" alt="Tractor drivetrain" title="Profile of the LifeTrac wheel drivetrain and hydraulic motor"><!-- raw HTML omitted -->
+<img src="2021-09-ose-lifetrac-prototype.jpg" alt="Previous tractor design" title="Previous LifeTrac hydraulic tractor build, used in construction of the Seed Eco-Home"></p>
+<h4 id="lifetrac-powercube">LifeTrac PowerCube</h4>
+<p>I remember reading about the Lifetrac prior to OSE and wondering about one of its more peculiar components, a modular power supply called the <a href="https://wiki.opensourceecology.org/wiki/Power_Cube">PowerCube</a>.
+It&rsquo;s essentially a conventional engine hooked up to a hydraulic pump, all contained within a steel frame.</p>
+<p><img src="2021-09-ose-powercube.jpg" alt="PowerCube" title="PowerCube from a preexisting tractor. The steel tube frame was used for prototyping; our build utilized a simpler rebar frame."></p>
+<p>I thought it odd that a PhD physicist would settle on a design with inherent energy loss; the transfer of energy from the engine to the hydraulic pump to the final output is seemingly non-negligible.</p>
+<p>The benefit is modularity. During the construction of the LifeTrac, Marcin drove an older tractor into the workshop, connected its hydraulic output from a PowerCube into a custom-built sheering machine, and used the power from the older tractor to cut the steel for the new tractor.</p>
+<p><img src="2021-09-ose-powercube-rebar-frame.jpg" alt="Rebar PowerCube frame" title="For our PowerCube, we used a simple rebar frame"></p>
+<p>Modularity also allows for horizontal scaling. To add more power you only have to add more PowerCubes. As long as the requisitite connections can handle the stress, you can combine power output at scale.</p>
+<h2 id="day-to-day-life-at-factornbspenbspfarm">Day-to-Day Life at Factor e Farm</h2>
+<p>Mornings started anywhere from 7am to 8am, with daily morning meetings at 9am. If he wasn&rsquo;t already at the workshop, Marcin would drive from his house on the back of the property to HabLab where we were staying. Meetings were livestreamed and recorded. For the most part, meetings discussed the plan of attack of that day, what needed to be done, and who was available to do it. After the meetings, we&rsquo;d head down to the workshop.</p>
+<p><img src="2021-09-ose-hablab-collaboration.jpg" alt="Meeting at the HabLab" title="Morning meeting with Marcin and friends at the HabLab"><!-- raw HTML omitted -->
+<img src="2021-09-ose-workshop.jpg" alt="FeF Workshop" title="Busy at work in the Factor e Farm workshop. In this case, building modules for the walls of the Seed Eco-Home"></p>
+<p>Around noon or 1pm we&rsquo;d stop for lunch. The work schedule was flexible given that we were all volunteers. People often ventured out for food. My personal favorite lunch spot was a Mennonnite store on the other side of town.
+The Missouri weather was cool in the mornings, and warm and sunny at lunch, perfect for eating outside. Some of the international visitors also turned out to be exceptional cooks (big thanks to everyone who helped prepare food!).</p>
+<p>For dinner, an early and popular proposal from the male-dominated group was to outfit the HabLab with an outdoor grill. Any food that could be grilled was grilled. Burgers, chicken, and steak closed out the day. During and after dinner, people either convened for impromptu presentations within the HabLab, sat outside by a fire under the stars, or finished some last-minute work at the workshop.</p>
+<p>Evening presentations were particularly invaluable (shoutout to Paul 2 for his persistence in getting those set up). Presentations were open-ended and gave a chance for anyone staying at the HabLab to speak about areas of interest. Topics ranged from land trusts, cooperatives, urban revitalization (shoutout to Paul 1), and to software development and engineering.</p>
+<h2 id="problem-solving-in-a-shared-space">Problem Solving in a Shared Space</h2>
+<p>Living in a shared space is not without its challenges. Dishes pile up, food brings insects (Missouri is home to the largest bugs I&rsquo;ve ever seen), meals need to be organized, and initiative needs to be taken. Fruit flies were particularly incessent when I first arrived, as the HabLab had been sparsely inhabited prior. Hot showers were a novelty when the propane heaters were working correctly. Field mice left tell-tale signs of destruction around open food containers.</p>
+<p>One of the benefits of living among engineers and problem-solvers was that, when there was an issue, people actively worked together to find a solution. Fruit flies were brought under control within the first few days. The quirks of the propane water heaters were understood. Mouse traps and plastic food bins kept unwanted visitors away. A local cat named &ldquo;Wikey&rdquo; throw her evolutionary might behind the latter effort. (I was a big fan of Wikey.)</p>
+<p>I found myself to be comfortable at HabLab. Any issues that did arise only served to strengthen group cohesion and encourage problem-solving and dialogue. The environment we shared was the environment we created.</p>
+<h3 id="wrapping-up">Wrapping Up</h3>
+<p>Open Source Ecology encompasses a large body of work by Marcin Jakubowski, his wife Catarina Mota, and many others. Each project under the umbrella of Open Source Ecology has varying names and scopes which can be difficult to convey in the span of casual conversation. Further, Open Source Ecology and related movements such as the free software movement and distributive enterprise (DE) are interrelated in ways inobvious to outsiders.</p>
+<p>I write this to tell my story and to proselytize Open Source Ecology. I had an incredible time at OSE this past September. My experience was probably highly dependent on the people I met, the projects we worked on, and a host of other factors. I can&rsquo;t say that living in rural Missouri for a month is for everyone. But I can say that I met some incredible people, made several good friends, and worked on some engaging projects. Alongside workshops were plenty of wide-ranging discussions and adventures.</p>
+<p>Special thanks to Marcin and Catarina for showing us their home and for their hospitality and generosity.
+I encourage anyone interested in OSE to reach out, contribute, and get involved.
+Thank you to everyone at OSE who made it a great September!</p>
+<h2 id="links-and-additional-resources">Links and Additional Resources</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=S63Cy64p2lQ">Marcin&rsquo;s TEDx talk from 2011</a></li>
+<li><a href="https://www.opensourceecology.org/summer-x-2021/">OSE Summer X 2021</a></li>
+<li><a href="https://www.openbuildinginstitute.org/">The Open Building Institute</a></li>
+<li><a href="https://wiki.opensourceecology.org/wiki/Distributive_Enterprise">OSE Wiki: Distributive Enterprise</a></li>
+<li><a href="https://wiki.opensourceecology.org/wiki/Power_Cube">OSE Wiki: Power Cube</a></li>
+<li><a href="https://wiki.opensourceecology.org/wiki/Seed_Eco-Home">OSE Wiki: Seed Eco-Home</a></li>
+<li><a href="https://wiki.opensourceecology.org/wiki/Seed_Home_v2">OSE Wiki: Seed Home v2</a></li>
+<li><a href="https://wiki.opensourceecology.org/wiki/3D_Printer">OSE Wiki: 3D Printer</a></li>
+<li><a href="https://wiki.opensourceecology.org/wiki/Universal_CNC_Axis">OSE Wiki: Universal CNC Axis</a></li>
+<li><a href="https://wiki.opensourceecology.org/wiki/D3D">OSE Wiki: D3D</a></li>
+<li><a href="https://wiki.opensourceecology.org/wiki/Lifetrac">OSE Wiki: Lifetrac</a></li>
+</ul>
+</section>
+
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
+      href="https://juniperspring.xyz/tags/personal"
+      >personal</a
+    >
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
+      href="https://juniperspring.xyz/tags/ose"
+      >ose</a
+    >
+    
+  </footer>
+  
+
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://juniperspring.xyz/posts/auto-insurance-discrimination/"
+      ><span class="mr-1.5">←</span><span>Auto Insurance Discrimination in Ohio</span></a
+    >
+    
+    
+  </nav>
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer class="mx-auto flex-col h-[5rem] max-w-3xl px-8 text-[0.9em] opacity-60">
+  <div>You got a sweet voice, child / Why don't you use it? - Morby</div>
+  <div class="mr-auto">
+    &copy; 2023,
+    <a class="link" href="https://juniperspring.xyz">MIT License</a>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security on Juniperspring</title>
+    <link>https://juniperspring.xyz/tags/security/</link>
+    <description>Recent content in security on Juniperspring</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bi-Directional Authentication with TOTP</title>
+      <link>https://juniperspring.xyz/posts/bidirectional-totp/</link>
+      <pubDate>Sat, 21 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/posts/bidirectional-totp/</guid>
+      <description>Image sourced from Wikimedia, attributed according to the Creative Commons Attribution 2.0 Generic license.
+Motivation Time-Based One Time Password (TOTP) authentication is extremely beneficial. It lets you quickly add two‑factor authentication (2FA) to online accounts according to a simple and open standard. Simply scan a QR code into a TOTP app like Aegis. As long as you have access to your phone, you can then use the TOTP app to generate 2FA codes whenever need be.</description>
+    </item>
+    
+    <item>
+      <title>Locked out of Keybase</title>
+      <link>https://juniperspring.xyz/posts/locked-out-of-keybase/</link>
+      <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/posts/locked-out-of-keybase/</guid>
+      <description>Keybase I locked myself out of Keybase 🦝 If you get a message from juniperspring on Keybase, don&amp;rsquo;t trust it. See my GitHub gist for more info: https://gist.github.com/librick/8070876676dc02c83fea756fb78dd768.
+I lost access to my Keybase account. I was playing around with the CLI and ran the following commands:
+keybase account lockdown keybase logout Apparently those are bad commands to run when you&amp;rsquo;ve revoked all other devices and forgot your Keybase password. I still have keys for one of my devices, but AFAIK they&amp;rsquo;re encrypted with some secret derived from my Keybase password.</description>
+    </item>
+    
+    <item>
+      <title>SSH Comment Injection in OpenWRT</title>
+      <link>https://juniperspring.xyz/posts/ssh-comment-injection/</link>
+      <pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/posts/ssh-comment-injection/</guid>
+      <description>OpenWRT is open source router and Wi-Fi access point software. LuCI is the web-based configuration interface for OpenWRT; one of its features is the ability to import SSH keys. Instead of OpenSSH, OpenWRT uses Dropbear, an SSH server implementation optimized for embedded systems1.
+OpenSSH 8.2, released Feb. 14th, 2020, added support for new FIDO public key types, such as &amp;ldquo;ecdsa-sk&amp;rdquo; and &amp;ldquo;ed25519-sk&amp;rdquo;2. I wanted to see if Dropbear supported these new key types.</description>
+    </item>
+    
+  </channel>
+</rss>

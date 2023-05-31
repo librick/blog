@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ose on Juniperspring</title>
+    <link>https://juniperspring.xyz/tags/ose/</link>
+    <description>Recent content in ose on Juniperspring</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 24 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/tags/ose/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Love Letter to Open Source Ecology</title>
+      <link>https://juniperspring.xyz/posts/love-letter-to-ose/</link>
+      <pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/posts/love-letter-to-ose/</guid>
+      <description>Last September (2021), I had the privilege to attend the OSE Summer of Extreme Design-Build. During the early summer months in Cleveland, I signed up to attend one month of the 90-day program. As summer wound down, I wrapped up some software contracting work, picked up a pair of steel toe boots, loaded up my car, and drove 12 hours down to the middle-of-nowhere Missouri.
+If you&amp;rsquo;re not familiar with Marcin Jakubowski or Open Source Ecology (OSE), check out the OSE website and OSE wiki.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openwrt on Juniperspring</title>
+    <link>https://juniperspring.xyz/tags/openwrt/</link>
+    <description>Recent content in openwrt on Juniperspring</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/tags/openwrt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SSH Comment Injection in OpenWRT</title>
+      <link>https://juniperspring.xyz/posts/ssh-comment-injection/</link>
+      <pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/posts/ssh-comment-injection/</guid>
+      <description>OpenWRT is open source router and Wi-Fi access point software. LuCI is the web-based configuration interface for OpenWRT; one of its features is the ability to import SSH keys. Instead of OpenSSH, OpenWRT uses Dropbear, an SSH server implementation optimized for embedded systems1.
+OpenSSH 8.2, released Feb. 14th, 2020, added support for new FIDO public key types, such as &amp;ldquo;ecdsa-sk&amp;rdquo; and &amp;ldquo;ed25519-sk&amp;rdquo;2. I wanted to see if Dropbear supported these new key types.</description>
+    </item>
+    
+  </channel>
+</rss>

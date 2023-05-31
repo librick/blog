@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>totp on Juniperspring</title>
+    <link>https://juniperspring.xyz/tags/totp/</link>
+    <description>Recent content in totp on Juniperspring</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/tags/totp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bi-Directional Authentication with TOTP</title>
+      <link>https://juniperspring.xyz/posts/bidirectional-totp/</link>
+      <pubDate>Sat, 21 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/posts/bidirectional-totp/</guid>
+      <description>Image sourced from Wikimedia, attributed according to the Creative Commons Attribution 2.0 Generic license.
+Motivation Time-Based One Time Password (TOTP) authentication is extremely beneficial. It lets you quickly add two‑factor authentication (2FA) to online accounts according to a simple and open standard. Simply scan a QR code into a TOTP app like Aegis. As long as you have access to your phone, you can then use the TOTP app to generate 2FA codes whenever need be.</description>
+    </item>
+    
+  </channel>
+</rss>

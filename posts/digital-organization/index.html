@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready text-sm lg:text-base"
+  style="--bg: #faf6f1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Digital Organization - Juniperspring</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  <meta name="description" content="Things I Like This is planned as a living document to track thoughts on desktop Linux and my personal thoughts on digital minimalism and organization. I&rsquo;ve organized it into things that I like and things that I don&rsquo;t like.
+Symlinks for /usr and /boot In Debian, several directories under the root / directory are symlinked to their counterparts in the /usr/ directory. As far as I know, the primary reason behind the similar directory structure of / and /usr/ is due to a past incentive to reduce the size of the root partition (I think my source on this is the book How Linux Works)." />
+  <meta name="author" content="Eric McDonald" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://juniperspring.xyz/main.min.css" />
+
+  
+  <script
+    defer
+    src="https://juniperspring.xyz/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+   
+  <link rel="preload" as="image" href="https://juniperspring.xyz/theme.png" />
+
+  
+  
+  
+  
+
+  
+  <link rel="preload" as="image" href="https://juniperspring.xyz/github.svg" />
+  
+  <link rel="preload" as="image" href="https://juniperspring.xyz/rss.svg" />
+  
+  
+
+  
+  
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
+  integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI"
+  crossorigin="anonymous"
+/>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js"
+  integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t"
+  crossorigin="anonymous"
+></script>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js"
+  integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://juniperspring.xyz/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://juniperspring.xyz/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.112.0">
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Digital Organization" />
+<meta property="og:description" content="Thoughts on digital minimalism, Linux, and organization." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://juniperspring.xyz/posts/digital-organization/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-11-01T00:00:00+00:00" />
+
+  
+  <meta itemprop="name" content="Digital Organization">
+<meta itemprop="description" content="Thoughts on digital minimalism, Linux, and organization."><meta itemprop="datePublished" content="2022-11-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-11-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1517">
+<meta itemprop="keywords" content="personal," />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Digital Organization"/>
+<meta name="twitter:description" content="Thoughts on digital minimalism, Linux, and organization."/>
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold site-title"
+      href="https://juniperspring.xyz/"
+      >Juniperspring🌱</a
+    >
+    <div
+      class="btn-dark text-[0] ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = `"#faf6f1"`.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/librick"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="https://juniperspring.xyz/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pb-24 pt-16 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">Digital Organization</h1>
+
+    
+    <div class="text-sm opacity-60">
+      
+      <time>Nov 1, 2022</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><p><img src="marius-masalar-CyFBmFEsytU-unsplash.jpg" alt="Marius Masalar, Linked lights under Toronto car park"></p>
+<h1 id="things-i-like">Things I Like</h1>
+<p>This is planned as a living document to track thoughts on desktop Linux and my personal thoughts on digital minimalism and organization. I&rsquo;ve organized it into things that I like and things that I don&rsquo;t like.</p>
+<h2 id="symlinks-for-usr-and-boot">Symlinks for /usr and /boot</h2>
+<p>In Debian, several directories under the root <code>/</code> directory are symlinked to their counterparts in the <code>/usr/</code> directory. As far as I know, the primary reason behind the similar directory structure of <code>/</code> and <code>/usr/</code> is due to a past incentive to reduce the size of the root partition (I think my source on this is the book <a href="https://nostarch.com/howlinuxworks3">How Linux Works</a>).</p>
+<h2 id="freedesktop-specs">FreeDesktop Specs</h2>
+<p>The <a href="https://www.freedesktop.org/wiki/Specifications/">FreeDesktop specifications</a> are a boon to desktop Linux. AKA Cross-Desktop Group (XDG) specs, one of the most useful specs is the <a href="https://cgit.freedesktop.org/xdg/xdg-specs/tree/basedir/basedir-spec.xml">basedir spec</a>, which defines standard environment variables for common file locations and paths, e.g., <code>XDG_CONFIG_HOME</code>.</p>
+<p>I like a clean home directory. Applications should respect the <code>$XDG_CONFIG_HOME</code> and <code>$XDG_DATA_HOME</code> environment variables rather than littering the user&rsquo;s home directory with configuration and data files respectively. This has higher aims than aesthetics; having well-standardized directories makes it possible to build higher-level backup and provisioning tools.</p>
+<p>There is an excellent Arch wiki page <a href="https://wiki.archlinux.org/title/XDG_Base_Directory#Supported">here</a> which tracks software support for the above environment variables. If an application you use does not respect these environment variables, consider creating an issue within the relevant VCS for the offending project.</p>
+<h2 id="digital-minimalism-fewer-devices">Digital Minimalism, Fewer Devices</h2>
+<p>Fewer devices make me happier. In the words of Terry A. Davis:</p>
+<blockquote>
+<p>&ldquo;An idiot admires complexity, a genius admires simplicity&rdquo;.</p>
+</blockquote>
+<p>It&rsquo;s easier to reason about a state machine with <code>n</code> components compared to <code>n+1</code> components, all components being equally complex. Further, while studying the Ethereum beacon spec for the Bellatrix release, I came across a reference to Gall&rsquo;s law:</p>
+<blockquote>
+<p>Gall&rsquo;s Law states that all complex systems that work evolved from simpler systems that worked. If you want to build a complex system that works, build a simpler system first, and then improve it over time.
+<em>- Josh Kaufman</em></p>
+</blockquote>
+<p>The simpler a system, the easier it is to understand in depth and the more utility it provides. I can always add complexity but complexity should be added dynamically as need be, not preemptively. Owning more hardware increases the probability of experiencing hardware failure. Running more lines of code increases the probability of introducing bugs and instability. We&rsquo;re all up against the law of large numbers and <code>n</code> continues its march towards infinity.</p>
+<p>Digital minimalism for me is about striking a balance between the utility of my technology and the time and effort that I spend to maintain it.
+<strong>The less time I spend on technical problems, the more time I have to spend with the people I care about.</strong></p>
+<h2 id="dotfiles-in-vcs">Dotfiles in VCS</h2>
+<p>I never understood the benefits of keeping my dotfiles in source control until I started doing it as part of my <a href="https://github.com/librick/init">init</a> repo. The main drawback is additional complexity. You have to maintain the contents of the repo, authoring commits whenever you make substantial changes to your setup. The source of truth for your settings is no longer your machine. This also means that you have to be diligent about maintaining any related VCS repos whenever you subtantially change your local setup.</p>
+<p>Further, if the point of keeping dotfiles and scripts in a VCS is so that you can access it anywhere, thought should also be given to git mirrors and ensuring the availability of your repositories.</p>
+<p>The benefit is that, if done well, you can access your most important desktop settings from anywhere in the world.</p>
+<h2 id="syncthing">Syncthing</h2>
+<p>I really like <a href="https://syncthing.net/">Syncthing</a>. I was originally skeptical of its utility; it adds a non-negligible amount of complexity to my tech setup.
+But it has proven to be a versatile and well-written tool.</p>
+<p>My primary use case of Syncthing is as a password manager used alongside KeepassXC. KeepassXC works incredibly well for local password storage.
+The biggest drawback of KeepassXC is that it does not (by default) replicate passwords between devices. Syncthing fills in this gap.
+I have (at least) two KeepassXC databases: one for critical passwords and one for mobile account passwords.</p>
+<h3 id="mobile-app-authentication">Mobile App Authentication</h3>
+<p>When traveling, I commonly need access to accounts for airlines, credit cards, and ridesharing apps.
+Apps are usually pretty good at keeping users signed in, AFAIK accomplishing this through long-lived session tokens stored on the user&rsquo;s device.
+But I don&rsquo;t like to rely on this. Apps update, apps crash, cached app data gets cleared, and users are prompted to sign in again.
+For financial apps in particular, I&rsquo;ve noticed that I&rsquo;m often prompted for a fingerprint or other form of temporary re-authentication.
+Failing these prompts tends to make these apps fallback to a password prompt.</p>
+<p>These issues are exacerbated by (in my opinion) an overreliance on SMS-based authentication.
+If I don&rsquo;t have cell signal for any reason (living somewhere remote, flying in an airplane,
+or living in a country without service for my carrier), I can&rsquo;t access mobile accounts which strictly require SMS-based auth.
+If I can ensure that my most important mobile accounts have password authentication enabled
+and that those passwords are accessible and up-to-date (via KeepassXC and Syncthing), I can ensure that I have access to my mobile apps when I need it.</p>
+<h3 id="syncing-phone-passwords">Syncing Phone Passwords</h3>
+<p>With my current setup, my mobile account passwords are stored in a KeepassXC database that gets mirrored by Syncthing between my laptop and my phone.
+So long as I have access to either device, I have access to my passwords. If I update my mobile passwords on either device, any changes are automatically
+propogated to all devices. This is particularly useful as some passwords are for websites (e.g., for financial sites) that I access on both devices.</p>
+<h3 id="syncing-phone-pictures">Syncing Phone Pictures</h3>
+<p>Beyond syncing passwords, I have Syncthing configured to automatically sync pictures from my phone to my laptop.
+This exists as a quick and dirty backup. If my phone falls into a river, I still have my pictures.
+I&rsquo;ve heard it said that Syncthing folders are not proper backups. I disagree. In the situation just described, my laptop is acting as a backup to my phone.
+This does have potential limitations; corruption of data on my phone could affect the integrity of synced files on my laptop.
+But I&rsquo;m still backing up the data. I think the attempt to distinguish between &ldquo;syncing&rdquo; and &ldquo;backing up&rdquo; is linguistic frivolity that negatively limits
+wider adoption of Syncthing as a backup solution. If it works, it works.</p>
+<h3 id="syncthing-documentation">Syncthing Documentation</h3>
+<p>Syncthing is well-documented. I recommend playing around with Syncthing&rsquo;s web GUI a bit. Once you have some intuition about how Syncthing works, check out the
+<a href="https://docs.syncthing.net/specs/bep-v1.html#bep-v1">Block Exchange Protocol (BEP) spec</a>.</p>
+<h2 id="programming-project-naming-schemes">Programming Project Naming Schemes</h2>
+<p>I tend to tinker with multiple different programming languages.
+I often find that the best way to familiarize myself with some new technology is to write a toy app or proof-of-concept on my local machine.
+The majority of these apps don&rsquo;t end up getting published to source control sites like GitHub, for a few reasons:</p>
+<ul>
+<li>They&rsquo;re not important in and of themselves
+<ul>
+<li>Showing your work and learning processes is important</li>
+<li>But publishing every draft and toy project amounts to clutter</li>
+</ul>
+</li>
+<li>They are personal/private projects</li>
+<li>I don&rsquo;t think they&rsquo;ll have public appeal</li>
+<li>I don&rsquo;t care about them enough to replicate them</li>
+</ul>
+<p>The result is that I end up with a lot of directories on my laptop. I&rsquo;ve thus developed a simple naming scheme for programming projects,
+adopted from conventions I&rsquo;ve seen online, specifically within the Go community (although I&rsquo;ve seen it within other communities as well).
+It&rsquo;s simple; <strong>I prefix the name of a top-level project directory with an abbreviated name of the technology used</strong>.</p>
+<p>Some examples:</p>
+<ul>
+<li>If I wrote an HTTP server in C, I&rsquo;d use the prefix <code>c-</code>.</li>
+<li>For SDL code on my GitHub, I use the prefix <code>sdl-</code>.</li>
+<li>For projects using Node.js, I use the prefix <code>node-</code>.</li>
+<li>For projects written in Go, I use the prefix <code>go-</code>.</li>
+</ul>
+<p>The result is that I can quickly disambiguate between different projects.
+I can also quickly see what programming languages I was writing in at what times based on the directory modification timestamps.
+It also helps discoverability for others; if I do publish a project, the prefix acts as a hint for people searching for software specific to the advertised prefix.</p>
+<p>Some more example prefixes and tech used:</p>
+<ul>
+<li><code>ems-</code>: projects using emscripten/WebAssembly</li>
+<li><code>go-</code>: projects written in Go</li>
+<li><code>py-</code>: projects written in Python (Python3)</li>
+<li><code>js-</code>: projects written in plain old JavaScript</li>
+<li><code>react-</code>: projects using React</li>
+<li><code>next-</code>: projects using Next.js</li>
+<li><code>sdl-</code>: projects using SDL2, written in C++</li>
+</ul>
+<p>I try to be descriptive as to the primary technology used.
+Note that these don&rsquo;t always follow programming languages directly.
+I often disambiguate by runtime, library, and framework name, as with <code>node-</code>, <code>react-</code>, and <code>next-</code>.
+They all use JavaScript but have different prefixes.
+<strong>I think the authors of programming languages, runtimes, libraries, and frameworks
+should advertise a prefix for use by projects which leverage these technologies.</strong>
+The ecosystem around the Go programming language is a great example of this.
+Consider the name of the popular <code>go-ethereum</code> project.</p>
+</section>
+
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
+      href="https://juniperspring.xyz/tags/personal"
+      >personal</a
+    >
+    
+  </footer>
+  
+
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://juniperspring.xyz/posts/novak-v-parma/"
+      ><span class="mr-1.5">←</span><span>Parma Police Eat Dog Shit</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://juniperspring.xyz/posts/locked-out-of-keybase/"
+      ><span>Locked out of Keybase</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer class="mx-auto flex-col h-[5rem] max-w-3xl px-8 text-[0.9em] opacity-60">
+  <div>You got a sweet voice, child / Why don't you use it? - Morby</div>
+  <div class="mr-auto">
+    &copy; 2023,
+    <a class="link" href="https://juniperspring.xyz">MIT License</a>
+  </div>
+</footer>
+
+  </body>
+</html>
