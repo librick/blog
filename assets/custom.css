@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Averia Libre';
+    font-style:  normal;
+    font-weight: 400;
+    src: url('./fonts/AveriaLibre-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Ubuntu';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Ubuntu Regular');
+}
+
+a.site-title {
+	font-family: 'Averia Libre',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol,noto color emoji;
+}
+div.bio-inner {
+	line-height: 1.5;
+}
+h2.article-title {
+	font-family: 'Ubuntu',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol,noto color emoji;
+	color: auto;
+}
+html.dark h2.article-title {
+	color: #bb86fc;
+}
