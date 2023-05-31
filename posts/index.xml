@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Juniperspring</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Honda Civic Reverse Engineering</title>
+      <link>https://juniperspring.xyz/posts/honda-reverse-engineering/</link>
+      <pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/posts/honda-reverse-engineering/</guid>
+      <description>Reverse engineering a 2021 Honda Civic and thoughts on the state of automotive security.</description>
+    </item>
+    
     <item>
       <title>Goodbye Gatsby, Hello Hugo</title>
       <link>https://juniperspring.xyz/posts/using-hugo/</link>

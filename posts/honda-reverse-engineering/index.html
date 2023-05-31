@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Honda Civic Reverse Engineering | Juniperspring</title>
+<meta name="keywords" content="security, cryptography, android, honda, reverseengineering">
+<meta name="description" content="Reverse engineering a 2021 Honda Civic and thoughts on the state of automotive security.">
+<meta name="author" content="">
+<link rel="canonical" href="https://juniperspring.xyz/posts/honda-reverse-engineering/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a038b0ea357c83d0a779d1431e164abda1516f60c97d45eeee85a158cc7a5215.css" integrity="sha256-oDiw6jV8g9CnedFDHhZKvaFRb2DJfUXu7oWhWMx6UhU=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://juniperspring.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://juniperspring.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://juniperspring.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://juniperspring.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://juniperspring.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Honda Civic Reverse Engineering" />
+<meta property="og:description" content="Reverse engineering a 2021 Honda Civic and thoughts on the state of automotive security." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://juniperspring.xyz/posts/honda-reverse-engineering/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-05-31T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Honda Civic Reverse Engineering"/>
+<meta name="twitter:description" content="Reverse engineering a 2021 Honda Civic and thoughts on the state of automotive security."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://juniperspring.xyz/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Honda Civic Reverse Engineering",
+      "item": "https://juniperspring.xyz/posts/honda-reverse-engineering/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Honda Civic Reverse Engineering",
+  "name": "Honda Civic Reverse Engineering",
+  "description": "Reverse engineering a 2021 Honda Civic and thoughts on the state of automotive security.",
+  "keywords": [
+    "security", "cryptography", "android", "honda", "reverseengineering"
+  ],
+  "articleBody": "Introduction Last week, I published a GitHub repo containing reverse engineering information for the headunit of my car, a 2021 Honda Civic: https://github.com/librick/ic1101/.\nI decided to attempt to reverse engineer the headunit for several reasons. I wanted to audit the security of my car, I wanted to gain insights into the state of software development and security in the automotive industry, I wanted to extend the functionality of my headunit, and I wanted to play around.\nThis article isn’t comprehensive and is barely cohesive; in attempting to discuss technical topics alongside socioeconomic and legal topics, I’ve probably fallen short on all counts. I hope it promotes discussion.\nAndroid Tablets, Rooting, and Ecosystems The headunit of my car is basically a glorified Android tablet. I used a paid service called Honda Hack to root my headunit for $25. Apparently, you pay to access a web server which most likely serves a webkit exploit. I assume this is then chained with other Android exploits to achieve root. More on this later.\nI decided to publish my reverse engineering research for several additional reasons. I want to contribute to an open source ecosystem around Honda vehicles. I want open source, free-to-use tools and exploits/payloads to root Honda headunits (similar to the open source ecosystems surrounding video game consoles), so that people like me in the future don’t have to pay someone to get full access to their own hardware.\nI want newer versions of Android to be ported to the headunit (the headunit runs a version of Android from 2012). I want security updates; my car is my daily driver, I want its software to be secure, stable, and reliable.\nI want to create an ecosystem in which people collaborate and release new applications for the headunit, or enable users to install different operating systems entirely. I think that cars are underappreciated in their potential to act as ruggedized, generic compute nodes. My car is always close by, why not integrate it more into my digital ecosystem? I also just want to gain a deeper understanding of embedded Linux, Android, and automotive software engineering because I find it interesting.\nTo that end, the source of truth for this project is GitHub repo: https://github.com/librick/ic1101/. This post will probably contain excerpts and repeated info from that repo. Consider this article as an introduction and pointer to the repo.\nLimited Documentation and Public Safety Honda is shipping new cars (as of 2021) with software from 2012. The 2021 Honda Civic is based on an NVIDIA Tegra 3 SoC, which has little to no publicly-available documentation. In particular, there is very little information on NVIDIA kernel modules and ioctl calls, and no publicly-available documentation on native C libraries and binaries included in the headunit.\nHonda Motor Co., Ltd. is putting cars on the road that are black boxes. This is the status quo in the automotive industry. While there are standards for some interfaces such as ODB-II, CAN, and well-documented technical requirements for specific areas of government regulation (e.g., emissions tests), my research shows that cars are still largely closed source ecosystems.\nIf I can’t read the source code of my car, I don’t trust it. More importantly, if other people (including security researchers and engineers) can’t read the source code of my car, I don’t trust it. I risk a speeding ticket if I go even a few miles over the posted limit on a public freeway. Yet companies including Honda are allowed to put cars on the road with outdated software, minimal security guarantees, and evidently insufficient oversight. My 2021 Honda Civic weighs over a metric ton. It can travel up to 126mph. And I’m supposed to take Honda at their word when they say that their software is secure, respects my privacy, and ensures my safety.\nRadios, Modems, and Stagefright It could be argued that, because the headunit doesn’t have a cellular data connection, it’s secure. This is a false assumption. Cellular data is only one interface out of many others. The headunit supports Bluetooth, Wi-Fi, CAN, XM radio, and HD radio. Each of these are complex protocols involving lots of code and large attack surfaces.\nLast year, some Mazda cars were accidentally bricked by a radio station broadcast omitting file extensions: https://arstechnica.com/cars/2022/02/radio-station-snafu-in-…. That was an accident, not the work of a malicious actor. It demonstrates that cars are increasingly complex, and increasingly vulnerable to exploits.\nConsider Stagefright bugs. As I understand it, although it was published in 2015, it affected several earlier Android versions, including 4.2.2. As far as I know, my car’s headunit has never been patched against Stagefright bugs. All it takes is a bug in one library (such as for HD radio image processing) and a widely-published exploit for something like this to be a big problem. I’m pretty sure the headunit is vulnerable to Stagefright exploits c. 2014, a host of webkit exploits, and a plethora of the several other Linux/Android exploits that surfaced between the launch of Android Jellybean 4.2.2 and when I bought my car. The same exploits that allow me to root the headunit are likely available to bad actors.\nSecurity Issues are Public Safety Issues Consider recent news involving teenageers breaking into Kia cars. Teenagers break into random stranger’s Kias and go on joyrides. Then local news channels and police sensationalize Kia car break-ins or villify bored teenagers. It seems like very few people actually demand recalls by Kia. A car that can be unlocked in the span of a TikTok video is a dangerous car; it’s a public safety issue.\nHonda Civic are shipping with a host of known Linux and Android vulnerabilities. From what I can tell, the headunit does not have direct access to the engine control unit (ECU) or other safety-critical functions. But an attacker with access to a car’s speakers and central display could still probably cause mayhem to unsuspecting drivers. Imagine having to drive a friend to the hospital, but your navigation stops working because a bad actor hijacks your headunit.\nCompetition and Regulation I can’t just buy a more privacy-respecting car or a car with better software. Car manufacturers compete on user-facing technology in cars, but car companies also represent massive economies of scale. They require complex supply chains, massive investment, and multinational government support. The free market alone won’t bring me a car that respects my digital freedoms. We need open source hardware, open source software, and incentives for automotive companies to build better, safer, more transparent vehicles.\nProject Goals and Thoughts for the Future To that end, there are few areas where I want to see public collaboration, contributions, and pull requests. Feel free to start a fork:\nBoot and recovery images from different Honda Civic models and trims Having access to these would make it easier to develop public-interest exploits, upgrade Android, and boot different Android ROMs or operating systems Open source versions of native/compiled binaries and libraries These would provide documentation to other developers and lower the barrier to entry for writing Honda-specific code This would make it easier for third-parties to design replacement parts such as backup cameras, making replacement parts cheaper This would make upgrading/flashing newer versions of Android easier, as propriertary binaries are used in the headunit update process Open source exploit chains to root headunits This would allow anyone to root their headunit for free By being open source, these exploit chains/rooting tools would safer and more widely audited than paid third-party rooting services This would also encourage research into specific exisiting headunit vulnerabilities, creating opportunities to patch them Open-access documentation of CAN IDs and packet formats Honda vehicles have two CAN networks, F-CAN and B-CAN. They implement some standard CAN messages but otherwise gatekeep proprietary CAN message formats Having publicly-available docs on known CAN messages would make comprehensive diagnostic tools cheaper for third-party mechanics Having cheaper diagnostic tools would make repairs cheaper for consumers Having open-access diagnostics would empower consumers to make educated decisions when taking their vehicles in for repair Support for vehicles beyond the Honda Civic I started with the Honda Civic because I have it on hand, but the same or similar software is used for several Honda lines There’s no reason this project can’t encompass cars beyond the Honda Civic ",
+  "wordCount" : "1375",
+  "inLanguage": "en",
+  "datePublished": "2023-05-31T00:00:00Z",
+  "dateModified": "2023-05-31T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://juniperspring.xyz/posts/honda-reverse-engineering/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Juniperspring",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://juniperspring.xyz/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://juniperspring.xyz" accesskey="h" title="Juniperspring🌱 (Alt + H)">Juniperspring🌱</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Honda Civic Reverse Engineering
+    </h1>
+    <div class="post-description">
+      Reverse engineering a 2021 Honda Civic and thoughts on the state of automotive security.
+    </div>
+    <div class="post-meta"><span title='2023-05-31 00:00:00 +0000 UTC'>May 31, 2023</span>&nbsp;·&nbsp;7 min
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a><ul>
+                        
+                <li>
+                    <a href="#android-tablets-rooting-and-ecosystems" aria-label="Android Tablets, Rooting, and Ecosystems">Android Tablets, Rooting, and Ecosystems</a></li>
+                <li>
+                    <a href="#limited-documentation-and-public-safety" aria-label="Limited Documentation and Public Safety">Limited Documentation and Public Safety</a></li>
+                <li>
+                    <a href="#radios-modems-and-stagefright" aria-label="Radios, Modems, and Stagefright">Radios, Modems, and Stagefright</a></li>
+                <li>
+                    <a href="#security-issues-are-public-safety-issues" aria-label="Security Issues are Public Safety Issues">Security Issues are Public Safety Issues</a></li>
+                <li>
+                    <a href="#competition-and-regulation" aria-label="Competition and Regulation">Competition and Regulation</a></li>
+                <li>
+                    <a href="#project-goals-and-thoughts-for-the-future" aria-label="Project Goals and Thoughts for the Future">Project Goals and Thoughts for the Future</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<p>Last week, I published a GitHub repo containing reverse engineering information for the
+headunit of my car, a 2021 Honda Civic: <a href="https://github.com/librick/ic1101/">https://github.com/librick/ic1101/</a>.</p>
+<p>I decided to attempt to reverse engineer the headunit for several reasons.
+I wanted to audit the security of my car, I wanted to gain insights into the state of software development and security in the automotive
+industry, I wanted to extend the functionality of my headunit, and I wanted to play around.</p>
+<p>This article isn&rsquo;t comprehensive and is barely cohesive; in attempting to discuss technical topics alongside socioeconomic and legal topics,
+I&rsquo;ve probably fallen short on all counts. I hope it promotes discussion.</p>
+<h2 id="android-tablets-rooting-and-ecosystems">Android Tablets, Rooting, and Ecosystems<a hidden class="anchor" aria-hidden="true" href="#android-tablets-rooting-and-ecosystems">#</a></h2>
+<p>The headunit of my car is basically a glorified Android tablet.
+I used a paid service called <a href="https://www.autohack.org/">Honda Hack</a> to root my headunit for $25.
+Apparently, you pay to access a web server which most likely serves a webkit exploit.
+I assume this is then chained with other Android exploits to achieve root. More on this later.</p>
+<p>I decided to publish my reverse engineering research for several additional reasons.
+I want to contribute to an open source ecosystem around Honda vehicles. I want open source, free-to-use tools and exploits/payloads to root Honda headunits (similar to the open source ecosystems surrounding video game consoles), so that people like me in the future don&rsquo;t have to pay someone to get full access to their own hardware.</p>
+<p>I want newer versions of Android to be ported to the headunit (the headunit runs a version of Android from 2012). I want security updates; my car is my daily driver, I want its software to be secure, stable, and reliable.</p>
+<p>I want to create an ecosystem in which people collaborate and release new applications for the headunit, or enable users to install different operating systems entirely. I think that cars are underappreciated in their potential to act as ruggedized, generic compute nodes. My car is always close by, why not integrate it more into my digital ecosystem? I also just want to gain a deeper understanding of embedded Linux, Android, and automotive software engineering because I find it interesting.</p>
+<p>To that end, the source of truth for this project is GitHub repo: <a href="https://github.com/librick/ic1101/">https://github.com/librick/ic1101/</a>.
+This post will probably contain excerpts and repeated info from that repo. Consider this article as an introduction and pointer to the repo.</p>
+<h2 id="limited-documentation-and-public-safety">Limited Documentation and Public Safety<a hidden class="anchor" aria-hidden="true" href="#limited-documentation-and-public-safety">#</a></h2>
+<p>Honda is shipping new cars (as of 2021) with software from 2012.
+The 2021 Honda Civic is based on an NVIDIA Tegra 3 SoC, which has little to no publicly-available documentation. In particular, there is very little information on NVIDIA kernel modules and ioctl calls, and no publicly-available documentation on native C libraries and binaries included in the headunit.</p>
+<p>Honda Motor Co., Ltd. is putting cars on the road that are black boxes. This is the status quo in the automotive industry. While there are standards for some interfaces such as ODB-II, CAN, and well-documented technical requirements for specific areas of government regulation (e.g., emissions tests), my research shows that cars are still largely closed source ecosystems.</p>
+<p>If I can&rsquo;t read the source code of my car, I don&rsquo;t trust it. More importantly, if other people (including security researchers and engineers) can&rsquo;t read the source code of my car, I don&rsquo;t trust it. I risk a speeding ticket if I go even a few miles over the posted limit on a public freeway. Yet companies including Honda are allowed to put cars on the road with outdated software, minimal security guarantees, and evidently insufficient oversight. My 2021 Honda Civic weighs over a metric ton. It can travel up to 126mph. And I&rsquo;m supposed to take Honda at their word when they say that their software is secure, respects my privacy, and ensures my safety.</p>
+<h2 id="radios-modems-and-stagefright">Radios, Modems, and Stagefright<a hidden class="anchor" aria-hidden="true" href="#radios-modems-and-stagefright">#</a></h2>
+<p>It could be argued that, because the headunit doesn&rsquo;t have a cellular data connection, it&rsquo;s secure. This is a false assumption.
+Cellular data is only one interface out of many others. The headunit supports Bluetooth, Wi-Fi, CAN, XM radio, and HD radio. Each of these are complex protocols involving lots of code and large attack surfaces.</p>
+<p>Last year, some Mazda cars were accidentally bricked by a radio station broadcast omitting file extensions: <a href="https://arstechnica.com/cars/2022/02/radio-station-snafu-in-">https://arstechnica.com/cars/2022/02/radio-station-snafu-in-</a>&hellip;. That was an accident, not the work of a malicious actor. It demonstrates that cars are increasingly complex, and increasingly vulnerable to exploits.</p>
+<p>Consider Stagefright bugs. As I understand it, although it was published in 2015, <a href="https://en.wikipedia.org/wiki/Stagefright_(bug)">it affected several earlier Android versions, including 4.2.2</a>. As far as I know, my car&rsquo;s headunit has never been patched against Stagefright bugs. All it takes is a bug in one library (such as for HD radio image processing) and a widely-published exploit for something like this to be a big problem. I&rsquo;m pretty sure the headunit is vulnerable to Stagefright exploits c. 2014, a host of webkit exploits, and a plethora of the several other Linux/Android exploits that surfaced between the launch of Android Jellybean 4.2.2 and when I bought my car. The same exploits that allow me to root the headunit are likely available to bad actors.</p>
+<h2 id="security-issues-are-public-safety-issues">Security Issues are Public Safety Issues<a hidden class="anchor" aria-hidden="true" href="#security-issues-are-public-safety-issues">#</a></h2>
+<p>Consider recent news involving teenageers breaking into Kia cars. Teenagers break into random stranger&rsquo;s Kias and go on joyrides. Then local news channels and police sensationalize Kia car break-ins or villify bored teenagers. It seems like very few people actually demand recalls by Kia. A car that can be unlocked in the span of a TikTok video is a dangerous car; it&rsquo;s a public safety issue.</p>
+<p>Honda Civic are shipping with a host of known Linux and Android vulnerabilities.
+From what I can tell, the headunit does not have direct access to the engine control unit (ECU) or other safety-critical functions.
+But an attacker with access to a car&rsquo;s speakers and central display could still probably cause mayhem to unsuspecting drivers.
+Imagine having to drive a friend to the hospital, but your navigation stops working because a bad actor hijacks your headunit.</p>
+<h2 id="competition-and-regulation">Competition and Regulation<a hidden class="anchor" aria-hidden="true" href="#competition-and-regulation">#</a></h2>
+<p>I can&rsquo;t just buy a more privacy-respecting car or a car with better software. Car manufacturers compete on user-facing technology in cars, but car companies also represent massive economies of scale. They require complex supply chains, massive investment, and multinational government support. The free market alone won&rsquo;t bring me a car that respects my digital freedoms. We need open source hardware, open source software, and incentives for automotive companies to build better, safer, more transparent vehicles.</p>
+<h2 id="project-goals-and-thoughts-for-the-future">Project Goals and Thoughts for the Future<a hidden class="anchor" aria-hidden="true" href="#project-goals-and-thoughts-for-the-future">#</a></h2>
+<p>To that end, there are few areas where I want to see public collaboration, contributions, and pull requests. Feel free to start a fork:</p>
+<ul>
+<li><strong>Boot and recovery images from different Honda Civic models and trims</strong>
+<ul>
+<li>Having access to these would make it easier to develop public-interest exploits, upgrade Android, and boot different Android ROMs or operating systems</li>
+</ul>
+</li>
+<li><strong>Open source versions of native/compiled binaries and libraries</strong>
+<ul>
+<li>These would provide documentation to other developers and lower the barrier to entry for writing Honda-specific code</li>
+<li>This would make it easier for third-parties to design replacement parts such as backup cameras, making replacement parts cheaper</li>
+<li>This would make upgrading/flashing newer versions of Android easier, as propriertary binaries are used in the headunit update process</li>
+</ul>
+</li>
+<li><strong>Open source exploit chains to root headunits</strong>
+<ul>
+<li>This would allow anyone to root their headunit for free</li>
+<li>By being open source, these exploit chains/rooting tools would safer and more widely audited than paid third-party rooting services</li>
+<li>This would also encourage research into specific exisiting headunit vulnerabilities, creating opportunities to patch them</li>
+</ul>
+</li>
+<li><strong>Open-access documentation of CAN IDs and packet formats</strong>
+<ul>
+<li>Honda vehicles have two CAN networks, F-CAN and B-CAN. They implement some standard CAN messages but otherwise gatekeep proprietary CAN message formats</li>
+<li>Having publicly-available docs on known CAN messages would make comprehensive diagnostic tools cheaper for third-party mechanics</li>
+<li>Having cheaper diagnostic tools would make repairs cheaper for consumers</li>
+<li>Having open-access diagnostics would empower consumers to make educated decisions when taking their vehicles in for repair</li>
+</ul>
+</li>
+<li><strong>Support for vehicles beyond the Honda Civic</strong>
+<ul>
+<li>I started with the Honda Civic because I have it on hand, but the same or similar software is used for several Honda lines</li>
+<li>There&rsquo;s no reason this project can&rsquo;t encompass cars beyond the Honda Civic</li>
+</ul>
+</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://juniperspring.xyz/tags/security/">security</a></li>
+      <li><a href="https://juniperspring.xyz/tags/cryptography/">cryptography</a></li>
+      <li><a href="https://juniperspring.xyz/tags/android/">android</a></li>
+      <li><a href="https://juniperspring.xyz/tags/honda/">honda</a></li>
+      <li><a href="https://juniperspring.xyz/tags/reverseengineering/">reverseengineering</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://juniperspring.xyz/posts/using-hugo/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Goodbye Gatsby, Hello Hugo</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Honda Civic Reverse Engineering on twitter"
+        href="https://twitter.com/intent/tweet/?text=Honda%20Civic%20Reverse%20Engineering&amp;url=https%3a%2f%2fjuniperspring.xyz%2fposts%2fhonda-reverse-engineering%2f&amp;hashtags=security%2ccryptography%2candroid%2chonda%2creverseengineering">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Honda Civic Reverse Engineering on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjuniperspring.xyz%2fposts%2fhonda-reverse-engineering%2f&amp;title=Honda%20Civic%20Reverse%20Engineering&amp;summary=Honda%20Civic%20Reverse%20Engineering&amp;source=https%3a%2f%2fjuniperspring.xyz%2fposts%2fhonda-reverse-engineering%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Honda Civic Reverse Engineering on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fjuniperspring.xyz%2fposts%2fhonda-reverse-engineering%2f&title=Honda%20Civic%20Reverse%20Engineering">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Honda Civic Reverse Engineering on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fjuniperspring.xyz%2fposts%2fhonda-reverse-engineering%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Honda Civic Reverse Engineering on whatsapp"
+        href="https://api.whatsapp.com/send?text=Honda%20Civic%20Reverse%20Engineering%20-%20https%3a%2f%2fjuniperspring.xyz%2fposts%2fhonda-reverse-engineering%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Honda Civic Reverse Engineering on telegram"
+        href="https://telegram.me/share/url?text=Honda%20Civic%20Reverse%20Engineering&amp;url=https%3a%2f%2fjuniperspring.xyz%2fposts%2fhonda-reverse-engineering%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://juniperspring.xyz">Juniperspring</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

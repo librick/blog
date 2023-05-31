@@ -6,7 +6,16 @@
     <description>Recent content in cryptography on Juniperspring</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/tags/cryptography/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/tags/cryptography/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Honda Civic Reverse Engineering</title>
+      <link>https://juniperspring.xyz/posts/honda-reverse-engineering/</link>
+      <pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/posts/honda-reverse-engineering/</guid>
+      <description>Reverse engineering a 2021 Honda Civic and thoughts on the state of automotive security.</description>
+    </item>
+    
     <item>
       <title>Bi-Directional Authentication with TOTP</title>
       <link>https://juniperspring.xyz/posts/bidirectional-totp/</link>

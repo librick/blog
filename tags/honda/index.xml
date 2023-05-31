@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>honda on Juniperspring</title>
+    <link>https://juniperspring.xyz/tags/honda/</link>
+    <description>Recent content in honda on Juniperspring</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 31 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/tags/honda/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Honda Civic Reverse Engineering</title>
+      <link>https://juniperspring.xyz/posts/honda-reverse-engineering/</link>
+      <pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/posts/honda-reverse-engineering/</guid>
+      <description>Reverse engineering a 2021 Honda Civic and thoughts on the state of automotive security.</description>
+    </item>
+    
+  </channel>
+</rss>
