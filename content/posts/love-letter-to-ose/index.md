@@ -83,7 +83,7 @@ it was assembled completely on-site at the FeF workshop.
 <br><br>
 [OSE Wiki: LifeTrac](https://wiki.opensourceecology.org/wiki/Lifetrac)
 
-#### Building the Frame
+#### LifeTrac Frame
 
 ![Tractor bearings and axles](2021-09-ose-lifetrac-axle.jpg "LifeTrac tractor frame with bearings and axles")<br>
 ![Tractor wheel axel](2021-09-ose-lifetrac-bearings.jpg "Close-up of a wheel axle and its supporting bearings")<br>

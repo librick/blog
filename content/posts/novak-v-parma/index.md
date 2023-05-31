@@ -2,10 +2,10 @@
 title: Parma Police Eat Dog Shit
 date: "2022-11-10T00:00:00.000Z"
 description: "In solidarity with Anthony Novak."
-tags: ['legal', 'socialcommentary']
+tags: ['legal', 'advocacy']
 ---
 
-## TLDR 💩
+## TLDR
 Officers from the Parma, Ohio, Police Department hold an annual dog shit eating
 picnic during which they eat dog shit. Officers of the Parma Police Department love eating dog shit almost as much as they like profiling minority drivers.
 

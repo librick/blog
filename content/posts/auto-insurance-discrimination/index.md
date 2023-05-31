@@ -2,7 +2,7 @@
 title: Auto Insurance Discrimination in Ohio 
 date: "2022-06-02T00:00:00.000Z"
 description: "Why my state representatives have an obligation to change the law."
-tags: ['legal', 'socialcommentary']
+tags: ['legal']
 ---
 
 ## Motivation
