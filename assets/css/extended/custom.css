@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'Averia Libre';
+    font-style:  normal;
+    font-weight: 400;
+    src: url('/fonts/AveriaLibre-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Ubuntu';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Ubuntu Regular');
+}
+
+div.logo a {
+	font-family: 'Averia Libre';
+}
+
+article header.entry-header h2 {
+	font-family: 'Ubuntu';
+}
+
+body.dark article header.entry-header h2 {
+	color: #bb86fc;
+}
+
+.home-info-grid {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 26px;
+	align-items: center;
+}
+.home-info-grid  img.profile-picture {
+	border-radius: 50%;
+	width: 96px;
+	margin-bottom: 1.8em;
+}
+.home-info-grid .entry-content {
+	color: #eee;
+}
+article.first-entry.home-info {
+	margin-bottom: 16px;
+}
+
+div.image-row {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	grid-template-columns: auto auto auto;
+	gap: 22px;
+	padding-bottom: 8px;
+}
+div.image-row img {
+	width: auto;
+	border-radius: var(--radius);
+}

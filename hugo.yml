@@ -1,0 +1,38 @@
+baseURL: 'https://juniperspring.xyz'
+languageCode: 'en-us'
+title: 'Juniperspring'
+theme: 'github.com/adityatelange/hugo-PaperMod'
+
+module:
+    - module.imports:
+        path: 'github.com/divinerites/plausible-hugo'
+    - module.imports:
+        path: 'github.com/adityatelange/hugo-PaperMod'
+
+params.plausible:
+    enable: true
+    domain: 'juniperspring.xyz'
+    gitstar: false
+
+params:
+    #github: 'librick'
+    #rss: true
+    #name: 'Eric McDonald'
+    #math: true
+    ShowToc: true
+    ShowPostNavLinks: true
+    ShowCodeCopyButtons: true
+    ShowShareButtons: true
+    ShowReadingTime: true
+    hideSummary: true
+    label:
+        text: Juniperspring🌱
+    homeInfoParams:
+        Title: Eric McDonald
+        Content: Personal Blog of Eric McDonald
+
+    socialIcons: # optional
+        - name: "GitHub"
+          url: "https://github.com/librick/"
+        - name: "RSS"
+          url: "https://juniperspring.xyz/index.xml"

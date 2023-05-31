@@ -1,0 +1,23 @@
+{{- with site.Params.homeInfoParams }}
+<article class="first-entry home-info">
+
+    <header class="entry-header">
+        <h1>{{ .Title | markdownify }}</h1>
+    </header>
+    <div class="entry-content">
+        {{ .Content | markdownify }}<br>
+        Technologist · Software Architect · Consultant<br>
+        <span style="letter-spacing: 0.05em;">☕👨‍💻🏳️‍🌈</span>
+    </div>
+
+    <div class="image-row">
+        <img src="/images/profile-1.png" />
+        <img src="/images/profile-2.png" />
+        <img src="/images/profile-3.png" />
+    </div>
+
+    <footer class="entry-footer">
+        {{ partial "social_icons.html" site.Params.socialIcons }}
+    </footer>
+</article>
+{{- end -}}
