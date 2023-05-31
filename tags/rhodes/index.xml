@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>rhodes on Juniperspring</title>
     <link>https://juniperspring.xyz/tags/rhodes/</link>
@@ -13,8 +13,7 @@
       <pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://juniperspring.xyz/posts/rhodes-tower/</guid>
-      <description>TLDR Rhodes Tower, the largest building at Cleveland State University and one of the most recognizable buildings in the Cleveland skyline, is named after the Governor who ordered the National Guard on Kent State University in 1970. It received this name in 1981, eleven years after the Kent State shootings that left four college students dead. Rhodes Tower should be renamed.
-Background On May 4th, 1970 at 12:24 p.m., the Ohio National Guard opened fire on a peaceful rally of students protesting against the expansion of the Vietnam War into Cambodia12.</description>
+      <description>CSU&amp;#39;s etymological connection to the Kent State massacre.</description>
     </item>
     
   </channel>

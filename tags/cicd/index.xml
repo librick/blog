@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>cicd on Juniperspring</title>
     <link>https://juniperspring.xyz/tags/cicd/</link>
@@ -13,8 +13,7 @@
       <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
       
       <guid>https://juniperspring.xyz/posts/using-hugo/</guid>
-      <description>I Switched to Hugo This blog used to use Gatsby. Now it uses Hugo.
-What I like about Hugo Themes Hugo has an open ecosystem of really well-written and maintained themes. At the time of writing, I&amp;rsquo;m using paper. I also like the model of overriding theme files by creating files in the static and assets directories. For the most part, I find this model of extensibility is intuitive. The paper theme also uses Tailwind CSS, and I like that I can use Tailwind classes out-of-the-box.</description>
+      <description>Migrating the blog from Gatsby to Hugo</description>
     </item>
     
   </channel>

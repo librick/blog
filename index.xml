@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Juniperspring</title>
     <link>https://juniperspring.xyz/</link>
@@ -13,8 +13,7 @@
       <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
       
       <guid>https://juniperspring.xyz/posts/using-hugo/</guid>
-      <description>I Switched to Hugo This blog used to use Gatsby. Now it uses Hugo.
-What I like about Hugo Themes Hugo has an open ecosystem of really well-written and maintained themes. At the time of writing, I&amp;rsquo;m using paper. I also like the model of overriding theme files by creating files in the static and assets directories. For the most part, I find this model of extensibility is intuitive. The paper theme also uses Tailwind CSS, and I like that I can use Tailwind classes out-of-the-box.</description>
+      <description>Migrating the blog from Gatsby to Hugo</description>
     </item>
     
     <item>
@@ -23,8 +22,7 @@ What I like about Hugo Themes Hugo has an open ecosystem of really well-written 
       <pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://juniperspring.xyz/posts/rhodes-tower/</guid>
-      <description>TLDR Rhodes Tower, the largest building at Cleveland State University and one of the most recognizable buildings in the Cleveland skyline, is named after the Governor who ordered the National Guard on Kent State University in 1970. It received this name in 1981, eleven years after the Kent State shootings that left four college students dead. Rhodes Tower should be renamed.
-Background On May 4th, 1970 at 12:24 p.m., the Ohio National Guard opened fire on a peaceful rally of students protesting against the expansion of the Vietnam War into Cambodia12.</description>
+      <description>CSU&amp;#39;s etymological connection to the Kent State massacre.</description>
     </item>
     
     <item>
@@ -33,8 +31,7 @@ Background On May 4th, 1970 at 12:24 p.m., the Ohio National Guard opened fire o
       <pubDate>Sat, 21 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://juniperspring.xyz/posts/bidirectional-totp/</guid>
-      <description>Image sourced from Wikimedia, attributed according to the Creative Commons Attribution 2.0 Generic license.
-Motivation Time-Based One Time Password (TOTP) authentication is extremely beneficial. It lets you quickly add two‑factor authentication (2FA) to online accounts according to a simple and open standard. Simply scan a QR code into a TOTP app like Aegis. As long as you have access to your phone, you can then use the TOTP app to generate 2FA codes whenever need be.</description>
+      <description>Authentication is a two-way street.</description>
     </item>
     
     <item>
@@ -43,8 +40,7 @@ Motivation Time-Based One Time Password (TOTP) authentication is extremely benef
       <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://juniperspring.xyz/posts/novak-v-parma/</guid>
-      <description>TLDR 💩 Officers from the Parma, Ohio, Police Department hold an annual dog shit eating picnic during which they eat dog shit. Officers of the Parma Police Department love eating dog shit almost as much as they like profiling minority drivers.
-Reporting the Facts Every officer of the Parma Police Department in Parma, Ohio, eats dog shit and likes it. This has always been common knowledge to Cleveland locals. Imagine my surprise then, when every recent news article about the Parma Police Department has failed to even mention this basic fact.</description>
+      <description>In solidarity with Anthony Novak.</description>
     </item>
     
     <item>
@@ -53,8 +49,7 @@ Reporting the Facts Every officer of the Parma Police Department in Parma, Ohio,
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://juniperspring.xyz/posts/digital-organization/</guid>
-      <description>Things I Like This is planned as a living document to track thoughts on desktop Linux and my personal thoughts on digital minimalism and organization. I&amp;rsquo;ve organized it into things that I like and things that I don&amp;rsquo;t like.
-Symlinks for /usr and /boot In Debian, several directories under the root / directory are symlinked to their counterparts in the /usr/ directory. As far as I know, the primary reason behind the similar directory structure of / and /usr/ is due to a past incentive to reduce the size of the root partition (I think my source on this is the book How Linux Works).</description>
+      <description>Thoughts on digital minimalism, Linux, and organization.</description>
     </item>
     
     <item>
@@ -63,9 +58,7 @@ Symlinks for /usr and /boot In Debian, several directories under the root / dire
       <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://juniperspring.xyz/posts/locked-out-of-keybase/</guid>
-      <description>Keybase I locked myself out of Keybase 🦝 If you get a message from juniperspring on Keybase, don&amp;rsquo;t trust it. See my GitHub gist for more info: https://gist.github.com/librick/8070876676dc02c83fea756fb78dd768.
-I lost access to my Keybase account. I was playing around with the CLI and ran the following commands:
-keybase account lockdown keybase logout Apparently those are bad commands to run when you&amp;rsquo;ve revoked all other devices and forgot your Keybase password. I still have keys for one of my devices, but AFAIK they&amp;rsquo;re encrypted with some secret derived from my Keybase password.</description>
+      <description>How I locked myself out</description>
     </item>
     
     <item>
@@ -84,10 +77,7 @@ OpenSSH 8.2, released Feb. 14th, 2020, added support for new FIDO public key typ
       <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://juniperspring.xyz/posts/auto-insurance-discrimination/</guid>
-      <description>Motivation In June 2022 I decided to change auto insurance providers. I filled out a form for a quote through State Farm. During this process, I was prompted to specify my gender.
-I thought this was odd. Why did State Farm need to know my gender?
-Some brief research suggested this was illegal behavior in some states. Gender discrimination in auto insurance has been banned in California since 2019.
-To be clear, I have no evidence that State Farm is adjusting rates for automobile insurance in Ohio based on the gender provided as part of their quote process.</description>
+      <description>Why my state representatives have an obligation to change the law.</description>
     </item>
     
     <item>
@@ -96,8 +86,7 @@ To be clear, I have no evidence that State Farm is adjusting rates for automobil
       <pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://juniperspring.xyz/posts/love-letter-to-ose/</guid>
-      <description>Last September (2021), I had the privilege to attend the OSE Summer of Extreme Design-Build. During the early summer months in Cleveland, I signed up to attend one month of the 90-day program. As summer wound down, I wrapped up some software contracting work, picked up a pair of steel toe boots, loaded up my car, and drove 12 hours down to the middle-of-nowhere Missouri.
-If you&amp;rsquo;re not familiar with Marcin Jakubowski or Open Source Ecology (OSE), check out the OSE website and OSE wiki.</description>
+      <description>Exploring the world of open source and distributive enterprise.</description>
     </item>
     
   </channel>

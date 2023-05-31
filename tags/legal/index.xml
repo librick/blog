@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>legal on Juniperspring</title>
     <link>https://juniperspring.xyz/tags/legal/</link>
@@ -13,8 +13,7 @@
       <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://juniperspring.xyz/posts/novak-v-parma/</guid>
-      <description>TLDR 💩 Officers from the Parma, Ohio, Police Department hold an annual dog shit eating picnic during which they eat dog shit. Officers of the Parma Police Department love eating dog shit almost as much as they like profiling minority drivers.
-Reporting the Facts Every officer of the Parma Police Department in Parma, Ohio, eats dog shit and likes it. This has always been common knowledge to Cleveland locals. Imagine my surprise then, when every recent news article about the Parma Police Department has failed to even mention this basic fact.</description>
+      <description>In solidarity with Anthony Novak.</description>
     </item>
     
     <item>
@@ -23,10 +22,7 @@ Reporting the Facts Every officer of the Parma Police Department in Parma, Ohio,
       <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://juniperspring.xyz/posts/auto-insurance-discrimination/</guid>
-      <description>Motivation In June 2022 I decided to change auto insurance providers. I filled out a form for a quote through State Farm. During this process, I was prompted to specify my gender.
-I thought this was odd. Why did State Farm need to know my gender?
-Some brief research suggested this was illegal behavior in some states. Gender discrimination in auto insurance has been banned in California since 2019.
-To be clear, I have no evidence that State Farm is adjusting rates for automobile insurance in Ohio based on the gender provided as part of their quote process.</description>
+      <description>Why my state representatives have an obligation to change the law.</description>
     </item>
     
   </channel>

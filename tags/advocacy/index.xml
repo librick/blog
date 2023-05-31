@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>advocacy on Juniperspring</title>
+    <link>https://juniperspring.xyz/tags/advocacy/</link>
+    <description>Recent content in advocacy on Juniperspring</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/tags/advocacy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rhodes Tower, Four Dead in Ohio</title>
+      <link>https://juniperspring.xyz/posts/rhodes-tower/</link>
+      <pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/posts/rhodes-tower/</guid>
+      <description>CSU&amp;#39;s etymological connection to the Kent State massacre.</description>
+    </item>
+    
+    <item>
+      <title>Parma Police Eat Dog Shit</title>
+      <link>https://juniperspring.xyz/posts/novak-v-parma/</link>
+      <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/posts/novak-v-parma/</guid>
+      <description>In solidarity with Anthony Novak.</description>
+    </item>
+    
+  </channel>
+</rss>

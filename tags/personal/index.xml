@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>personal on Juniperspring</title>
     <link>https://juniperspring.xyz/tags/personal/</link>
@@ -13,8 +13,7 @@
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://juniperspring.xyz/posts/digital-organization/</guid>
-      <description>Things I Like This is planned as a living document to track thoughts on desktop Linux and my personal thoughts on digital minimalism and organization. I&amp;rsquo;ve organized it into things that I like and things that I don&amp;rsquo;t like.
-Symlinks for /usr and /boot In Debian, several directories under the root / directory are symlinked to their counterparts in the /usr/ directory. As far as I know, the primary reason behind the similar directory structure of / and /usr/ is due to a past incentive to reduce the size of the root partition (I think my source on this is the book How Linux Works).</description>
+      <description>Thoughts on digital minimalism, Linux, and organization.</description>
     </item>
     
     <item>
@@ -23,9 +22,7 @@ Symlinks for /usr and /boot In Debian, several directories under the root / dire
       <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://juniperspring.xyz/posts/locked-out-of-keybase/</guid>
-      <description>Keybase I locked myself out of Keybase 🦝 If you get a message from juniperspring on Keybase, don&amp;rsquo;t trust it. See my GitHub gist for more info: https://gist.github.com/librick/8070876676dc02c83fea756fb78dd768.
-I lost access to my Keybase account. I was playing around with the CLI and ran the following commands:
-keybase account lockdown keybase logout Apparently those are bad commands to run when you&amp;rsquo;ve revoked all other devices and forgot your Keybase password. I still have keys for one of my devices, but AFAIK they&amp;rsquo;re encrypted with some secret derived from my Keybase password.</description>
+      <description>How I locked myself out</description>
     </item>
     
     <item>
@@ -34,8 +31,7 @@ keybase account lockdown keybase logout Apparently those are bad commands to run
       <pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://juniperspring.xyz/posts/love-letter-to-ose/</guid>
-      <description>Last September (2021), I had the privilege to attend the OSE Summer of Extreme Design-Build. During the early summer months in Cleveland, I signed up to attend one month of the 90-day program. As summer wound down, I wrapped up some software contracting work, picked up a pair of steel toe boots, loaded up my car, and drove 12 hours down to the middle-of-nowhere Missouri.
-If you&amp;rsquo;re not familiar with Marcin Jakubowski or Open Source Ecology (OSE), check out the OSE website and OSE wiki.</description>
+      <description>Exploring the world of open source and distributive enterprise.</description>
     </item>
     
   </channel>

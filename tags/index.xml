@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Juniperspring</title>
     <link>https://juniperspring.xyz/tags/</link>
@@ -7,5 +7,185 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 30 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blog</title>
+      <link>https://juniperspring.xyz/tags/blog/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cicd</title>
+      <link>https://juniperspring.xyz/tags/cicd/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/cicd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gatsby</title>
+      <link>https://juniperspring.xyz/tags/gatsby/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/gatsby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://juniperspring.xyz/tags/hugo/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nodejs</title>
+      <link>https://juniperspring.xyz/tags/nodejs/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/nodejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>advocacy</title>
+      <link>https://juniperspring.xyz/tags/advocacy/</link>
+      <pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/advocacy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>csu</title>
+      <link>https://juniperspring.xyz/tags/csu/</link>
+      <pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/csu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rhodes</title>
+      <link>https://juniperspring.xyz/tags/rhodes/</link>
+      <pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/rhodes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cryptography</title>
+      <link>https://juniperspring.xyz/tags/cryptography/</link>
+      <pubDate>Sat, 21 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/cryptography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mfa</title>
+      <link>https://juniperspring.xyz/tags/mfa/</link>
+      <pubDate>Sat, 21 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/mfa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://juniperspring.xyz/tags/security/</link>
+      <pubDate>Sat, 21 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>totp</title>
+      <link>https://juniperspring.xyz/tags/totp/</link>
+      <pubDate>Sat, 21 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/totp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>legal</title>
+      <link>https://juniperspring.xyz/tags/legal/</link>
+      <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/legal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>personal</title>
+      <link>https://juniperspring.xyz/tags/personal/</link>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/personal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dropbear</title>
+      <link>https://juniperspring.xyz/tags/dropbear/</link>
+      <pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/dropbear/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fido</title>
+      <link>https://juniperspring.xyz/tags/fido/</link>
+      <pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/fido/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openssh</title>
+      <link>https://juniperspring.xyz/tags/openssh/</link>
+      <pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/openssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openwrt</title>
+      <link>https://juniperspring.xyz/tags/openwrt/</link>
+      <pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/openwrt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>https://juniperspring.xyz/tags/ssh/</link>
+      <pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ose</title>
+      <link>https://juniperspring.xyz/tags/ose/</link>
+      <pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/tags/ose/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
