@@ -47,7 +47,7 @@ div.image-row {
 	justify-content: center;
 	align-items: center;
 	grid-template-columns: auto auto auto;
-	gap: 22px;
+	gap: var(--gap);
 	padding-bottom: 8px;
 }
 div.image-row img {
