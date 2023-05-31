@@ -3,16 +3,17 @@ languageCode = 'en-us'
 title = 'Juniperspring'
 theme = 'paper'
 
-[module]
-    [[module.imports]]
-        path = "github.com/divinerites/plausible-hugo"
-
 [params]
 github = 'librick'
 rss = true
 name = 'Eric McDonald'
 math = true
 
+[module]
+   [[module.imports]]
+   path = "github.com/divinerites/plausible-hugo"
+
 [params.plausible]
-  enable = true  # Whether to enable plausible tracking
-  domain = "juniperspring.xyz"  # Plausible "domain" name/id in your dashboard
+enable = true
+domain = "juniperspring.xyz"
+gitstar = false
