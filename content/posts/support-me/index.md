@@ -1,5 +1,5 @@
 ---
-title: Ethereum Name Service
+title: Support Me
 date: "2023-06-07T00:00:00.000Z"
 description: "Support my work"
 tags: ['security', 'cryptography', 'ens', 'dns', 'ethereum']
@@ -9,6 +9,7 @@ tags: ['security', 'cryptography', 'ens', 'dns', 'ethereum']
 TLDR send ether to `juniperspring.eth`.  
 If I lose access to that wallet, I'll update this post.
 
+## Ethereum Name Service
 I've registered `juniperspring.eth` via the Ethereum Name Service (ENS).
 You can view the entry through the ENS web app here: https://app.ens.domains/juniperspring.eth.
 
