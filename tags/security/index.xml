@@ -6,7 +6,16 @@
     <description>Recent content in security on Juniperspring</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ethereum Name Service</title>
+      <link>https://juniperspring.xyz/posts/support-me/</link>
+      <pubDate>Wed, 07 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/posts/support-me/</guid>
+      <description>Support my work</description>
+    </item>
+    
     <item>
       <title>Honda Civic Reverse Engineering</title>
       <link>https://juniperspring.xyz/posts/honda-reverse-engineering/</link>
