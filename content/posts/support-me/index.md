@@ -13,7 +13,7 @@ You can view the entry through the ENS web app here: https://app.ens.domains/jun
 
 If you enjoy my blog and/or want to support my work, feel free to send ether to `juniperspring.eth`. If you're using a modern (as of 2023) Ethereum wallet, you should be able to specify `juniperspring.eth` directly in the address field. Any donations will (legally I should say *probably will*) go toward enabling me to continue participating in open source, collaborative, and freely-licensed work.
 
-If I decide to get fancy I might add a donate button directly to this page, we'll see. The ENS entry expired June 6, 2027. Hopefully I have reason to update it before then 😄
+If I decide to get fancy I might add a donate button directly to this page, we'll see. The ENS entry expires June 6, 2027. Hopefully I have reason to update it before then 😄
 
 Thanks for the love and support,  
 ~ Eric 🌱❤️
