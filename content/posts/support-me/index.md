@@ -4,8 +4,6 @@ date: "2023-06-07T00:00:00.000Z"
 description: "Support my work"
 tags: ['security', 'cryptography', 'ens', 'dns', 'ethereum']
 ---
-# Support Me
-
 TLDR send ether to `juniperspring.eth`.  
 If I lose access to that wallet, I'll update this post.
 
