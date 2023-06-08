@@ -4,20 +4,22 @@
     <header class="entry-header">
         <h1>{{ .Title | markdownify }}</h1>
     </header>
-    <div class="entry-content">
-        {{ .Content | markdownify }}<br>
-        Technologist · Software Architect · Consultant<br>
-        <span style="letter-spacing: 0.05em;">☕👨‍💻🏳️‍🌈</span>
+    <div class="bio-cols">
+        <img id="profile" src="/images/profile.png" />
+        <div>
+            <div class="entry-content">
+                {{ .Content | markdownify }}<br>
+                Technologist · Software Architect · Consultant<br>
+                <a id="ens" href="https://app.ens.domains/juniperspring.eth">
+                    <img src="/images/ens-mark.svg" style="max-width: 32px;" />
+                    juniperspring.eth
+                </a>
+                <span style="letter-spacing: 0.05em;">☕👨‍💻🏳️‍🌈</span>
+            </div>
+        </div>
+        <footer class="entry-footer">
+            {{ partial "social_icons.html" site.Params.socialIcons }}
+        </footer>
     </div>
-
-    <div class="image-row">
-        <img src="/images/profile-1.png" />
-        <img src="/images/profile-2.png" />
-        <img src="/images/profile-3.png" />
-    </div>
-
-    <footer class="entry-footer">
-        {{ partial "social_icons.html" site.Params.socialIcons }}
-    </footer>
 </article>
 {{- end -}}

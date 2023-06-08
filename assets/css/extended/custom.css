@@ -56,18 +56,26 @@ article.first-entry.home-info {
 	}
 }
 
-div.image-row {
+div.bio-cols {
 	display: grid;
+	grid-template-columns: 128px 1fr;
 	justify-content: center;
-	align-items: center;
-	grid-template-columns: auto auto auto;
 	gap: var(--gap);
 	padding-bottom: 8px;
 }
-div.image-row img {
+div.bio-cols img#profile {
 	width: auto;
 	border-radius: var(--radius);
+	margin-top: var(--gap);
 }
-div.image-row img:hover {
-	animation: psychedelic linear 10s infinite;
+#ens {
+	display: flex;
+	align-items: center;
+	color: rgb(114, 152, 248);
+	text-decoration: underline;
+	line-height: 2rem;
+}
+#ens img {
+	display: inline-block;
+	margin-left: -5px;
 }
