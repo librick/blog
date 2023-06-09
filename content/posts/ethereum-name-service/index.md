@@ -5,7 +5,7 @@ description: "Support my work"
 tags: ['security', 'cryptography', 'ens', 'dns', 'ethereum']
 ---
 I've registered `juniperspring.eth` via the Ethereum Name Service (ENS).
-You can view the entry through the ENS web app here: https://app.ens.domains/juniperspring.eth.
+You can view the entry through the ENS web app: https://app.ens.domains/juniperspring.eth.
 
 If you enjoy my blog and/or want to support my work, feel free to send ether to `juniperspring.eth`. If you're using a modern (as of 2023) Ethereum wallet, you should be able to specify `juniperspring.eth` directly in the address field. Any ether will (legally I should say *probably will*) go toward enabling me to continue participating in open source, collaborative, and freely-licensed work.
 
