@@ -72,7 +72,7 @@ Purchasing the juniperspring.eth domain name was relatively inexpensive at the t
 The ENS docs[^9] explain:
 >Submitting proof to DNSSEC oracle takes up a lot of gas because it is heavy computation work. It will take up even more gas if you submit the first domain under the specific TLD. This is because it submits proof of both your domain and its parent domain(eg: matoken.live, as well as .live).
 
-Understanding DNS and DNSSEC elucidates ENS; understanding ENS and the DNSSEC oracle elucidate DNS and DNSSEC.
+Understanding DNS and DNSSEC elucidates ENS; understanding ENS and the DNSSEC oracle elucidates DNS and DNSSEC.
 
 [^1]: Cloudflare. ["How DNSSEC Works"](https://www.cloudflare.com/dns/dnssec/how-dnssec-works/)
 [^2]: Cloudflare. ["ECDSA and DNSSEC"](https://www.cloudflare.com/dns/dnssec/ecdsa-and-dnssec/)
