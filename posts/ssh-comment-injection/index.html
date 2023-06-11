@@ -58,6 +58,21 @@ OpenSSH 8.2, released Feb. 14th, 2020, added support for new FIDO public key typ
 
     </style>
 </noscript><script async defer data-domain="juniperspring.xyz" src="https://plausible.io/js/plausible.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
+    integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js"
+    integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t"
+    crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body, {
+    delimiters: [
+        {left: '$$', right: '$$', display: false},
+        {left: '$', right: '$', display: false},
+    ],
+});"></script>
 <meta property="og:title" content="SSH Comment Injection in OpenWRT" />
 <meta property="og:description" content="OpenWRT is open source router and Wi-Fi access point software. LuCI is the web-based configuration interface for OpenWRT; one of its features is the ability to import SSH keys. Instead of OpenSSH, OpenWRT uses Dropbear, an SSH server implementation optimized for embedded systems1.
 OpenSSH 8.2, released Feb. 14th, 2020, added support for new FIDO public key types, such as &ldquo;ecdsa-sk&rdquo; and &ldquo;ed25519-sk&rdquo;2. I wanted to see if Dropbear supported these new key types." />
