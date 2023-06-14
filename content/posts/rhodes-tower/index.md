@@ -8,7 +8,7 @@ tags: ['rhodes', 'csu', 'advocacy']
 ## TLDR
 
 Rhodes Tower, the largest building at Cleveland State University and one of the most recognizable buildings in the Cleveland skyline,
-is named after the Governor who ordered the National Guard on Kent State University in 1970.
+is named after the governor who ordered the National Guard on Kent State University in 1970.
 It received this name in 1981, *eleven years* after the Kent State shootings that left four college students dead.
 **Rhodes Tower should be renamed.**
 
