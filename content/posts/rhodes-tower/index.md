@@ -5,6 +5,10 @@ description: "CSU's etymological connection to the Kent State massacre."
 tags: ['rhodes', 'csu', 'advocacy']
 ---
 ![Governor Rhodes Tower, Winter 2023](rhodes-tower.jpg)
+
+## Update
+I recently posted a petition for this on [Change.org](https://chng.it/R5Cs2sHnBN).
+
 ## TLDR
 
 Rhodes Tower, the largest building at Cleveland State University and one of the most recognizable buildings in the Cleveland skyline,
