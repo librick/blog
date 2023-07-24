@@ -62,15 +62,6 @@
     </item>
     
     <item>
-      <title>Parma Police Eat Dog Shit</title>
-      <link>https://juniperspring.xyz/posts/novak-v-parma/</link>
-      <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://juniperspring.xyz/posts/novak-v-parma/</guid>
-      <description>In solidarity with Anthony Novak.</description>
-    </item>
-    
-    <item>
       <title>Digital Organization</title>
       <link>https://juniperspring.xyz/posts/digital-organization/</link>
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
@@ -96,15 +87,6 @@
       <guid>https://juniperspring.xyz/posts/ssh-comment-injection/</guid>
       <description>OpenWRT is open source router and Wi-Fi access point software. LuCI is the web-based configuration interface for OpenWRT; one of its features is the ability to import SSH keys. Instead of OpenSSH, OpenWRT uses Dropbear, an SSH server implementation optimized for embedded systems1.
 OpenSSH 8.2, released Feb. 14th, 2020, added support for new FIDO public key types, such as &amp;ldquo;ecdsa-sk&amp;rdquo; and &amp;ldquo;ed25519-sk&amp;rdquo;2. I wanted to see if Dropbear supported these new key types.</description>
-    </item>
-    
-    <item>
-      <title>Auto Insurance Discrimination in Ohio</title>
-      <link>https://juniperspring.xyz/posts/auto-insurance-discrimination/</link>
-      <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://juniperspring.xyz/posts/auto-insurance-discrimination/</guid>
-      <description>Why my state representatives have an obligation to change the law.</description>
     </item>
     
     <item>
