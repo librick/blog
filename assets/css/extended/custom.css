@@ -56,6 +56,7 @@ article.first-entry.home-info {
 	}
 }
 
+
 div.bio-cols {
 	display: grid;
 	grid-template-columns: 128px 1fr;
@@ -68,11 +69,17 @@ div.bio-cols img#profile {
 	border-radius: var(--radius);
 	margin-top: var(--gap);
 }
+div.bio-cols img#profile:hover {
+    animation: psychedelic 4s;
+    animation-iteration-count: infinite;
+}
+div.bio-cols a span {
+    color: rgb(114, 152, 248);
+    text-decoration: underline;
+}
 #ens {
 	display: flex;
 	align-items: center;
-	color: rgb(114, 152, 248);
-	text-decoration: underline;
 	line-height: 2rem;
 }
 #ens img {
