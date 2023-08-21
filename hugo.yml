@@ -14,17 +14,15 @@ params.plausible:
     domain: 'juniperspring.xyz'
     gitstar: false
 
+# See: https://github.com/adityatelange/hugo-PaperMod/wiki/Variables#site-variables-under-params
 params:
-    #github: 'librick'
-    #rss: true
-    #name: 'Eric McDonald'
-    #math: true
     ShowToc: true
     ShowPostNavLinks: true
     ShowCodeCopyButtons: true
     ShowShareButtons: true
     ShowReadingTime: true
     hideSummary: true
+    defaultTheme: dark
     label:
         text: Juniperspring🌱
     homeInfoParams:
