@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://juniperspring.xyz/tags/cleveland/</loc>
+    <lastmod>2023-09-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://juniperspring.xyz/</loc>
+    <lastmod>2023-09-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://juniperspring.xyz/posts/</loc>
+    <lastmod>2023-09-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://juniperspring.xyz/tags/</loc>
+    <lastmod>2023-09-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://juniperspring.xyz/posts/cleveland-air-show/</loc>
+    <lastmod>2023-09-03T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://juniperspring.xyz/tags/cryptography/</loc>
     <lastmod>2023-06-07T00:00:00+00:00</lastmod>
   </url><url>
@@ -20,19 +35,10 @@
     <loc>https://juniperspring.xyz/posts/dnssec/</loc>
     <lastmod>2023-06-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://juniperspring.xyz/</loc>
-    <lastmod>2023-06-07T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://juniperspring.xyz/tags/networking/</loc>
     <lastmod>2023-06-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://juniperspring.xyz/posts/</loc>
-    <lastmod>2023-06-07T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://juniperspring.xyz/tags/security/</loc>
-    <lastmod>2023-06-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://juniperspring.xyz/tags/</loc>
     <lastmod>2023-06-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://juniperspring.xyz/posts/ethereum-name-service/</loc>
@@ -67,9 +73,6 @@
   </url><url>
     <loc>https://juniperspring.xyz/tags/nodejs/</loc>
     <lastmod>2023-05-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://juniperspring.xyz/tags/advocacy/</loc>
-    <lastmod>2023-01-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://juniperspring.xyz/tags/csu/</loc>
     <lastmod>2023-01-23T00:00:00+00:00</lastmod>
