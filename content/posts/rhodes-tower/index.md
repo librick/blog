@@ -2,7 +2,7 @@
 title: Rhodes Tower, Four Dead in Ohio
 date: "2023-01-23T00:00:00.000Z"
 description: "CSU's etymological connection to the Kent State massacre."
-tags: ['rhodes', 'csu', 'advocacy']
+tags: ['rhodes', 'csu', 'cleveland']
 ---
 ![Governor Rhodes Tower, Winter 2023](rhodes-tower.jpg)
 
