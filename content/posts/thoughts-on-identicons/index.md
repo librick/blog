@@ -45,7 +45,7 @@ making the key fingerprints themselves look like humans would be useful.
 
 **Imagine an identicon algorithm that generated realistic human faces.
 If you saw that identicon on a regular basis, and it suddenly changed, would you notice?**
-Is the probability of you noticing greater than if you were to use an existing abstract/geometic identicon algorithm instead?
+Is the probability of you noticing greater than if you were to use an existing abstract/geometric identicon algorithm instead?
 
 For lack of effort, I'll refer to these as "AI face identicons".
 
