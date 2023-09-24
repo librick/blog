@@ -37,6 +37,7 @@ colors, but ultimately concludes with a noteworthy point:
 This reminded me of something I've thought of before but haven't put into words until now.
 We have the ability to generate fake pictures of people[^5][^6], and humans are decent at remembering faces.
 At least, from anecdotal evidence, I think I'm more likely to remember a face than an abstract pattern.
+
 You've probably seen Wavatars before[^7], even if you didn't know the name for them at the time.
 I assume that Wavatars were and are widely used because they are memorable (and because of an innate human desire to create
 things after our likeness). It seems logical that, if we want to make sure SSH keys come from a certain human,
