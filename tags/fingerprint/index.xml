@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>fingerprint on Juniperspring</title>
+    <link>https://juniperspring.xyz/tags/fingerprint/</link>
+    <description>Recent content in fingerprint on Juniperspring</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/tags/fingerprint/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SSH Fingerprints, Identicons, and AI Face Generation</title>
+      <link>https://juniperspring.xyz/posts/thoughts-on-identicons/</link>
+      <pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/posts/thoughts-on-identicons/</guid>
+      <description>While playing around with SSH and Git, I reflected on how SSH&amp;rsquo;s key fingerprints are essentially an early form of identicon:
+The key fingerprint is: SHA256:xtaA8biLm/Jktn9A/j2sty686uosrRtz0GQIFw6nP2s root@bionic The key&amp;#39;s randomart image is: +---[RSA 4096]----+ |o +. . | | B . = | |. o o o o | | . + .o o | | + .o. S . | | + .o+ | | E.* .+ o | | .</description>
+    </item>
+    
+  </channel>
+</rss>

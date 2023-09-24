@@ -2,16 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://juniperspring.xyz/tags/cleveland/</loc>
-    <lastmod>2023-09-03T00:00:00+00:00</lastmod>
+    <loc>https://juniperspring.xyz/tags/ai/</loc>
+    <lastmod>2023-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://juniperspring.xyz/tags/dall-e/</loc>
+    <lastmod>2023-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://juniperspring.xyz/tags/fingerprint/</loc>
+    <lastmod>2023-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://juniperspring.xyz/tags/identicon/</loc>
+    <lastmod>2023-09-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://juniperspring.xyz/</loc>
-    <lastmod>2023-09-03T00:00:00+00:00</lastmod>
+    <lastmod>2023-09-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://juniperspring.xyz/posts/</loc>
-    <lastmod>2023-09-03T00:00:00+00:00</lastmod>
+    <lastmod>2023-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://juniperspring.xyz/tags/ssh/</loc>
+    <lastmod>2023-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://juniperspring.xyz/posts/thoughts-on-identicons/</loc>
+    <lastmod>2023-09-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://juniperspring.xyz/tags/</loc>
+    <lastmod>2023-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://juniperspring.xyz/tags/cleveland/</loc>
     <lastmod>2023-09-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://juniperspring.xyz/posts/cleveland-air-show/</loc>
@@ -111,9 +129,6 @@
     <lastmod>2022-09-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://juniperspring.xyz/tags/openwrt/</loc>
-    <lastmod>2022-09-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://juniperspring.xyz/tags/ssh/</loc>
     <lastmod>2022-09-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://juniperspring.xyz/posts/ssh-comment-injection/</loc>
