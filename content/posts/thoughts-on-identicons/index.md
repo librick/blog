@@ -48,9 +48,10 @@ Is the probability of you noticing greater than if you were to use an existing a
 
 For lack of effort, I'll refer to these as "AI face identicons".
 
-The main outstanding issues are:
-- Developing a face-generation algorithm that is widely-deployable hardware-constrained devices
-- Developing a face-generation algorithm that is deterministic and seedable
+The main outstanding barriers are:
+- A face-generation algorithm usable on hardware-constrained devices
+- A face-generation algorithm that is deterministic and seedable
+    - (seedable with some non-trivial amount of entropy)
 - Storage/caching of public key fingerprint image data
 
 I leave the rest as an exercise to the reader 😉
