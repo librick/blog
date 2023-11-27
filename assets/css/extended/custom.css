@@ -12,12 +12,16 @@
 	src: local('Ubuntu Regular');
 }
 
+:root {
+	--font-stack: -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, Oxygen, Ubuntu, Cantarell, "open sans", "helvetica neue", sans-serif;
+}
+
 div.logo a {
-	font-family: 'Averia Libre';
+	font-family: 'Averia Libre', var(--font-stack);
 }
 
 article header.entry-header h2 {
-	font-family: 'Ubuntu';
+	font-family: Ubuntu, var(--font-stack);
 }
 
 body.dark article header.entry-header h2 {
