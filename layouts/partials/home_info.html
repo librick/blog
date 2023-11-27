@@ -2,7 +2,7 @@
 <article class="first-entry home-info">
 
     <header class="entry-header">
-        <h1>{{ .Title | markdownify }}</h1>
+        <h1 id="name">{{ upper .Title | markdownify }}</h1>
     </header>
     <div class="bio-cols">
         <img id="profile" src="/images/profile.png" />

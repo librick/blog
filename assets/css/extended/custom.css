@@ -6,18 +6,22 @@
 }
 
 @font-face {
-	font-family: 'Ubuntu';
+	font-family: 'BlackHanSans';
 	font-style: normal;
 	font-weight: 400;
-	src: local('Ubuntu Regular');
+	src: url('/fonts/BlackHanSans-Regular.ttf') format('truetype');
 }
-
 :root {
 	--font-stack: -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, Oxygen, Ubuntu, Cantarell, "open sans", "helvetica neue", sans-serif;
 }
 
 div.logo a {
 	font-family: 'Averia Libre', var(--font-stack);
+}
+
+header.entry-header h1#name {
+	font-family: BlackHanSans;
+	letter-spacing: 0.06rem;
 }
 
 article header.entry-header h2 {
