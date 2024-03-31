@@ -35,7 +35,7 @@ Digital minimalism for me is about striking a balance between the utility of my 
 
 ## Dotfiles in VCS
 
-I never understood the benefits of keeping my dotfiles in source control until I started doing it as part of my [init](https://github.com/librick/init) repo. The main drawback is additional complexity. You have to maintain the contents of the repo, authoring commits whenever you make substantial changes to your setup. The source of truth for your settings is no longer your machine. This also means that you have to be diligent about maintaining any related VCS repos whenever you subtantially change your local setup.
+I never understood the benefits of keeping my dotfiles in source control until I started doing it as part of my [init](https://github.com/librick/init) repo. The main drawback is additional complexity. You have to maintain the contents of the repo, authoring commits whenever you make substantial changes to your setup. The source of truth for your settings is no longer your machine. This also means that you have to be diligent about maintaining any related VCS repos whenever you substantially change your local setup.
 
 Further, if the point of keeping dotfiles and scripts in a VCS is so that you can access it anywhere, thought should also be given to git mirrors and ensuring the availability of your repositories.
 
@@ -68,7 +68,7 @@ and that those passwords are accessible and up-to-date (via KeepassXC and Syncth
 
 With my current setup, my mobile account passwords are stored in a KeepassXC database that gets mirrored by Syncthing between my laptop and my phone.
 So long as I have access to either device, I have access to my passwords. If I update my mobile passwords on either device, any changes are automatically
-propogated to all devices. This is particularly useful as some passwords are for websites (e.g., for financial sites) that I access on both devices.
+propagated to all devices. This is particularly useful as some passwords are for websites (e.g., for financial sites) that I access on both devices.
 
 ### Syncing Phone Pictures
 

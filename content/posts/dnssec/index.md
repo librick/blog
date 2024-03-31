@@ -28,7 +28,7 @@ The textual representation of ECDSA public keys depends partially on whether it 
 
 The field size of NIST P-256 is 256 bits, or 32 bytes. An uncompressed ECDSA public key consists of an x and y‑coordinate, and since each coordinate is a field element (i.e., for NIST P-256, is at most 32 bytes in length), an ECDSA public key for Curve P-256 requires 64 bytes, not including a prefix. When the (well-known) prefix 0x04 is prepended, the total length is 65 bytes. 
 
-The prefix is used to quickly differentiate between uncompressed (0x04) and compressed (0x02, 0x03) form. Compressed form takes advantage of the property that the y‑coordinate of an ECDSA public key can be unambiguously derived given the curve equation, x‑coordinate, and a odd-even flag (prefix).  Solving the curve equation for y given x yields two posible values for y. One solution is always even, one solution is always odd. By prefixing the compressed form with a well-known byte (0x02 for even, 0x03 for odd), the public key can be unambigiously specified with a total of $$32+1=33$$ bytes.
+The prefix is used to quickly differentiate between uncompressed (0x04) and compressed (0x02, 0x03) form. Compressed form takes advantage of the property that the y‑coordinate of an ECDSA public key can be unambiguously derived given the curve equation, x‑coordinate, and a odd-even flag (prefix).  Solving the curve equation for y given x yields two possible values for y. One solution is always even, one solution is always odd. By prefixing the compressed form with a well-known byte (0x02 for even, 0x03 for odd), the public key can be unambiguously specified with a total of $$32+1=33$$ bytes.
 
 ## ECDSA Key Format for DNSKEY
 When used in DNSKEY records, ECDSA public keys are given in uncompressed form. References to some of the relevant RFCs are given below. Practically, this means that the DNSSEC public keys for juniperspring.xyz should each be $32*2=64$ bytes long when no prefix is used. These keys are always *exactly* 64 bytes long, probably because the RFCs strictly specify uncompressed form (i.e, a prefix would be redundant) and because small DNS records are desirable.
@@ -62,7 +62,7 @@ Each of the resulting hex strings are 128 chars (64 bytes) long and do not conta
 At the time of writing, the juniperspring.xyz domain is provided by Namecheap.
 The Namecheap web interface provides a toggle for enabling DNSSEC for the domain (DNSSEC is disabled by default).
 ![DNSSEC in the Namecheap management interface](namecheap-dnssec.png)
-Apparently, Namecheap uses `ECDSAP256SHA256` as the signature algorithm by default, generates the requisite keypairs, and (I assume) stores the private keys on Namecheap's servers. You can check the resulting DNSSEC records with an online tool provided by Verisign Labs[^6].
+Apparently, Namecheap uses `ECDSAP256SHA256` as the signature algorithm by default, generates the requisite key pairs, and (I assume) stores the private keys on Namecheap's servers. You can check the resulting DNSSEC records with an online tool provided by Verisign Labs[^6].
 
 ## On the Ethereum DNSSEC Oracle
 Having a working knowledge of DNS and DNSSEC enables a better understanding of the Ethereum Name Service (ENS)[^7] and the Ethereum DNS Oracle[^8]. Submitting a proof to the DNSSEC oracle is significantly more expensive (multiple times the cost of purchasing juniperspring.eth for four years) than purchasing a `.eth` domain.

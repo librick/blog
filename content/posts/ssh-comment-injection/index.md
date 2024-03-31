@@ -18,7 +18,7 @@ I emailed Jon from the OpenWRT team; they pushed a patch the next day[^3][^4].
 After getting written permission from the OpenWRT (via email), I filed for a CVE.
 I was assigned CVE-2022-41435[^5][^6][^7].
 
-SSH comment injection presents a unique attack vector; it has nothing to do with the security of assymetric crypto or the SSH protocol. But it is a source of user-provided input that should be untrusted and properly sanitized.
+SSH comment injection presents a unique attack vector; it has nothing to do with the security of asymmetric crypto or the SSH protocol. But it is a source of user-provided input that should be untrusted and properly sanitized.
 
 Thanks to the OpenWRT team for the quick response time, and thanks for contributing to open source ❤️📡
 

@@ -14,7 +14,7 @@ Time-Based One Time Password (TOTP) authentication is extremely beneficial.
 It lets you quickly add two&#8209;factor authentication (2FA) to online accounts according
 to a simple and open standard. Simply scan a QR code into a TOTP app like [Aegis](https://github.com/beemdevelopment/Aegis).
 As long as you have access to your phone, you can then use the TOTP app to generate 2FA codes whenever need be.
-No risk of [simswapping](https://en.wikipedia.org/wiki/SIM_swap_scam), no need for SMS reception or a phone number, and no need for proprietary 2FA apps.
+No risk of [SIM swapping](https://en.wikipedia.org/wiki/SIM_swap_scam), no need for SMS reception or a phone number, and no need for proprietary 2FA apps.
 
 **But TOTP as it's currently widely implemented has a shortcoming; it doesn't prevent phishing attacks.**
 Click a link in an email that redirects to a phishing website; the phishing website mimics one of your favorite websites.

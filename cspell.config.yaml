@@ -1,0 +1,93 @@
+---
+version: "0.2"
+language: "en"
+flagWords: []
+ignorePaths:
+  - ".git/*"
+  - ".gitignore"
+  - ".vscode/extensions.json"
+  - ".vscode/settings.json"
+  - "**/*.svg"
+  - "static/browserconfig.xml"
+  - "cspell.config.yaml"
+  - "go.mod"
+  - "go.sum"
+# see: https://cspell.org/configuration/patterns/#verbose-regular-expressionsaml
+patterns:
+  - name: markdown_code_block
+    pattern: |
+      /
+          ^(\s*`{3,}).*     # match the ```
+          [\s\S]*?          # the block of code
+          ^\1               # end of the block
+      /gmx
+ignoreRegExpList:
+  - "^tags: \\[.*\\]$" # ignore tags in markdown
+  - "^\\[\\^[0-9]\\]: .*$" # ignore reference lines in markdown
+  - "^>.*$" # ignore markdown blockquotes
+  - "'github.com/.*'" # ignore quoted github repo references
+  - markdown_code_block
+words:
+  - "identicon"
+  - "identicons"
+  - "wavatar"
+  - "wavatars"
+  - "dropbear"
+
+  - "openwrt"
+  - "tldr"
+  - "cipriani"
+  - "krause"
+  - "scheuer"
+  - "satrom"
+  - "masalar"
+  - "csu"
+  - "ecdsap256sha256"
+  - "ecdsap384sha384"
+  - "ecdsap384sha384"
+  - "aquaponic"
+  - "aquaponics"
+  - "lifetrac"
+  - "ridesharing"
+  - "runtimes"
+  - "permaculturalists"
+  - "marcin"
+  - "jakubowski"
+  - "turn-arounds"
+  - "keybase"
+  - "head unit"
+  - "juniperspring"
+  - "namecheap"
+  - "lockdown"
+  - "dnssec"
+  - "totp"
+  - "cuyahoga"
+  - "ruggedized"
+  - "keepass"
+  - "emscripten"
+  - "librick"
+  - "randomart"
+  - "gatekeep"
+  - "kias"
+  - "gatsby"
+  - "hmac"
+  - "catarina"
+  - "mota"
+  - "rebar"
+  - "bikeshedding"
+  - "wikey"
+  - "livestreamed"
+  - "disqus"
+  - "luci"
+  - "merkle"
+  - "syncthing"
+  - "mengenlehreuhr"
+  - "hotp"
+  - "overreliance"
+  - "seedable"
+  - "tegra"
+  - "juniperspring"
+  - "markdownify"
+  - "fips"
+  - "secp256r1"
+  - "dnskey"

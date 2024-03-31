@@ -12,6 +12,7 @@ module:
 params.plausible:
     enable: true
     domain: 'juniperspring.xyz'
+    # cspell:disable-next-line
     gitstar: false
 
 # See: https://github.com/adityatelange/hugo-PaperMod/wiki/Variables#site-variables-under-params
