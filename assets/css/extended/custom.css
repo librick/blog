@@ -5,23 +5,12 @@
     src: url('/fonts/AveriaLibre-Regular.ttf') format('truetype');
 }
 
-@font-face {
-	font-family: 'BlackHanSans';
-	font-style: normal;
-	font-weight: 400;
-	src: url('/fonts/BlackHanSans-Regular.ttf') format('truetype');
-}
 :root {
 	--font-stack: -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, Oxygen, Ubuntu, Cantarell, "open sans", "helvetica neue", sans-serif;
 }
 
 div.logo a {
 	font-family: 'Averia Libre', var(--font-stack);
-}
-
-header.entry-header h1#name {
-	font-family: BlackHanSans;
-	letter-spacing: 0.06rem;
 }
 
 article header.entry-header h2 {
@@ -32,22 +21,9 @@ body.dark article header.entry-header h2 {
 	color: #bb86fc;
 }
 
-.home-info-grid {
-	display: grid;
-	grid-template-columns: auto 1fr;
-	gap: 26px;
-	align-items: center;
-}
-.home-info-grid  img.profile-picture {
-	border-radius: 50%;
-	width: 96px;
-	margin-bottom: 1.8em;
-}
-.home-info-grid .entry-content {
-	color: #eee;
-}
 article.first-entry.home-info {
-	margin-bottom: 16px;
+    padding: 0;
+    margin: 0;
 }
 
 @keyframes psychedelic {
@@ -70,7 +46,6 @@ div.bio-cols {
 	grid-template-columns: 128px 1fr;
 	justify-content: center;
 	gap: var(--gap);
-	padding-bottom: 8px;
 }
 div.bio-cols img#profile {
 	width: auto;
