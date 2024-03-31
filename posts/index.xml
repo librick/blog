@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Juniperspring</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React, Formik, and Events</title>
+      <link>https://juniperspring.xyz/posts/formik-events/</link>
+      <pubDate>Sat, 30 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/posts/formik-events/</guid>
+      <description>Musings on Formik&amp;#39;s API, custom events in React, and why I might leave Formik</description>
+    </item>
+    
     <item>
       <title>SSH Fingerprints, Identicons, and AI Face Generation</title>
       <link>https://juniperspring.xyz/posts/thoughts-on-identicons/</link>

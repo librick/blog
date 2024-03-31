@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>events on Juniperspring</title>
+    <link>https://juniperspring.xyz/tags/events/</link>
+    <description>Recent content in events on Juniperspring</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://juniperspring.xyz/tags/events/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React, Formik, and Events</title>
+      <link>https://juniperspring.xyz/posts/formik-events/</link>
+      <pubDate>Sat, 30 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://juniperspring.xyz/posts/formik-events/</guid>
+      <description>Musings on Formik&amp;#39;s API, custom events in React, and why I might leave Formik</description>
+    </item>
+    
+  </channel>
+</rss>

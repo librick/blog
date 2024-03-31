@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>React, Formik, and Events | Juniperspring</title>
+<meta name="keywords" content="formik, react, development, events">
+<meta name="description" content="Musings on Formik&#39;s API, custom events in React, and why I might leave Formik">
+<meta name="author" content="">
+<link rel="canonical" href="https://juniperspring.xyz/posts/formik-events/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.dbfb184a22d05d752336c27c14ebf668a80105f1032e985440ea12be683cfbdb.css" integrity="sha256-2/sYSiLQXXUjNsJ8FOv2aKgBBfEDLphUQOoSvmg8&#43;9s=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://juniperspring.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://juniperspring.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://juniperspring.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://juniperspring.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://juniperspring.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><script async defer data-domain="juniperspring.xyz" src="https://plausible.io/js/plausible.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
+    integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js"
+    integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t"
+    crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body, {
+    delimiters: [
+        {left: '$$', right: '$$', display: false},
+        {left: '$', right: '$', display: false},
+    ],
+});"></script>
+<meta property="og:title" content="React, Formik, and Events" />
+<meta property="og:description" content="Musings on Formik&#39;s API, custom events in React, and why I might leave Formik" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://juniperspring.xyz/posts/formik-events/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-30T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="React, Formik, and Events"/>
+<meta name="twitter:description" content="Musings on Formik&#39;s API, custom events in React, and why I might leave Formik"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://juniperspring.xyz/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "React, Formik, and Events",
+      "item": "https://juniperspring.xyz/posts/formik-events/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "React, Formik, and Events",
+  "name": "React, Formik, and Events",
+  "description": "Musings on Formik's API, custom events in React, and why I might leave Formik",
+  "keywords": [
+    "formik", "react", "development", "events"
+  ],
+  "articleBody": "I’ve been using Formik lately for a form-intensive React app. Formik is a React/JavaScript library that aims to make it easier to manage HTML forms and inputs. It provides a level of abstraction on top of form inputs and attempts to simplify form state and validation.\nThis article attempts to convey one of my biggest dislikes with Formik: the way in which Formik treats native HTML input elements as different than custom React components. Specifically, the way that Formik expects native HTML inputs to communicate via change and touched events while not providing or suggesting a comparable way for custom React components to raise similar events.\nI argue that, while Formik’s setFieldValue and setFieldTouched functions are useful escape hatches, the official recommendation that they be used in lieu of a common event interface (i.e., one that leverages the existing onChange and onTouched handlers) is counter-productive to writing minimally-complex, maximally-expressive software.\nFinally, I look at whether just using events (or hacking together a sort of “pseudo” event) is enough to satisfy Formik’s interface, and conclude with a few thoughts on using Formik in general and why I’ll probably look elsewhere for my next big project.\nExploring Formik, Formik’s API, and Events Brief Introduction to Formik Formik provides a convenient way to wire up native HTML input elements to Formik forms. Take the following example:\nimport React from 'react'; import { useFormik } from 'formik'; const SimpleFormikExample = () =\u003e { const formik = useFormik({ initialValues: { title: 'Raiders of the Lost Ark' }, onSubmit: (values, actions) =\u003e { setTimeout(() =\u003e { alert(JSON.stringify(values, null, 2)); actions.setSubmitting(false); }, 1000); }, }); return ( My Movie Form Enter the title of your favorite movie.\n{formik.errors.title \u0026\u0026 {formik.errors.title}} Submit ); }; This is a simple form with a single text input. A user can enter the title of a movie. The input has a default value of “Raiders of the Lost Ark”\nSome quick notes about Formik’s API:\nForm values are stored in an object under formik.values Form errors are stored in an object under formik.errors Form values are indexed by the input’s name property (e.g., “title”) Form errors are indexed by the input’s name property (e.g., “title”) So we might have data structures like this (pseudocode):\nformik.values = { title: 'Raiders of the Lost Ark' } Formik’s handleChange and handleBlur Something that makes Formik easy to use is the way it consumes onChange and onBlur callback functions provided by native HTML input elements. These callbacks are called with HTML element change and blur events respectively. The flow looks something like this:\nAn input’s onChange prop is wired up using formik.handleChange An input’s onBlur prop is wired up using formik.handleBlur An input invokes its onChange callback with a change event An input invokes its onBlur callback with a blur event Formik derives the value of the input from the change event Formik derives the touched state of the input from the blur event For both handlers, the name property of the input field does not have to be passed as an argument. Formik is smart enough to get the name of the input from the events raised by that input. Formik then uses that name to update its formik.values and formik.touched objects.\nFormik also uses the name of the input (“title”) to correlate the value taken from the input’s change event with the values in Formik’s state.\nFormik’s setFieldValue and setFieldTouched If you want to create a custom input component (one that doesn’t use an HTML input/textarea/etc. under the hood), Formik recommends you wire it up using setFieldValue and setFieldTouched. The docs say:\nsetFieldValue is “useful for creating custom input change handlers” and setFieldTouched is “useful for creating custom input blur handlers” Consider a React component that acts like a custom input. Imagine that this BerryPictureSelector component allows the user to select a berry (strawberry, blueberry, etc.) by clicking its picture. The name of the field according to Formik (“berry”) is passed explicitly in formik.setFieldValue and formik.setFieldTouched.\n",
+  "wordCount" : "2613",
+  "inLanguage": "en",
+  "datePublished": "2024-03-30T00:00:00Z",
+  "dateModified": "2024-03-30T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://juniperspring.xyz/posts/formik-events/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Juniperspring",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://juniperspring.xyz/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://juniperspring.xyz" accesskey="h" title="Juniperspring🌱 (Alt + H)">Juniperspring🌱</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      React, Formik, and Events
+    </h1>
+    <div class="post-description">
+      Musings on Formik&#39;s API, custom events in React, and why I might leave Formik
+    </div>
+    <div class="post-meta"><span title='2024-03-30 00:00:00 +0000 UTC'>March 30, 2024</span>&nbsp;·&nbsp;13 min
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#exploring-formik-formiks-api-and-events" aria-label="Exploring Formik, Formik&amp;rsquo;s API, and Events">Exploring Formik, Formik&rsquo;s API, and Events</a><ul>
+                        
+                <li>
+                    <a href="#brief-introduction-to-formik" aria-label="Brief Introduction to Formik">Brief Introduction to Formik</a></li>
+                <li>
+                    <a href="#formiks-handlechange-and-handleblur" aria-label="Formik&amp;rsquo;s handleChange and handleBlur">Formik&rsquo;s handleChange and handleBlur</a></li>
+                <li>
+                    <a href="#formiks-setfieldvalue-and-setfieldtouched" aria-label="Formik&amp;rsquo;s setFieldValue and setFieldTouched">Formik&rsquo;s setFieldValue and setFieldTouched</a></li></ul>
+                </li>
+                <li>
+                    <a href="#the-problem" aria-label="The Problem">The Problem</a></li>
+                <li>
+                    <a href="#exploring-a-common-interface-custom-events" aria-label="Exploring a Common Interface: Custom Events">Exploring a Common Interface: Custom Events</a></li>
+                <li>
+                    <a href="#formik-internals" aria-label="Formik Internals">Formik Internals</a><ul>
+                        
+                <li>
+                    <a href="#formik-internals-executechange" aria-label="Formik Internals, executeChange">Formik Internals, executeChange</a></li>
+                <li>
+                    <a href="#formik-internals-executeblur" aria-label="Formik Internals, executeBlur">Formik Internals, executeBlur</a></li></ul>
+                </li>
+                <li>
+                    <a href="#raising-custom-events" aria-label="Raising Custom Events">Raising Custom Events</a></li>
+                <li>
+                    <a href="#putting-it-all-together" aria-label="Putting It All Together">Putting It All Together</a></li>
+                <li>
+                    <a href="#closing-thoughts" aria-label="Closing Thoughts">Closing Thoughts</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>I&rsquo;ve been using <a href="https://formik.org/">Formik</a> lately for a form-intensive React app.
+Formik is a React/JavaScript library that aims to make it easier to manage HTML forms
+and inputs. It provides a level of abstraction on top of form inputs and attempts
+to simplify form state and validation.</p>
+<p>This article attempts to convey one of my biggest dislikes with Formik:
+the way in which Formik treats native HTML input elements as different than
+custom React components. Specifically, the way that Formik expects native HTML inputs
+to communicate via <code>change</code> and <code>touched</code> events while not providing or suggesting
+a comparable way for custom React components to raise similar events.</p>
+<p>I argue that, while Formik&rsquo;s <code>setFieldValue</code> and <code>setFieldTouched</code> functions
+are useful escape hatches, the official recommendation that they be used in lieu of
+a common event interface (i.e., one that leverages the existing <code>onChange</code> and <code>onTouched</code> handlers)
+is counter-productive to writing minimally-complex, maximally-expressive software.</p>
+<p>Finally, I look at whether just using events (or hacking together a sort of &ldquo;pseudo&rdquo; event)
+is enough to satisfy Formik&rsquo;s interface, and conclude with a few thoughts on using Formik
+in general and why I&rsquo;ll probably look elsewhere for my next big project.</p>
+<h2 id="exploring-formik-formiks-api-and-events">Exploring Formik, Formik&rsquo;s API, and Events<a hidden class="anchor" aria-hidden="true" href="#exploring-formik-formiks-api-and-events">#</a></h2>
+<h3 id="brief-introduction-to-formik">Brief Introduction to Formik<a hidden class="anchor" aria-hidden="true" href="#brief-introduction-to-formik">#</a></h3>
+<p>Formik provides a convenient way to wire up native HTML input elements to Formik forms.
+Take the following example:</p>
+<pre tabindex="0"><code>import React from &#39;react&#39;;
+import { useFormik } from &#39;formik&#39;;
+
+const SimpleFormikExample = () =&gt; {
+  const formik = useFormik({
+    initialValues: { title: &#39;Raiders of the Lost Ark&#39; },
+    onSubmit: (values, actions) =&gt; {
+      setTimeout(() =&gt; {
+        alert(JSON.stringify(values, null, 2));
+        actions.setSubmitting(false);
+      }, 1000);
+    },
+  });
+
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;My Movie Form&lt;/h1&gt;
+      &lt;p&gt;Enter the title of your favorite movie.&lt;/p&gt;
+      &lt;form onSubmit={formik.handleSubmit}&gt;
+        &lt;input
+          type=&#34;text&#34;
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.title}
+          name=&#34;title&#34;
+        /&gt;
+        {formik.errors.title &amp;&amp; &lt;div id=&#34;feedback&#34;&gt;{formik.errors.title}&lt;/div&gt;}
+        &lt;button type=&#34;submit&#34;&gt;Submit&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  );
+};
+</code></pre><p>This is a simple form with a single text input. A user can enter the title of a movie.
+The input has a default value of &ldquo;Raiders of the Lost Ark&rdquo;</p>
+<p>Some quick notes about Formik&rsquo;s API:</p>
+<ul>
+<li>Form values are stored in an object under <code>formik.values</code></li>
+<li>Form errors are stored in an object under <code>formik.errors</code></li>
+<li>Form values are indexed by the input&rsquo;s <code>name</code> property (e.g., &ldquo;title&rdquo;)</li>
+<li>Form errors are indexed by the input&rsquo;s <code>name</code> property (e.g., &ldquo;title&rdquo;)</li>
+</ul>
+<p>So we might have data structures like this (pseudocode):</p>
+<pre tabindex="0"><code>formik.values = { title: &#39;Raiders of the Lost Ark&#39; }
+</code></pre><h3 id="formiks-handlechange-and-handleblur">Formik&rsquo;s handleChange and handleBlur<a hidden class="anchor" aria-hidden="true" href="#formiks-handlechange-and-handleblur">#</a></h3>
+<p>Something that makes Formik easy to use is the way it consumes
+<code>onChange</code> and <code>onBlur</code> callback functions provided by native HTML input elements.
+These callbacks are called with HTML element <code>change</code> and <code>blur</code> events respectively.
+The flow looks something like this:</p>
+<ul>
+<li>An input&rsquo;s <code>onChange</code> prop is wired up using <code>formik.handleChange</code></li>
+<li>An input&rsquo;s <code>onBlur</code> prop is wired up using <code>formik.handleBlur</code></li>
+<li>An input invokes its <code>onChange</code> callback with a <code>change</code> event</li>
+<li>An input invokes its <code>onBlur</code> callback with a <code>blur</code> event</li>
+<li>Formik derives the value of the input from the <code>change</code> event</li>
+<li>Formik derives the touched state of the input from the <code>blur</code> event</li>
+</ul>
+<p>For both handlers, the <code>name</code> property of the input field does not have to be passed as an argument.
+Formik is smart enough to get the name of the input from the events raised by that input.
+Formik then uses that name to update its <code>formik.values</code> and <code>formik.touched</code> objects.</p>
+<pre tabindex="0"><code>&lt;input
+    type=&#34;text&#34;
+    onChange={formik.handleChange}
+    onBlur={formik.handleBlur}
+    value={formik.values.title}
+    name=&#34;title&#34;
+/&gt;
+</code></pre><p>Formik also uses the name of the input (&ldquo;title&rdquo;) to correlate the value taken from
+the input&rsquo;s <code>change</code> event with the values in Formik&rsquo;s state.</p>
+<h3 id="formiks-setfieldvalue-and-setfieldtouched">Formik&rsquo;s setFieldValue and setFieldTouched<a hidden class="anchor" aria-hidden="true" href="#formiks-setfieldvalue-and-setfieldtouched">#</a></h3>
+<p>If you want to create a custom input component (one that doesn&rsquo;t use an HTML input/textarea/etc. under the hood),
+Formik recommends you wire it up using <code>setFieldValue</code> and <code>setFieldTouched</code>. The docs say:</p>
+<ul>
+<li><code>setFieldValue</code> is &ldquo;useful for creating custom input change handlers&rdquo; and</li>
+<li><code>setFieldTouched</code> is &ldquo;useful for creating custom input blur handlers&rdquo;</li>
+</ul>
+<p>Consider a React component that acts like a custom input.
+Imagine that this <code>BerryPictureSelector</code> component allows the user to select a berry (strawberry, blueberry, etc.)
+by clicking its picture. The name of the field according to Formik (&ldquo;berry&rdquo;) is passed
+explicitly in <code>formik.setFieldValue</code> and <code>formik.setFieldTouched</code>.</p>
+<pre tabindex="0"><code>&lt;BerryPictureSelector
+    // Formik&#39;s recommended way to set values for custom input components
+    onChange={(selectedBerry) =&gt; formik.setFieldValue(&#34;berry&#34;, selectedBerry)}
+    // Formik&#39;s recommended way to set touched state for custom input components
+    onBlur={() =&gt; formik.setFieldTouched(&#34;berry&#34;)}
+    value={formik.values.berry}
+/&gt;
+</code></pre><p>If you were to use <code>formik.setFieldValue</code> and <code>formik.setFieldTouched</code>
+with a native HTML input element rather than using <code>onChange</code> and <code>onTouched</code>,
+it might look like the example below.
+Since it&rsquo;s a normal native HTML input, you&rsquo;d normally use
+the event-based <code>formik.handleChange</code> and <code>formik.handleBlur</code> functions;
+this example is solely pedagogical (don&rsquo;t do this in practice):</p>
+<pre tabindex="0"><code>// just an example, don&#39;t do this in practice!
+&lt;input
+    type=&#34;text&#34;
+    // a bit strange, using setFieldValue rather than handleChange
+    onChange={(event) =&gt; formik.setFieldValue(&#34;title&#34;, event.target.value)}
+    // a bit strange, using setFieldTouched rather than handleBlur
+    onBlur={(event) =&gt; formik.setFieldTouched(&#34;title&#34;)}
+    value={formik.values.title}
+    // we don&#39;t specify the name property here
+/&gt;
+</code></pre><h2 id="the-problem">The Problem<a hidden class="anchor" aria-hidden="true" href="#the-problem">#</a></h2>
+<p>While <code>setFieldValue</code> and <code>setFieldTouched</code> are useful escape hatches,
+in my opinion they shouldn’t be the primary way to connect Formik to custom input components.
+Given an arbitrary input (a native HTML input element or a custom component),
+developers shouldn&rsquo;t have to worry about <em>how</em> to connect it to Formik, so long as their component
+props conform to some loosely-defined interface.</p>
+<p>While handling interaction from native HTML input elements <em>is</em> different from handling interaction
+from custom input components, the distinction <em>should</em> only matter to Formik.
+Worse, if you consider these two things to be equivalent,
+<strong>Formik effectively gives you two
+different ways to do the same thing.</strong></p>
+<ul>
+<li>If I&rsquo;m using native inputs, I use <code>handleChange</code> and <code>handleBlur</code>.</li>
+<li>If I&rsquo;m using custom inputs, I use <code>setFieldValue</code> and <code>setFieldTouched</code>.</li>
+</ul>
+<p>It&rsquo;s not ideal. It&rsquo;s likely that I will end up with a codebase where, when connecting inputs
+to Formik, I have to know whether an input raises native HTML <code>change</code>/<code>blur</code> events or whether it invokes
+custom callbacks. This division  <em>should</em> be an implementation detail of Formik,
+but it adds mental overhead for developers for every form and input. Why can&rsquo;t my custom components
+just appear to Formik as if they&rsquo;re native HTML inputs and use the same pattern everywhere?</p>
+<h2 id="exploring-a-common-interface-custom-events">Exploring a Common Interface: Custom Events<a hidden class="anchor" aria-hidden="true" href="#exploring-a-common-interface-custom-events">#</a></h2>
+<p>Formik&rsquo;s <code>handleChange</code> and <code>handleBlur</code> functions are convenient because they
+leverage HTML element <code>change</code> and <code>blur</code> events which have metadata (e.g., the input name) necessary to
+correlate those callbacks with the relevant Formik state.</p>
+<p>It seems intuitive to me that, if I want to make a custom React component
+that behaves like an input, it should raise its own <code>change</code> and <code>blur</code> events.
+If all of my custom React components raised events in the format that Formik expects,
+I could just use <code>formik.handleChange</code> and <code>formik.handleBlur</code>.</p>
+<p>What I really want is a common event interface <em>for all</em> inputs, not just native HTML inputs.</p>
+<h2 id="formik-internals">Formik Internals<a hidden class="anchor" aria-hidden="true" href="#formik-internals">#</a></h2>
+<p>Formik defines event handlers for <code>handleBlur</code> and <code>handleChange</code>, among others.</p>
+<ul>
+<li><code>handleBlur</code> expects to receive a <code>React.FocusEvent&lt;any&gt;</code></li>
+<li><code>handleChange</code> expects to receive a <code>React.ChangeEvent&lt;any&gt;</code></li>
+<li>The implementation of <code>handleBlur</code> calls into <code>executeChange</code></li>
+<li>The implementation of <code>handleTouched</code> called into <code>executeBlur</code></li>
+</ul>
+<pre tabindex="0"><code>export interface FormikHandlers {
+  ...
+  // the interface/type of handleBlur
+  handleBlur: {
+    /** Classic React blur handler, keyed by input name */
+    (e: React.FocusEvent&lt;any&gt;): void;
+    /** Preact-like linkState. Will return a handleBlur function. */
+    &lt;T = string | any&gt;(fieldOrEvent: T): T extends string
+      ? (e: any) =&gt; void
+      : void;
+  };
+  // the interface/type of handleChange
+  handleChange: {
+    /** Classic React change handler, keyed by input name */
+    (e: React.ChangeEvent&lt;any&gt;): void;
+    /** Preact-like linkState. Will return a handleChange function.  */
+    &lt;T = string | React.ChangeEvent&lt;any&gt;&gt;(
+      field: T
+    ): T extends React.ChangeEvent&lt;any&gt;
+      ? void
+      : (e: string | React.ChangeEvent&lt;any&gt;) =&gt; void;
+  };
+  ...
+}
+
+// The implementation of handleBlur
+const handleBlur = useEventCallback&lt;FormikHandlers[&#39;handleBlur&#39;]&gt;(
+  (eventOrString: any): void | ((e: any) =&gt; void) =&gt; {
+    if (isString(eventOrString)) {
+      return event =&gt; executeBlur(event, eventOrString);
+    } else {
+      executeBlur(eventOrString);
+    }
+  }
+);
+
+// The implementation of handleChange
+const handleChange = useEventCallback&lt;FormikHandlers[&#39;handleChange&#39;]&gt;(
+  (
+    eventOrPath: string | React.ChangeEvent&lt;any&gt;
+  ): void | ((eventOrTextValue: string | React.ChangeEvent&lt;any&gt;) =&gt; void) =&gt; {
+    if (isString(eventOrPath)) {
+      return event =&gt; executeChange(event, eventOrPath);
+    } else {
+      executeChange(eventOrPath);
+    }
+  }
+);
+</code></pre><p>Both of these implementations are just thin wrappers around other functions:</p>
+<ul>
+<li><code>handleChange</code> wraps <code>executeChange</code></li>
+<li><code>handleBlur</code> wraps <code>executeBlur</code></li>
+</ul>
+<h3 id="formik-internals-executechange">Formik Internals, executeChange<a hidden class="anchor" aria-hidden="true" href="#formik-internals-executechange">#</a></h3>
+<p>Here&rsquo;s the implementation of <code>executeChange</code>:</p>
+<pre tabindex="0"><code>const executeChange = React.useCallback(
+  (eventOrTextValue: string | React.ChangeEvent&lt;any&gt;, maybePath?: string) =&gt; {
+    // By default, assume that the first argument is a string. This allows us to use
+    // handleChange with React Native and React Native Web&#39;s onChangeText prop which
+    // provides just the value of the input.
+    let field = maybePath;
+    let val = eventOrTextValue;
+    let parsed;
+    // If the first argument is not a string though, it has to be a synthetic React Event (or a fake one),
+    // so we handle like we would a normal HTML change event.
+    if (!isString(eventOrTextValue)) {
+      // If we can, persist the event
+      // @see https://reactjs.org/docs/events.html#event-pooling
+      if ((eventOrTextValue as any).persist) {
+        (eventOrTextValue as React.ChangeEvent&lt;any&gt;).persist();
+      }
+
+      // By default, Formik looks for the event target under event.target.
+      // React&#39;s BaseSyntheticEvent has both `target` and `currentTarget` props.
+      const target = eventOrTextValue.target
+        ? (eventOrTextValue as React.ChangeEvent&lt;any&gt;).target
+        : (eventOrTextValue as React.ChangeEvent&lt;any&gt;).currentTarget;
+
+      const {
+        type,
+        name,
+        id,
+        value,
+        checked,
+        outerHTML,
+        options,
+        multiple,
+      } = target;
+
+      field = maybePath ? maybePath : name ? name : id;
+      if (!field &amp;&amp; __DEV__) {
+        warnAboutMissingIdentifier({
+          htmlContent: outerHTML,
+          documentationAnchorLink: &#39;handlechange-e-reactchangeeventany--void&#39;,
+          handlerName: &#39;handleChange&#39;,
+        });
+      }
+      // This is where most of the actual event processing is performed,
+      // based on the type of event.target.type (or event.currentTarget.type)
+      val = /number|range/.test(type)
+        ? ((parsed = parseFloat(value)), isNaN(parsed) ? &#39;&#39; : parsed)
+        : /checkbox/.test(type) // checkboxes
+        ? getValueForCheckbox(getIn(state.values, field!), checked, value)
+        : options &amp;&amp; multiple // &lt;select multiple&gt;
+        ? getSelectedValues(options)
+        // The default, just grabs event.target.value
+        // (or event.currentTarget.value)
+        : value; 
+    }
+
+    if (field) {
+      // Set form fields by name
+      setFieldValue(field, val);
+    }
+  },
+  [setFieldValue, state.values]
+);
+</code></pre><p>Some things to note:</p>
+<ul>
+<li>Given an object, Formik will parse <code>event.target</code> and <code>event.currentTarget</code></li>
+<li>While there are various cases for parsing the event value based on its <code>type</code>,
+the default is simply to return value (i.e., from <code>event.target.value</code>)</li>
+<li><code>setFieldValue</code> takes an argument <code>field</code> that comes from <code>event.target.name</code></li>
+</ul>
+<p>So in the simplest case, if you want to satisfy the event-driven interface that native HTML inputs
+provide to Formik, but in a custom component, you just need to invoke <code>onChange</code> with an object that looks like:</p>
+<pre tabindex="0"><code>{ target: { name: &#39;xxx&#39;, value: &#39;yyy&#39; } }
+</code></pre><h3 id="formik-internals-executeblur">Formik Internals, executeBlur<a hidden class="anchor" aria-hidden="true" href="#formik-internals-executeblur">#</a></h3>
+<p>Here&rsquo;s the implemetation of <code>executeBlur</code>:</p>
+<pre tabindex="0"><code>const executeBlur = React.useCallback(
+    (e: any, path?: string) =&gt; {
+      if (e.persist) {
+        e.persist();
+      }
+      const { name, id, outerHTML } = e.target;
+      const field = path ? path : name ? name : id;
+
+      if (!field &amp;&amp; __DEV__) {
+        warnAboutMissingIdentifier({
+          htmlContent: outerHTML,
+          documentationAnchorLink: &#39;handleblur-e-any--void&#39;,
+          handlerName: &#39;handleBlur&#39;,
+        });
+      }
+
+      setFieldTouched(field, true); // handleBlur eventually calls this setter
+    },
+    [setFieldTouched]
+);
+</code></pre><p>I was surprised how much simpler this was than the implementation of <code>executeChange</code>.
+I also think it&rsquo;s useful to see that it always sets the touched status of a field to true.
+Assuming we only call <code>onBlur</code> with an event, it looks like that event just needs to be an object with a <code>name</code> property
+in order for it to play nice with Formik&rsquo;s <code>handleChange</code>.</p>
+<h2 id="raising-custom-events">Raising Custom Events<a hidden class="anchor" aria-hidden="true" href="#raising-custom-events">#</a></h2>
+<p>React defines <code>ChangeEvent&lt;...&gt;</code> and <code>FocusEvent&lt;...&gt;</code> as:</p>
+<pre tabindex="0"><code>interface ChangeEvent&lt;T = Element&gt; extends SyntheticEvent&lt;T&gt; {
+        target: EventTarget &amp; T;
+}
+
+interface FocusEvent&lt;Target = Element, RelatedTarget = Element&gt; extends SyntheticEvent&lt;Target, NativeFocusEvent&gt; {
+    relatedTarget: (EventTarget &amp; RelatedTarget) | null;
+    target: EventTarget &amp; Target;
+}
+</code></pre><p>Both extend from <code>SyntheticEvent</code>, defined as:</p>
+<pre tabindex="0"><code>interface SyntheticEvent&lt;T = Element, E = Event&gt; extends BaseSyntheticEvent&lt;E, EventTarget &amp; T, EventTarget&gt; {}
+</code></pre><p>Given knowledge of Formik&rsquo;s internals, if we just wanted a bare-minimum event for Formik, we could write something like:</p>
+<pre tabindex="0"><code>const event: React.ChangeEvent&lt;HTMLInputElement&gt; = {
+  target: {
+    value: &#39;some value&#39;,
+    type: &#39;text&#39;,
+  },
+} as React.ChangeEvent&lt;HTMLInputElement&gt;;
+</code></pre><p>We use the explicit cast to <code>React.ChangeEvent&lt;HTMLInputElement&gt;</code> because
+otherwise we would have to specify a few dozen properties of <code>HTMLInputElement</code> as properties of <code>target</code>.</p>
+<p>Also, we don&rsquo;t have to specify <code>type</code>. Apparently, if <code>RegExp.prototype.test()</code>
+is called with <code>undefined</code>, JavaScript will first convert it to a string, and then
+attempt all matches against the string &ldquo;undefined&rdquo;.
+Recall from earlier:</p>
+<pre tabindex="0"><code>// This is where most of the actual event processing is performed,
+// based on the type of event.target.type (or event.currentTarget.type)
+val = /number|range/.test(type)
+  ? ((parsed = parseFloat(value)), isNaN(parsed) ? &#39;&#39; : parsed)
+  : /checkbox/.test(type) // checkboxes
+  ? getValueForCheckbox(getIn(state.values, field!), checked, value)
+  : options &amp;&amp; multiple // &lt;select multiple&gt;
+  ? getSelectedValues(options)
+  // The default, just grabs event.target.value
+  // (or event.currentTarget.value)
+  : value;
+</code></pre><p>Technically, the string &ldquo;undefined&rdquo; doesn&rsquo;t match <code>/number|range/</code> or <code>/checkbox/</code>,
+so this will be evaluated as <code>val = value</code>. In practice, this is ungodly hacky
+and dependent on specific Formik internals. You might be better off manually
+specifying <code>event.target.type</code> as &ldquo;text&rdquo; or something similar, but <em>technically</em>
+the only thing that matters is that it doesn&rsquo;t match any of the more specific value parsing blocks 🤷</p>
+<h2 id="putting-it-all-together">Putting It All Together<a hidden class="anchor" aria-hidden="true" href="#putting-it-all-together">#</a></h2>
+<p>If you <em>really</em> wanted to use events as a common interface for all of your input components,
+and you <em>really</em> wanted to use Formik, you could probably do something akin to:</p>
+<pre tabindex="0"><code>type PseudoChangeEvent&lt;T&gt; = {
+  target: {
+    value: T;
+    type: &#39;text&#39;,
+  }
+}
+
+export function createPseudoChangeEvent&lt;T&gt;(value: T): React.ChangeEvent&lt;any&gt; {
+  const event: PseudoChangeEvent&lt;T&gt; = {
+    target: {
+      value,
+      type: &#39;text&#39;,
+    },
+  };
+  return event as React.ChangeEvent&lt;any&gt;;
+}
+</code></pre><p>Then inside your component, when you want to express to the outside world
+(e.g., to Formik) that your value has changed, you could create a new &ldquo;pseudo&rdquo; <code>change</code> event,
+and invoke your component&rsquo;s <code>onChange</code> callback with this event.</p>
+<p><strong>Full disclosure though, I&rsquo;ve never actually tried this.</strong></p>
+<p>And I don&rsquo;t actually think this is a good solution. One problem I can think of immediately
+is that, if anyone wanted to consume your component without using Formik, your <code>onChange</code>/<code>onBlur</code>
+interface is basically a lie. We&rsquo;re only providing the bare minimum information inside these events
+that we need to satisfy Formik. If someone writes code against our components expecting
+to get complete <code>React.FocusEvent</code> or <code>React.ChangeEvent</code> events in the <code>onBlur</code> and <code>onChange</code> callbacks,
+they might make an incorrect assumption that breaks things in a major way.</p>
+<p>This might be why the Formik authors recommend using <code>setFieldValue</code> and <code>setFieldTouched</code> in the first place,
+but I still don&rsquo;t like effectively having two different interfaces to my inputs in order to satisfy
+an implementation detail of Formik&rsquo;s.</p>
+<h2 id="closing-thoughts">Closing Thoughts<a hidden class="anchor" aria-hidden="true" href="#closing-thoughts">#</a></h2>
+<p>It seems like I have three options when using Formik:</p>
+<ol>
+<li>Use a mix of <code>handleChange</code>/<code>handleBlur</code> and <code>setFieldValue</code>/<code>setFieldTouched</code> and have to concern
+myself with whether a component uses native events. I don&rsquo;t like this out of principle because I shouldn&rsquo;t have to
+design my input component&rsquo;s APIs differently from one another based on implementation details imposed by Formik.</li>
+<li>Wrap every input in a component that hides any native events, using only <code>handleChange</code>/<code>handleBlur</code>
+across my application. This would simplify my interfaces, but lose the nice property that events usually (implicitly) include a <code>name</code></li>
+<li>Use <code>onChange</code>/<code>onBlur</code> everywhere, using a hacky pseudo event in all of my custom components
+to satisfy the interfaces of Formik&rsquo;s <code>handleChange</code> and <code>handleBlur</code> functions. This would improve
+consistency but add annoying boilerplate everywhere, and might cause issues when other things other than Formik
+attempt to consume the components (because the events aren&rsquo;t actually real and we do a lot of casting).</li>
+</ol>
+<p>Formik is okay. It works well enough for small projects and simple forms. But as soon as you
+try to build larger abstractions on top of Formik (e.g., form factories or form generation from API responses),
+the schism that is introduced by Formik&rsquo;s reliance on native events becomes an annoyance
+that carries through your codebase.</p>
+<p>At this point I think I&rsquo;m going to look for other form libraries 🙂<br>
+Maybe I&rsquo;ll write a post later complaining about <a href="https://react-hook-form.com/">React Hook Form</a>.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://juniperspring.xyz/tags/formik/">formik</a></li>
+      <li><a href="https://juniperspring.xyz/tags/react/">react</a></li>
+      <li><a href="https://juniperspring.xyz/tags/development/">development</a></li>
+      <li><a href="https://juniperspring.xyz/tags/events/">events</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://juniperspring.xyz/posts/thoughts-on-identicons/">
+    <span class="title">Next »</span>
+    <br>
+    <span>SSH Fingerprints, Identicons, and AI Face Generation</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share React, Formik, and Events on twitter"
+        href="https://twitter.com/intent/tweet/?text=React%2c%20Formik%2c%20and%20Events&amp;url=https%3a%2f%2fjuniperspring.xyz%2fposts%2fformik-events%2f&amp;hashtags=formik%2creact%2cdevelopment%2cevents">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share React, Formik, and Events on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjuniperspring.xyz%2fposts%2fformik-events%2f&amp;title=React%2c%20Formik%2c%20and%20Events&amp;summary=React%2c%20Formik%2c%20and%20Events&amp;source=https%3a%2f%2fjuniperspring.xyz%2fposts%2fformik-events%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share React, Formik, and Events on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fjuniperspring.xyz%2fposts%2fformik-events%2f&title=React%2c%20Formik%2c%20and%20Events">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share React, Formik, and Events on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fjuniperspring.xyz%2fposts%2fformik-events%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share React, Formik, and Events on whatsapp"
+        href="https://api.whatsapp.com/send?text=React%2c%20Formik%2c%20and%20Events%20-%20https%3a%2f%2fjuniperspring.xyz%2fposts%2fformik-events%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share React, Formik, and Events on telegram"
+        href="https://telegram.me/share/url?text=React%2c%20Formik%2c%20and%20Events&amp;url=https%3a%2f%2fjuniperspring.xyz%2fposts%2fformik-events%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://juniperspring.xyz">Juniperspring</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
