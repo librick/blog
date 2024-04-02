@@ -17,6 +17,8 @@ params.plausible:
 
 # See: https://github.com/adityatelange/hugo-PaperMod/wiki/Variables#site-variables-under-params
 params:
+    author: "Eric McDonald" # Appears in meta name="author" tag
+    description: "Personal Blog of Eric McDonald" # Appears in meta name="description" tag
     ShowToc: true
     ShowPostNavLinks: true
     ShowCodeCopyButtons: true

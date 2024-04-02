@@ -7,6 +7,11 @@
 
 :root {
 	--font-stack: -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, Oxygen, Ubuntu, Cantarell, "open sans", "helvetica neue", sans-serif;
+	--link-color: #bb86fc;
+	--link-color-hover: rgb(192, 161, 228);
+	--card-color: rgb(46, 46, 51);
+	--card-color-hover: rgb(56, 56, 61);
+	--card-color-border-hover: rgb(114, 97, 132);
 }
 
 div.logo a {
@@ -17,8 +22,29 @@ article header.entry-header h2 {
 	font-family: Ubuntu, var(--font-stack);
 }
 
-body.dark article header.entry-header h2 {
-	color: #bb86fc;
+body.dark article.post-entry {
+	background-color: var(--card-color);
+}
+
+body.dark article.post-entry header h2 {
+	color: var(--link-color);
+}
+
+@media (hover: hover) {
+	div.bio-cols img#profile:hover {
+		animation: psychedelic 4s;
+		animation-iteration-count: infinite;
+	}
+	body.dark article.post-entry:hover {
+		background-color: var(--card-color-hover);
+		transition: background-color 0.2s ease-in-out;
+		border: 1px solid var(--card-color-border-hover);
+		transition: border 0.1s ease-in-out;
+	}
+	body.dark article.post-entry:hover header h2 {
+		color: var(--link-color-hover);
+		transition: color 0.2s ease-in-out;
+	}
 }
 
 article.first-entry.home-info {
@@ -51,10 +77,6 @@ div.bio-cols img#profile {
 	width: auto;
 	border-radius: var(--radius);
 	margin-top: var(--gap);
-}
-div.bio-cols img#profile:hover {
-    animation: psychedelic 4s;
-    animation-iteration-count: infinite;
 }
 div.bio-cols a span {
     color: rgb(114, 152, 248);
