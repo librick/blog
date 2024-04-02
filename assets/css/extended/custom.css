@@ -7,11 +7,11 @@
 
 :root {
 	--font-stack: -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, Oxygen, Ubuntu, Cantarell, "open sans", "helvetica neue", sans-serif;
-	--link-color: #bb86fc;
-	--link-color-hover: rgb(192, 161, 228);
+	--link-color: rgb(114, 152, 248);
+	--link-color-hover: rgb(116, 146, 226);
 	--card-color: rgb(46, 46, 51);
 	--card-color-hover: rgb(56, 56, 61);
-	--card-color-border-hover: rgb(114, 97, 132);
+	--card-color-border-hover: rgb(115, 144, 224);
 }
 
 div.logo a {
@@ -79,7 +79,7 @@ div.bio-cols img#profile {
 	margin-top: var(--gap);
 }
 div.bio-cols a span {
-    color: rgb(114, 152, 248);
+    color: var(--link-color);
     text-decoration: underline;
 }
 #ens {
