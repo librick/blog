@@ -1,6 +1,6 @@
 # Blog
 Personal blog, written with Hugo.  
-[https://juniperspring.xyz](https://juniperspring.xyz)
+[https://juniperspring.org](https://juniperspring.org)
 
 ## Analytics
 Analytics are handled by Plausible.  
@@ -20,4 +20,4 @@ Verify that cspell is installed and is in your $PATH:
 cspell configuration is handled via `cspell.json`. For more information, see the [cspell configuration docs](https://cspell.org/configuration/).
 
 ## Support My Work
-https://juniperspring.xyz/posts/support-me/
+https://juniperspring.org/posts/support-me/
