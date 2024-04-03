@@ -11,7 +11,7 @@ The Cleveland Air Show[^1][^2] sucks.
 - The Cleveland Air Show causes noise pollution
 - The Cleveland Air Show causes air pollution
 
-**Labor Day weekend should be a celebration of the labor movement and workers rights, not a jingoistic endorsement of the military industrial complex.** Why should people across Greater Cleveland put up with the sound of fighter jets buzzing their homes and workplaces?
+**Labor Day weekend should be a celebration of the labor movement and workers rights, not a jingoistic endorsement of the military-industrial complex.** Why should people across Greater Cleveland put up with the sound of fighter jets buzzing their homes and workplaces?
 It's not just on Labor Day itself, either. The exercises start several days in advance.
 And the organizers have the audacity to charge admittance!
 

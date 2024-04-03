@@ -29,22 +29,22 @@ when invoked, would take a public key on stdin and produce an image file on stdo
 emulator.
 
 I'm not the first person to consider modern SSH fingerprint algorithms. Cipriani[^3] has a thorough article on the subject that
-references the original implementation and paper[^4]. Cipriani provides their own implementation using Unicode characters and
+references the original implementation and paper[^4]. Cipriani provides their implementation using Unicode characters and
 colors, but ultimately concludes with a noteworthy point:
 >I think the problem of memory persists.
 >We’re good at remembering regular pictures, but do abstract pictures count as regular?
 
 This reminded me of something I've thought of before but haven't put into words until now.
-We have the ability to generate fake pictures of people[^5][^6], and humans are decent at remembering faces.
+We can generate fake pictures of people[^5][^6], and humans are decent at remembering faces.
 At least, from anecdotal evidence, I think I'm more likely to remember a face than an abstract pattern.
 
-You've probably seen Wavatars before[^7], even if you didn't know the name for them at the time.
+You've probably seen Wavatars before[^7], even if you didn't know the name of them at the time.
 I assume that Wavatars were and are widely used because they are memorable (and because of an innate human desire to create
 things after our likeness). It seems logical that, if we want to make sure SSH keys come from a certain human,
 making the key fingerprints themselves look like humans would be useful.
 
 **Imagine an identicon algorithm that generated realistic human faces.
-If you saw that identicon on a regular basis, and it suddenly changed, would you notice?**
+If you saw that identicon regularly, and it suddenly changed, would you notice?**
 Is the probability of you noticing greater than if you were to use an existing abstract/geometric identicon algorithm instead?
 
 For lack of effort, I'll refer to these as "AI face identicons".

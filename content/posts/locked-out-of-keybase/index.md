@@ -18,7 +18,7 @@ keybase account lockdown
 keybase logout
 ```
 
-Apparently those are bad commands to run when you've revoked all other devices and forgot your Keybase password. I still have keys for one of my devices, but AFAIK they're encrypted with some secret derived from my Keybase password.
+Apparently, those are bad commands to run when you've revoked all other devices and forgot your Keybase password. I still have keys for one of my devices, but AFAIK they're encrypted with some secret derived from my Keybase password.
 
 juniperspring is digitally stateless now 😔⛵
 unmoored and untethered from Keybase, my account lives on in Merkle forest hashes,

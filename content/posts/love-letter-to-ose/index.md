@@ -7,24 +7,24 @@ tags: ['personal', 'ose']
 
 ![Bunk bed and cat](2021-09-ose-hablab-cat-and-bed.jpg "Wikey naps above my bed")
 
-Last September (2021), I had the privilege to attend the [OSE Summer of Extreme Design-Build](https://www.opensourceecology.org/summer-x-2021/). During the early summer months in Cleveland, I signed up to attend one month of the 90-day program. As summer wound down, I wrapped up some software contracting work, picked up a pair of steel toe boots, loaded up my car, and drove 12 hours down to the middle-of-nowhere Missouri.
+Last September (2021), I had the privilege to attend the [OSE Summer of Extreme Design-Build](https://www.opensourceecology.org/summer-x-2021/). During the early summer months in Cleveland, I signed up to attend one month of the 90-day program. As summer wound down, I wrapped up some software contracting work, picked up a pair of steel-toe boots, loaded up my car, and drove 12 hours down to the middle-of-nowhere Missouri.
 
 If you're not familiar with Marcin Jakubowski or Open Source Ecology (OSE), check out the [OSE website](https://www.opensourceecology.org/) and [OSE wiki](https://wiki.opensourceecology.org/wiki/Main_page).
 
-*I am not paid by OSE. I am not affiliated with any of the legal/financial aspects of OSE. My opinions are my own and do not necessarily represent the opinions of Marcin Jakubowski nor OSE.*
+*I am not paid by OSE. I am not affiliated with any of the legal/financial aspects of OSE. My opinions are my own and do not necessarily represent the opinions of Marcin Jakubowski or OSE.*
 
 ## Setting Out
 
 The OSE campus, [Factor e Farm (FeF)](https://www.opensourceecology.org/about-factor-e-farm/), is located about an hour north of Kansas City.
 As a native Ohioan, used to winter-worn roads policed by the praetorian Ohio State Troopers, the drive through Missouri was serene. The freeways are in great shape and the roads stretch for miles into the horizon across America's heartland.
 
-I neared Factor e Farm sometime around 10pm. While close to the freeway, getting to FeF requires
-taking a side road delineated only by a small mile marker sign; there's not much of an exit ramp. Fortunately, the Missouri freeway system has another endearing quirk. Exits are spaced far apart, but the central median is intersected by small turn-arounds that allow you to change direction. After a driving in a few circles in the dark, I found the side road.
+I neared Factor e Farm sometime around 10:00 p.m. While close to the freeway, getting to FeF requires
+taking a side road delineated only by a small mile marker sign; there's not much of an exit ramp. Fortunately, the Missouri freeway system has another endearing quirk. Exits are spaced far apart, but the central median is intersected by small turnarounds that allow you to change direction. After driving in a few circles in the dark, I found the side road.
 
 A homemade tractor in my driver's side view was the first indicator that I was in the right place.
 From there, I drove up a gravel road and followed the sound of voices to the building that I would affectionately
 come to know as the HabLab. After informal introductions with friends sitting around a fire,
-I made my way inside, and found an open bunk in a side room.
+I made my way inside and found an open bunk in a side room.
 
 ## People
 
@@ -34,10 +34,10 @@ Geographic diversity was matched by a diversity of professions, from mechanical 
 
 ## Projects
 
-The month was divided into five separate projects. In the span of a month we put up the frame of a house, built a greenhouse, assembled 3D printers, and welded together a tractor out of 4x4 square tubing.
+The month was divided into five separate projects. In the span of a month, we put up the frame of a house, built a greenhouse, assembled 3D printers, and welded together a tractor out of 4x4 square tubing.
 
 ### Seed Eco-Home
-September started with the Seed Eco-Home, a modular home design built from individual panels to be assembled like a lego set.
+September started with the Seed Eco-Home, a modular home design built from individual panels to be assembled like a Lego set.
 <br><br>
 [OSE Wiki: Seed Eco-Home](https://wiki.opensourceecology.org/wiki/Seed_Eco-Home)<br>
 [OSE Wiki: Seed Eco-Home v2](https://wiki.opensourceecology.org/wiki/Seed_Home_v2)
@@ -90,7 +90,7 @@ it was assembled completely on-site at the FeF workshop.
 ![Tractor frame and winch](2021-09-ose-lifetrac-frame-and-winch.jpg "Aligning the central axle with the bearings required plenty of brute-force strength, using a winch to hold the weight")
 
 #### LifeTrac Wheels
-One of the tenants of Open Source Ecology is lifetime design. Metal wheels prevent the need for tire changes (albeit in exchange for a rougher ride). Marcin has a particular affinity for rebar. Rebar found its way into everything - tractor wheel spokes, the PowerCube frame, and even the FeF mailbox post.
+One of the tenets of Open Source Ecology is lifetime design. Metal wheels prevent the need for tire changes (albeit in exchange for a rougher ride). Marcin has a particular affinity for rebar. Rebar found its way into everything - tractor wheel spokes, the PowerCube frame, and even the FeF mailbox post.
 
 ![Tractor wheels with rebar spokes](2021-09-ose-lifetrac-with-wheels.jpg "LifeTrac tractor with welded steel wheels, rebar spokes, and a hydraulic drivetrain input")<br>
 ![Tractor drivetrain](2021-09-ose-lifetrac-hydraulic-interface.jpg "Profile of the LifeTrac wheel drivetrain and hydraulic motor")<br>
@@ -98,12 +98,12 @@ One of the tenants of Open Source Ecology is lifetime design. Metal wheels preve
 
 #### LifeTrac PowerCube
 
-I remember reading about the Lifetrac prior to OSE and wondering about one of its more peculiar components, a modular power supply called the [PowerCube](https://wiki.opensourceecology.org/wiki/Power_Cube).
+I remember reading about the Lifetrac before OSE and wondering about one of its more peculiar components, a modular power supply called the [PowerCube](https://wiki.opensourceecology.org/wiki/Power_Cube).
 It's essentially a conventional engine hooked up to a hydraulic pump, all contained within a steel frame.
 
 ![PowerCube](2021-09-ose-powercube.jpg "PowerCube from a preexisting tractor. The steel tube frame was used for prototyping; our build utilized a simpler rebar frame.")
 
-I thought it odd that a PhD physicist would settle on a design with inherent energy loss; the transfer of energy from the engine to the hydraulic pump to the final output is seemingly non-negligible.
+I thought it odd that a Ph.D. physicist would settle on a design with inherent energy loss; the transfer of energy from the engine to the hydraulic pump to the final output is seemingly non-negligible.
 
 The benefit is modularity. During the construction of the LifeTrac, Marcin drove an older tractor into the workshop, connected its hydraulic output from a PowerCube into a custom-built sheering machine, and used the power from the older tractor to cut the steel for the new tractor.
 
@@ -113,23 +113,23 @@ Modularity also allows for horizontal scaling. To add more power you only have t
 
 ## Day-to-Day Life at Factor&nbsp;e&nbsp;Farm
 
-Mornings started anywhere from 7am to 8am, with daily morning meetings at 9am. If he wasn't already at the workshop, Marcin would drive from his house on the back of the property to HabLab where we were staying. Meetings were livestreamed and recorded. For the most part, meetings discussed the plan of attack of that day, what needed to be done, and who was available to do it. After the meetings, we'd head down to the workshop.
+Mornings started anywhere from 7:00 a.m. to 8:00 a.m., with daily morning meetings at 9:00 a.m. If he wasn't already at the workshop, Marcin would drive from his house on the back of the property to HabLab where we were staying. Meetings were livestreamed and recorded. For the most part, meetings discussed the plan of attack of that day, what needed to be done, and who was available to do it. After the meetings, we'd head down to the workshop.
 
 ![Meeting at the HabLab](2021-09-ose-hablab-collaboration.jpg "Morning meeting with Marcin and friends at the HabLab")<br>
 ![FeF Workshop](2021-09-ose-workshop.jpg "Busy at work in the Factor e Farm workshop. In this case, building modules for the walls of the Seed Eco-Home")
 
-Around noon or 1pm we'd stop for lunch. The work schedule was flexible given that we were all volunteers. People often ventured out for food. My personal favorite lunch spot was a Mennonite store on the other side of town.
+Around noon or 1:00 p.m. we'd stop for lunch. The work schedule was flexible given that we were all volunteers. People often ventured out for food. My favorite lunch spot was a Mennonite store on the other side of town.
 The Missouri weather was cool in the mornings, and warm and sunny at lunch, perfect for eating outside. Some of the international visitors also turned out to be exceptional cooks (big thanks to everyone who helped prepare food!).
 
 For dinner, an early and popular proposal from the male-dominated group was to outfit the HabLab with an outdoor grill. Any food that could be grilled was grilled. Burgers, chicken, and steak closed out the day. During and after dinner, people either convened for impromptu presentations within the HabLab, sat outside by a fire under the stars, or finished some last-minute work at the workshop.
 
-Evening presentations were particularly invaluable (shout-out to Paul 2 for his persistence in getting those set up). Presentations were open-ended and gave a chance for anyone staying at the HabLab to speak about areas of interest. Topics ranged from land trusts, cooperatives, urban revitalization (shout-out to Paul 1), and to software development and engineering. 
+Evening presentations were particularly invaluable (shout-out to Paul 2 for his persistence in getting those set up). Presentations were open-ended and gave a chance for anyone staying at the HabLab to speak about areas of interest. Topics ranged from land trusts, cooperatives, urban revitalization (shout-out to Paul 1), and software development and engineering. 
 
-## Problem Solving in a Shared Space
+## Problem-Solving in a Shared Space
 
 Living in a shared space is not without its challenges. Dishes pile up, food brings insects (Missouri is home to the largest bugs I've ever seen), meals need to be organized, and initiative needs to be taken. Fruit flies were particularly incessant when I first arrived, as the HabLab had been sparsely inhabited prior. Hot showers were a novelty when the propane heaters were working correctly. Field mice left tell-tale signs of destruction around open food containers.
 
-One of the benefits of living among engineers and problem-solvers was that, when there was an issue, people actively worked together to find a solution. Fruit flies were brought under control within the first few days. The quirks of the propane water heaters were understood. Mouse traps and plastic food bins kept unwanted visitors away. A local cat named "Wikey" throw her evolutionary might behind the latter effort. (I was a big fan of Wikey.)
+One of the benefits of living among engineers and problem-solvers was that, when there was an issue, people actively worked together to find a solution. Fruit flies were brought under control within the first few days. The quirks of the propane water heaters were understood. Mouse traps and plastic food bins kept unwanted visitors away. A local cat named "Wikey" threw her evolutionary might behind the latter effort. (I was a big fan of Wikey.)
  
 I found myself to be comfortable at HabLab. Any issues that did arise only served to strengthen group cohesion and encourage problem-solving and dialogue. The environment we shared was the environment we created.
 

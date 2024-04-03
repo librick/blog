@@ -10,10 +10,10 @@ Image sourced from [Wikimedia](https://commons.wikimedia.org/wiki/File:Berlin_-_
 attributed according to the Creative Commons Attribution 2.0 Generic license.
 
 ## Motivation
-Time-Based One Time Password (TOTP) authentication is extremely beneficial.
+Time-Based One-Time Password (TOTP) authentication is extremely beneficial.
 It lets you quickly add two&#8209;factor authentication (2FA) to online accounts according
 to a simple and open standard. Simply scan a QR code into a TOTP app like [Aegis](https://github.com/beemdevelopment/Aegis).
-As long as you have access to your phone, you can then use the TOTP app to generate 2FA codes whenever need be.
+As long as you have access to your phone, you can then use the TOTP app to generate 2FA codes as needed.
 No risk of [SIM swapping](https://en.wikipedia.org/wiki/SIM_swap_scam), no need for SMS reception or a phone number, and no need for proprietary 2FA apps.
 
 **But TOTP as it's currently widely implemented has a shortcoming; it doesn't prevent phishing attacks.**
@@ -30,9 +30,9 @@ Existing TOTP implementations *don't* authenticate websites to users (think "I'm
 ## Bi-Directional Alternative
 Imagine the scenario where, in addition to asking you for your TOTP code (let's call this `z`), a website also provided you with its own TOTP code (let's call this `z'`).
 Within your authenticator app, you'd select the desired website from a list of stored websites.
-But rather than being shown a TOTP code right away (`z`), you'd be prompted for the TOTP code provided from the website (`z'`).
+But rather than being shown a TOTP code right away (`z`), you'd be prompted for the TOTP code provided by the website (`z'`).
 
-If the website is a phishing website, they can't produce valid TOTP codes `z` or `z'`.
+If the website is a phishing website, it can't produce valid TOTP codes `z` or `z'`.
 Your authenticator app would check that the TOTP code provided by the website (`z'`) is valid.
 The legitimate website would check that the TOTP code provided by your authenticator app (`z`) is valid.
 
@@ -80,7 +80,7 @@ Rather than generate a new key `k'` just for website-to-client authentication, i
 For example, implementations could use a [key derivation function](https://en.wikipedia.org/wiki/Key_derivation_function)
 such as Argon2 or PBKDF2, taking as inputs `K` and some salt which is fixed for the protocol.
 
-The biggest advantages to this approach is that it negates the need for network transmission of `k'` upon enrollment.
+The advantage to this approach is that it negates the need for network transmission of `k'` upon enrollment.
 It also allows for finer-grained time/value tradeoffs to be made regarding when `k'` is derived and stored.
 The drawback is added complexity and an increased implementation attack surface.
 
@@ -95,7 +95,7 @@ TOTP limits accessibility by using short timeouts (30 seconds by default).
 Adding a second code implies a twofold increase in the amount of time required by a user to authenticate to a service.
 Further, TOTP codes aren't intuitive to a non-technical audience. In my opinion, this is evidenced by a lack of wider adoption. Adding a second code to the mix only increases the potential for confusion.
 
-I understand the absence of a widely-implemented bi-directional TOTP standard in light of these constraints.
+I understand the absence of a widely implemented bi-directional TOTP standard in light of these constraints.
 
 
 ## Appendix: Phishing vs TOTP Timeouts
