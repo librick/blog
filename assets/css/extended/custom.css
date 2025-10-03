@@ -91,3 +91,24 @@ div.bio-cols a span {
 	display: inline-block;
 	margin-left: -5px;
 }
+
+div.banner {
+	border: 4px solid rgb(92, 184, 92);
+	background: rgba(234, 245, 234, 0.1);
+	padding: 32px 16px;
+	border-radius: 12px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+div.banner .title {
+	font-family: 'averia libre';
+	font-size: 22px;
+	font-weight: bold;
+	margin-bottom: 16px;
+}
+div.banner .subtitle {
+	font-weight: 300;
+}
