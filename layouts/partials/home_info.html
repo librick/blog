@@ -1,9 +1,13 @@
 {{- with site.Params.homeInfoParams }}
 <article class="first-entry home-info">
+    {{- with site.GetPage "/banner" }}
+    {{- if .Params.enabled }}
     <div class="banner">
-        <p class="title">Long Live WCSB Cleveland! 📡✊</p>
-        <p class="subtitle">Support independent, student-run radio.<br/><br/> Cleveland State University pays their board members $200k+ a seat so they can tell the public they can't afford a radio station. To Ideastream Public Media and the Cleveland State University Board of Trustees, fuck off!</p>
+        <p class="title">{{ .Title | safeHTML }}</p>
+        <div class="subtitle">{{ .Content }}</div>
     </div>
+    {{- end }}
+    {{- end }}
     <div class="bio-cols">
         <img id="profile" src="/images/profile.png" />
         <div>
