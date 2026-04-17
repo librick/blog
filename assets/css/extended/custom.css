@@ -49,7 +49,8 @@ body.dark article.post-entry header h2 {
 
 article.first-entry.home-info {
     padding: 0;
-    margin: 0;
+    margin: calc(var(--gap) * 1.5) 0;
+	min-height: auto;
 }
 
 @keyframes psychedelic {
@@ -72,11 +73,11 @@ div.bio-cols {
 	grid-template-columns: 128px 1fr;
 	justify-content: center;
 	gap: var(--gap);
+	margin-bottom: calc(var(--gap) * 0.33);
 }
 div.bio-cols img#profile {
 	width: auto;
 	border-radius: var(--radius);
-	margin-top: var(--gap);
 }
 div.bio-cols a span {
     color: var(--link-color);
