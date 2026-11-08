@@ -26,7 +26,6 @@ params:
     ShowPostNavLinks: true
     ShowCodeCopyButtons: true
     ShowShareButtons: true
-    ShowReadingTime: true
     hideSummary: true
     defaultTheme: dark
     label:
