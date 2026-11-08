@@ -3,6 +3,9 @@ languageCode: 'en-us'
 title: 'Juniperspring'
 theme: 'github.com/adityatelange/hugo-PaperMod'
 
+pagination:
+    pagerSize: 10000
+
 module:
     - module.imports:
         path: 'github.com/divinerites/plausible-hugo'
