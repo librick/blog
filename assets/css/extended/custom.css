@@ -79,20 +79,6 @@ div.bio-cols img#profile {
 	width: auto;
 	border-radius: var(--radius);
 }
-div.bio-cols a span {
-    color: var(--link-color);
-    text-decoration: underline;
-}
-#ens {
-	display: flex;
-	align-items: center;
-	line-height: 2rem;
-}
-#ens img {
-	display: inline-block;
-	margin-left: -5px;
-}
-
 div.banner {
 	border: 4px solid rgb(92, 184, 92);
 	background: rgba(234, 245, 234, 0.1);
