@@ -99,6 +99,16 @@ article.post-entry header h2 {
 	transition: color 120ms ease;
 }
 
+.posts-mobile .entry-header h2 {
+	font-size: 20px;
+	font-weight: 600;
+	text-wrap: pretty;
+}
+
+.posts-mobile .entry-footer {
+	margin-top: 2px;
+}
+
 article.post-entry:has(.entry-link:focus-visible) {
 	background-color: var(--accent-tint);
 }
