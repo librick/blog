@@ -5,7 +5,7 @@ tags: ['identicon', 'ssh', 'ai', 'dall-e', 'fingerprint']
 ---
 
 While playing around with SSH and Git, I reflected on how SSH's key fingerprints are essentially an early form of identicon:
-```
+```plaintext
 The key fingerprint is:
 SHA256:xtaA8biLm/Jktn9A/j2sty686uosrRtz0GQIFw6nP2s root@bionic
 The key's randomart image is:

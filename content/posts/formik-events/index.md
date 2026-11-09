@@ -28,7 +28,7 @@ in general and why I'll probably look elsewhere for my next big project.
 ### Brief Introduction to Formik 
 Formik provides a convenient way to wire up native HTML input elements to Formik forms.
 Take the following example:
-```
+```tsx
 import React from 'react';
 import { useFormik } from 'formik';
 
@@ -73,7 +73,7 @@ Some quick notes about Formik's API:
 - Form errors are indexed by the input's `name` property (e.g., "title")
 
 So we might have data structures like this (pseudocode):
-```
+```js
 formik.values = { title: 'Raiders of the Lost Ark' }
 ```
 
@@ -93,7 +93,7 @@ For both handlers, the `name` property of the input field does not have to be pa
 Formik is smart enough to get the name of the input from the events raised by that input.
 Formik then uses that name to update its `formik.values` and `formik.touched` objects.
 
-```
+```tsx
 <input
     type="text"
     onChange={formik.handleChange}
@@ -115,7 +115,7 @@ Consider a React component that acts like a custom input.
 Imagine that this `BerryPictureSelector` component allows the user to select a berry (strawberry, blueberry, etc.)
 by clicking its picture. The name of the field according to Formik ("berry") is passed
 explicitly in `formik.setFieldValue` and `formik.setFieldTouched`.
-```
+```tsx
 <BerryPictureSelector
     // Formik's recommended way to set values for custom input components
     onChange={(selectedBerry) => formik.setFieldValue("berry", selectedBerry)}
@@ -131,7 +131,7 @@ it might look like the example below.
 Since it's a normal native HTML input, you'd normally use 
 the event-based `formik.handleChange` and `formik.handleBlur` functions;
 this example is solely pedagogical (don't do this in practice):
-```
+```tsx
 // just an example, don't do this in practice!
 <input
     type="text"
@@ -184,7 +184,7 @@ Formik defines event handlers for `handleBlur` and `handleChange`, among others.
 - The implementation of `handleBlur` calls into `executeChange`
 - The implementation of `handleTouched` called into `executeBlur`
 
-```
+```ts
 export interface FormikHandlers {
   ...
   // the interface/type of handleBlur
@@ -241,7 +241,7 @@ Both of these implementations are just thin wrappers around other functions:
 
 ### Formik Internals, executeChange
 Here's the implementation of `executeChange`:
-```
+```ts
 const executeChange = React.useCallback(
   (eventOrTextValue: string | React.ChangeEvent<any>, maybePath?: string) => {
     // By default, assume that the first argument is a string. This allows us to use
@@ -313,14 +313,14 @@ the default is simply to return value (i.e., from `event.target.value`)
 
 So in the simplest case, if you want to satisfy the event-driven interface that native HTML inputs
 provide to Formik, but in a custom component, you just need to invoke `onChange` with an object that looks like:
-```
+```js
 { target: { name: 'xxx', value: 'yyy' } }
 ```
 
 ### Formik Internals, executeBlur
 Here's the implemetation of `executeBlur`:
 
-```
+```ts
 const executeBlur = React.useCallback(
     (e: any, path?: string) => {
       if (e.persist) {
@@ -351,7 +351,7 @@ in order for it to play nice with Formik's `handleChange`.
 
 ## Raising Custom Events
 React defines `ChangeEvent<...>` and `FocusEvent<...>` as:
-```
+```ts
 interface ChangeEvent<T = Element> extends SyntheticEvent<T> {
         target: EventTarget & T;
 }
@@ -362,12 +362,12 @@ interface FocusEvent<Target = Element, RelatedTarget = Element> extends Syntheti
 }
 ```
 Both extend from `SyntheticEvent`, defined as:
-```
+```ts
 interface SyntheticEvent<T = Element, E = Event> extends BaseSyntheticEvent<E, EventTarget & T, EventTarget> {}
 ```
 
 Given knowledge of Formik's internals, if we just wanted a bare-minimum event for Formik, we could write something like:
-```
+```ts
 const event: React.ChangeEvent<HTMLInputElement> = {
   target: {
     value: 'some value',
@@ -382,7 +382,7 @@ Also, we don't have to specify `type`. Apparently, if `RegExp.prototype.test()`
 is called with `undefined`, JavaScript will first convert it to a string, and then
 attempt all matches against the string "undefined".
 Recall from earlier:
-```
+```ts
 // This is where most of the actual event processing is performed,
 // based on the type of event.target.type (or event.currentTarget.type)
 val = /number|range/.test(type)
@@ -404,7 +404,7 @@ the only thing that matters is that it doesn't match any of the more specific va
 ## Putting It All Together
 If you *really* wanted to use events as a common interface for all of your input components,
 and you *really* wanted to use Formik, you could probably do something akin to:
-```
+```ts
 type PseudoChangeEvent<T> = {
   target: {
     value: T;

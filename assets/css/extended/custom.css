@@ -205,6 +205,10 @@ div.banner .subtitle {
 	display: none;
 }
 
+.chroma .err {
+	color: inherit;
+}
+
 .posts-desktop {
 	display: none;
 }

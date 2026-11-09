@@ -10,7 +10,7 @@ I wanted to explore the DNS records of juniperspring.xyz related to DNSSEC.
 An introductory understanding of DNSSEC, elliptic curve cryptography, and ECDSA is recommended for this post; recommended reading is provided as references[^1][^2].
 
 Running `dig juniperspring.xyz dnskey` returns two records:
-```
+```plaintext
 ;; ANSWER SECTION:
 juniperspring.xyz.  3316    IN  DNSKEY  256 3 13 SGjhjkfPUdkl+lMIVSh0m/VBULv8dzacEjLi8F9ykoCTDxFYPMQQpYv+ mOPkEMdbFuoS11uZn7gijI4d/BMMjw==
 juniperspring.xyz.  3316    IN  DNSKEY  257 3 13 T428PVvB2uqJg1NaUXEoh+9lt1jbwx1Dqqu1had5cp7R48NEiGcTZlg8 +wdzDtnQrJosM+2G8fCrxnKJxYNJoQ==
@@ -49,7 +49,7 @@ SGjhjkfPUdkl+lMIVSh0m/VBULv8dzacEjLi8F9ykoCTDxFYPMQQpYv+ mOPkEMdbFuoS11uZn7gijI4
 T428PVvB2uqJg1NaUXEoh+9lt1jbwx1Dqqu1had5cp7R48NEiGcTZlg8 +wdzDtnQrJosM+2G8fCrxnKJxYNJoQ==
 ```
 I convert these strings to hex with JavaScript:
-```javascript
+```js
 let zsk = 'SGjhjkfPUdkl+lMIVSh0m/VBULv8dzacEjLi8F9ykoCTDxFYPMQQpYv+ mOPkEMdbFuoS11uZn7gijI4d/BMMjw=='
 let ksk = 'T428PVvB2uqJg1NaUXEoh+9lt1jbwx1Dqqu1had5cp7R48NEiGcTZlg8 +wdzDtnQrJosM+2G8fCrxnKJxYNJoQ=='
 let b64ToHex = (b64) => [...atob(b64)].map(c=> c.charCodeAt(0).toString(16).padStart(2,0)).join('')

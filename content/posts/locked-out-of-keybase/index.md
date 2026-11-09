@@ -13,7 +13,7 @@ See my GitHub gist for more info: [https://gist.github.com/librick/8070876676dc0
 
 I lost access to my Keybase account.
 I was playing around with the CLI and ran the following commands:  
-```
+```plaintext
 keybase account lockdown
 keybase logout
 ```
