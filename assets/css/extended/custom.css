@@ -14,6 +14,7 @@
 	--link-underline: #c6c7cb;
 	--accent: #5b4bb5;
 	--accent-tint: #efecfb;
+	--accent-tap: rgba(91, 75, 181, 0.15);
 }
 
 :root[data-theme="dark"] {
@@ -21,9 +22,11 @@
 	--link-underline: #55565a;
 	--accent: #c3b9f7;
 	--accent-tint: #2b2a38;
+	--accent-tap: rgba(195, 185, 247, 0.15);
 }
 
 .home-name {
+	grid-area: name;
 	font-family: var(--font-stack);
 	font-size: 22px;
 	font-weight: 700;
@@ -32,17 +35,16 @@
 }
 
 .home-roles {
+	grid-area: roles;
+	margin-top: 4px;
+	font-size: 16px;
 	line-height: 22px;
-}
-
-.home-info .entry-content {
-	display: flex;
-	flex-direction: column;
-	row-gap: 4px;
-	overflow: visible;
+	color: var(--secondary);
 }
 
 .social-icons {
+	grid-area: links;
+	margin-top: 4px;
 	display: flex;
 	flex-wrap: wrap;
 	column-gap: 18px;
@@ -90,6 +92,7 @@ article header.entry-header h2 {
 
 article.post-entry {
 	transition: transform 0.1s, background-color 120ms ease;
+	-webkit-tap-highlight-color: var(--accent-tap);
 }
 
 article.post-entry header h2 {
@@ -121,6 +124,14 @@ article.post-entry:has(.entry-link:focus-visible) header h2 {
 	article.post-entry:hover header h2 {
 		color: var(--accent);
 	}
+
+	.posts-desktop a:hover {
+		background-color: var(--accent-tint);
+	}
+
+	.posts-desktop a:hover span {
+		color: var(--accent);
+	}
 }
 
 article.first-entry.home-info {
@@ -147,15 +158,46 @@ article.first-entry.home-info {
 div.bio-cols {
 	display: grid;
 	grid-template-columns: 5rem 1fr;
+	grid-template-rows: 1fr auto auto auto 1fr;
+	grid-template-areas:
+		"photo ."
+		"photo name"
+		"photo roles"
+		"photo links"
+		"photo .";
 	justify-content: center;
 	align-items: center;
-	gap: var(--gap);
+	column-gap: var(--gap);
 }
 div.bio-cols img#profile {
+	grid-area: photo;
 	width: 5rem;
 	height: 5rem;
+	object-fit: cover;
 	border-radius: var(--radius);
 }
+
+@media screen and (max-width: 768px) {
+	div.bio-cols {
+		grid-template-columns: 3rem 1fr;
+		grid-template-rows: auto;
+		grid-template-areas:
+			"photo name"
+			"roles roles"
+			"links links";
+	}
+
+	div.bio-cols img#profile {
+		width: 3rem;
+		height: 3rem;
+	}
+
+	.home-roles {
+		margin-top: 12px;
+		font-size: 14px;
+	}
+}
+
 div.banner {
 	border: 4px solid rgb(92, 184, 92);
 	background: rgba(234, 245, 234, 0.1);
@@ -213,7 +255,7 @@ div.banner .subtitle {
 	display: none;
 }
 
-@media (min-width: 769px) and (pointer: fine) {
+@media screen and (min-width: 769px) {
 	div.bio-cols {
 		grid-template-columns: var(--lead-col) 1fr;
 		column-gap: var(--lead-gap);
@@ -231,11 +273,12 @@ div.banner .subtitle {
 	}
 
 	.posts-desktop a {
+		-webkit-tap-highlight-color: var(--accent-tap);
 		display: grid;
 		grid-template-columns: var(--lead-col) 1fr;
 		column-gap: var(--lead-gap);
 		align-items: baseline;
-		padding: 6px 12px;
+		padding: 9px 12px;
 		margin: 0 -12px;
 		border-radius: var(--radius);
 		transition: background-color 120ms ease;
@@ -254,14 +297,17 @@ div.banner .subtitle {
 		transition: color 120ms ease;
 	}
 
-	.posts-desktop a:hover,
-	.posts-desktop a:focus-visible {
+	.posts-desktop a:focus-visible,
+	.posts-desktop a:active {
 		background-color: var(--accent-tint);
+	}
+
+	.posts-desktop a:focus-visible {
 		outline: none;
 	}
 
-	.posts-desktop a:hover span,
-	.posts-desktop a:focus-visible span {
+	.posts-desktop a:focus-visible span,
+	.posts-desktop a:active span {
 		color: var(--accent);
 	}
 }

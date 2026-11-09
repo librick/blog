@@ -10,13 +10,9 @@
     {{- end }}
     <div class="bio-cols">
         <img id="profile" src="/images/profile.png" />
-        <div>
-            <div class="entry-content">
-                <div class="home-name">{{ .Title }}</div>
-                <div class="home-roles">Technologist · Software Architect · Consultant</div>
-                {{ partial "social_icons.html" (dict "align" site.Params.homeInfoParams.AlignSocialIconsTo) }}
-            </div>
-        </div>
+        <div class="home-name">{{ .Title }}</div>
+        <div class="home-roles">Technologist · Software Architect · Consultant</div>
+        {{ partial "social_icons.html" (dict "align" site.Params.homeInfoParams.AlignSocialIconsTo) }}
     </div>
 </article>
 {{- end -}}
