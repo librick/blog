@@ -7,13 +7,22 @@
 
 :root {
 	--font-stack: -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, Oxygen, Ubuntu, Cantarell, "open sans", "helvetica neue", sans-serif;
+	--primary-strong: #0b0b0c;
 	--accent: #5b4bb5;
 	--accent-tint: #efecfb;
 }
 
 :root[data-theme="dark"] {
+	--primary-strong: #ededee;
 	--accent: #c3b9f7;
 	--accent-tint: #2b2a38;
+}
+
+.home-name {
+	font-family: var(--font-stack);
+	font-size: 22px;
+	font-weight: 700;
+	color: var(--primary-strong);
 }
 
 div.logo a {
