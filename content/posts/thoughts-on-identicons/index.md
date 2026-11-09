@@ -1,7 +1,7 @@
 ---
 title: "SSH Fingerprints, Identicons, and AI Face Generation"
 date: 2023-09-23
-tags: ['identicon', 'ssh', 'ai', 'dall-e', 'fingerprint']
+tags: ['Identicon', 'SSH', 'AI', 'DALL-E', 'Fingerprint']
 ---
 
 While playing around with SSH and Git, I reflected on how SSH's key fingerprints are essentially an early form of identicon:
@@ -56,8 +56,6 @@ The main outstanding barriers are:
 - Storage/caching of public key fingerprint image data
 
 I leave the rest as an exercise to the reader 😉
-
-References
 
 [^1]: Kitty GPU-based Terminal Emulator (Sep 23, 2023). ["Kitty"](https://sw.kovidgoyal.net/kitty/).
 [^2]: drhus/awesome-identicons (Sep 23, 2023) ["awesome-identicons"](https://github.com/drhus/awesome-identicons).

@@ -1,0 +1,9 @@
+{{- with .GetTerms "tags" }}
+<nav class="post-topics link-line" aria-label="Topics">
+  <span class="link-line-label" aria-hidden="true">Topics:</span>
+  {{- range $i, $tag := . }}
+  {{- if $i }}<span class="link-line-sep" aria-hidden="true">·</span>{{ end -}}
+  <a href="{{ $tag.Permalink }}">{{ $tag.LinkTitle }}</a>
+  {{- end }}
+</nav>
+{{- end }}

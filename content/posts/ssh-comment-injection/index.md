@@ -1,7 +1,7 @@
 ---
 title: "SSH Comment Injection in OpenWRT"
 date: 2022-09-20
-tags: ['security', 'ssh', 'openwrt', 'dropbear', 'openssh', 'fido', 'cryptography']
+tags: ['Security', 'SSH', 'OpenWrt', 'Dropbear', 'OpenSSH', 'FIDO', 'Cryptography']
 ---
 ![WRT3200ACM router motherboard](linksys_wrt3200acm_board_top_complete.jpg "WRT3200ACM router motherboard")
 
@@ -21,8 +21,6 @@ I was assigned CVE-2022-41435[^5][^6][^7].
 SSH comment injection presents a unique attack vector; it has nothing to do with the security of asymmetric crypto or the SSH protocol. However it is a source of user-provided input that should be untrusted and properly sanitized.
 
 Thanks to the OpenWRT team for the quick response time, and thanks for contributing to open source ❤️📡
-
-References
 
 [^1]: Dropbear (Nov 14, 2022). ["Dropbear homepage"](https://web.archive.org/web/20230530151641/https://matt.ucc.asn.au/dropbear/dropbear.html). Dropbear. [Archived]() from the original on May 30, 2023. Retrieved May 30, 2023.  
 [^2]: OpenSSH (Feb 14, 2020). ["OpenSSH 8.2 release notes"](https://www.openssh.com/txt/release-8.2). OpenSSH. [Archived](https://web.archive.org/web/20230530150006/https://www.openssh.com/txt/release-8.2) from the original on May 30, 2023. Retrieved May 30, 2023.  

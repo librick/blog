@@ -2,7 +2,7 @@
 title: A Love Letter to Open Source Ecology
 date: "2022-05-24T00:00:00.000Z"
 description: "Exploring the world of open source and distributive enterprise."
-tags: ['personal', 'ose']
+tags: ['Personal', 'Open Source Ecology']
 ---
 
 ![Bunk bed and cat](2021-09-ose-hablab-cat-and-bed.jpg "Wikey naps above my bed")

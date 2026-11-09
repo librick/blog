@@ -2,7 +2,7 @@
 title: Honda Civics and the Evil Valet
 date: "2026-06-13T00:00:00.000Z"
 description: "Status update, three years later"
-tags: ['security', 'cryptography', 'android', 'honda', 'reverseengineering']
+tags: ['Security', 'Cryptography', 'Android', 'Honda', 'Reverse Engineering']
 ---
 
 Three years ago, I published my initial work to understand and reverse engineer my car, specifically the headunit of my 2021 Honda Civic.[^1]

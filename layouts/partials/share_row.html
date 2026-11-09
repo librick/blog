@@ -34,10 +34,10 @@
     </svg>
     Share…
   </button>
-  <div class="share-links">
-    <span class="share-label" aria-hidden="true">or share via</span>
+  <div class="link-line">
+    <span class="link-line-label" aria-hidden="true">or share via</span>
     {{- range $i, $service := $services }}
-    {{- if $i }}<span class="share-sep" aria-hidden="true">·</span>{{ end -}}
+    {{- if $i }}<span class="link-line-sep" aria-hidden="true">·</span>{{ end -}}
     <a href="{{ $service.href | safeURL }}"{{ if $service.newTab }} target="_blank" rel="noopener noreferrer"{{ end }}><span class="visually-hidden">{{ $service.spoken }}{{ if $service.newTab }} (opens in a new tab){{ end }}</span><span aria-hidden="true">{{ $service.name }}</span></a>
     {{- end }}
   </div>

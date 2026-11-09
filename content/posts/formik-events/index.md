@@ -2,7 +2,7 @@
 title: React, Formik, and Events 
 date: "2024-03-30T00:00:00.000Z"
 description: "Musings on Formik's API, custom events in React, and why I might leave Formik"
-tags: ['formik', 'react', 'development', 'events']
+tags: ['Formik', 'React', 'Development', 'Events']
 ---
 I've been using [Formik](https://formik.org/) lately for a form-intensive React app.
 Formik is a React/JavaScript library that aims to make it easier to manage HTML forms

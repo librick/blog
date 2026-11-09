@@ -2,7 +2,7 @@
 title: Google Calendar, CalDAV, and Home Assistant
 date: "2024-05-16T00:00:00.000Z"
 description: "My calendar setup."
-tags: ['google', 'calendars', 'caldav', 'carddav', 'homeassistant']
+tags: ['Google', 'Calendars', 'CalDAV', 'CardDAV', 'Home Assistant']
 ---
 
 # Introduction

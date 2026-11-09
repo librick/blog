@@ -2,7 +2,7 @@
 title: Locked out of Keybase
 date: "2022-10-27T00:00:00.000Z"
 description: "How I locked myself out"
-tags: ['personal', 'security', 'cryptography']
+tags: ['Personal', 'Security', 'Cryptography']
 ShowToc: false
 ---
 

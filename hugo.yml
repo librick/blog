@@ -6,6 +6,12 @@ theme: 'github.com/adityatelange/hugo-PaperMod'
 pagination:
     pagerSize: 10000
 
+related:
+    includeNewer: true
+    indices:
+        - name: tags
+          weight: 100
+
 markup:
     highlight:
         noClasses: false
@@ -27,7 +33,7 @@ params:
     author: "Eric McDonald" # Appears in meta name="author" tag
     description: "Personal Blog of Eric McDonald" # Appears in meta name="description" tag
     ShowToc: true
-    ShowPostNavLinks: true
+    ShowPostNavLinks: false
     ShowCodeCopyButtons: true
     hideSummary: true
     defaultTheme: dark

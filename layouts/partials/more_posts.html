@@ -1,0 +1,9 @@
+{{- $pages := where (where site.RegularPages "Type" "in" site.Params.mainSections) "Draft" false }}
+{{- $related := first 3 ($pages.Related .) }}
+{{- $recent := first (sub 3 (len $related)) (complement (slice .) $related $pages.ByDate.Reverse) }}
+{{- with $related | append $recent }}
+<nav class="more-posts" aria-labelledby="more-posts-heading">
+  <h2 id="more-posts-heading" class="more-posts-heading">More posts</h2>
+  {{- partial "post_list.html" . }}
+</nav>
+{{- end }}

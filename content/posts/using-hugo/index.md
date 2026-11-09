@@ -2,7 +2,7 @@
 title: "Goodbye Gatsby, Hello Hugo"
 description: "Migrating the blog from Gatsby to Hugo"
 date: 2023-05-30
-tags: ['blog', 'cicd', 'nodejs', 'hugo', 'gatsby']
+tags: ['Blog', 'Continuous Integration', 'Node.js', 'Hugo', 'Gatsby']
 ---
 ![Hugo](hugo-logo-wide.svg "Switching to Hugo from Gatsby")
 # I Switched to Hugo

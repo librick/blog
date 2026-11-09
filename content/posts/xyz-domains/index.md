@@ -2,7 +2,7 @@
 title: Introducing juniperspring.org 
 date: "2024-04-02T00:00:00.000Z"
 description: "Moving away from .xyz domains and why I still like them"
-tags: ['dns', 'domain', '.xyz', '.org']
+tags: ['DNS', 'Domain']
 ---
 
 TLDR this blog has a new domain: [juniperspring.org](https://juniperspring.org).

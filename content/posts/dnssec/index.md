@@ -2,7 +2,7 @@
 title: Exploring DNSSEC 
 date: "2023-06-07T00:00:00.000Z"
 description: "A look into the DNS records behind juniperspring.xyz"
-tags: ['security', 'cryptography', 'networking', 'dns', 'dnssec', 'ens']
+tags: ['Security', 'Cryptography', 'Networking', 'DNS', 'DNSSEC', 'ENS']
 ---
 While playing around with the [Ethereum Name Service (ENS)](https://juniperspring.xyz/posts/ethereum-name-service/)
 and the [DNSSEC oracle](https://github.com/ensdomains/dnssec-oracle),
