@@ -123,8 +123,10 @@ article.post-entry:has(.entry-link:focus-visible) header h2 {
 
 @media (hover: hover) {
 	div.bio-cols img#profile:hover {
-		animation: psychedelic 4s;
-		animation-iteration-count: infinite;
+		filter: hue-rotate(var(--psychedelic-hue)) saturate(var(--psychedelic-saturate)) invert(var(--psychedelic-invert));
+		animation:
+			psychedelic-hue 4s linear infinite,
+			psychedelic-tone 2s ease-in-out infinite alternate;
 	}
 
 	article.post-entry:hover {
@@ -150,17 +152,34 @@ article.first-entry.home-info {
 	min-height: auto;
 }
 
-@keyframes psychedelic {
-	5% {
-	  filter: hue-rotate(0deg) saturate(2) invert(0);
+@property --psychedelic-hue {
+	syntax: "<angle>";
+	inherits: false;
+	initial-value: 0deg;
+}
+
+@property --psychedelic-saturate {
+	syntax: "<number>";
+	inherits: false;
+	initial-value: 1;
+}
+
+@property --psychedelic-invert {
+	syntax: "<number>";
+	inherits: false;
+	initial-value: 0;
+}
+
+@keyframes psychedelic-hue {
+	to {
+		--psychedelic-hue: 360deg;
 	}
-	
-	50% {
-	  filter: hue-rotate(360deg) saturate(8) invert(.25);
-	}
-	
-	100% {
-	  filter: hue-rotate(0deg) saturate(2) invert(0);
+}
+
+@keyframes psychedelic-tone {
+	to {
+		--psychedelic-saturate: 8;
+		--psychedelic-invert: 0.25;
 	}
 }
 
