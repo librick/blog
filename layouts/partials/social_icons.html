@@ -1,4 +1,4 @@
-<div class="social-icons" {{ with .align}}align="{{.}}" {{- end }}>
+<div class="social-icons" data-nosnippet {{ with .align}}align="{{.}}" {{- end }}>
     {{- range site.Params.socialIcons }}
     <a href="{{ trim .url " " | safeURL }}" target="_blank" rel="noopener noreferrer me">
         {{- .name -}}
