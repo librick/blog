@@ -189,7 +189,7 @@ div.banner .subtitle {
 	.posts-desktop a {
 		display: grid;
 		grid-template-columns: 96px 1fr;
-		column-gap: 28px;
+		column-gap: 20px;
 		align-items: baseline;
 		padding: 6px 12px;
 		margin: 0 -12px;
@@ -205,7 +205,7 @@ div.banner .subtitle {
 
 	.posts-desktop span {
 		font-size: 17px;
-		font-weight: 500;
+		font-weight: 400;
 		color: var(--primary);
 		transition: color 120ms ease;
 	}
