@@ -174,47 +174,29 @@
 }
 
 .post-topics {
-	margin-top: 40px;
 	margin-bottom: 28px;
 }
 
-.more-posts {
-	margin-top: 40px;
-	padding-top: 28px;
-	border-top: 1px solid var(--border);
-}
-
-.post-content .footnotes > hr {
+.post-end-rule {
 	height: 0;
-	margin: 56px 0 28px;
-	background: none;
+	margin: 48px 0 32px;
 	border: 0;
 	border-top: 1px solid var(--border);
 }
 
-.post-content .footnotes {
-	padding-bottom: 56px;
-	border-bottom: 1px solid var(--border);
+.more-posts {
+	margin-top: 56px;
 }
 
-.post-content .footnotes > ol {
-	margin-bottom: 0;
-}
-
-.post-content:has(> .footnotes) {
-	margin-bottom: 34px;
-}
-
-.post-content:has(> .footnotes) + * {
-	margin-top: 0;
-}
-
-.more-posts-heading {
-	margin-bottom: 8px;
+.section-heading {
 	font-size: 14px;
 	font-weight: 500;
 	line-height: calc(20 / 14);
 	color: var(--secondary);
+}
+
+.more-posts .section-heading {
+	margin-bottom: 8px;
 }
 
 .link-line-label {

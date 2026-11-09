@@ -35,12 +35,15 @@
   {{- end }}
 
   {{- if .Content }}
+  {{- $content := .Content | replaceRE `(<div class="footnotes" role="doc-endnotes">)\s*<hr\s*/?>` `${1}<h2>References</h2>` }}
   <div class="post-content md-content">
     {{- if not (.Param "disableAnchoredHeadings") }}
-    {{- partial "anchored_headings.html" .Content -}}
-    {{- else }}{{ .Content }}{{ end }}
+    {{- partial "anchored_headings.html" $content -}}
+    {{- else }}{{ $content | safeHTML }}{{ end }}
   </div>
   {{- end }}
+
+  <hr class="post-end-rule">
 
   {{- partial "post_topics.html" . }}
 
