@@ -1,13 +1,5 @@
 {{- with site.Params.homeInfoParams }}
 <article class="first-entry home-info">
-    {{- with site.GetPage "/banner" }}
-    {{- if .Params.enabled }}
-    <div class="banner">
-        <p class="title">{{ .Title | safeHTML }}</p>
-        <div class="subtitle">{{ .Content }}</div>
-    </div>
-    {{- end }}
-    {{- end }}
     <div class="bio-cols">
         <img id="profile" src="/images/profile.png" />
         <div class="home-name">{{ .Title }}</div>
