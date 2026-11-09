@@ -1,7 +1,7 @@
 ---
 title: Honda Civic Reverse Engineering
 date: "2023-05-31T00:00:00.000Z"
-description: "Reverse engineering a 2021 Honda Civic and thoughts on the state of automotive security."
+description: "Reverse engineering a 2021 Honda Civic and thoughts on the state of automotive security"
 tags: ['Security', 'Cryptography', 'Android', 'Honda', 'Reverse Engineering']
 ---
 

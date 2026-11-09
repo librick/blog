@@ -1,7 +1,7 @@
 ---
 title: Bi-Directional Authentication with TOTP
 date: "2023-01-21T00:00:00.000Z"
-description: "Authentication is a two-way street."
+description: "Authentication is a two-way street"
 tags: ['MFA', 'Security', 'TOTP', 'Cryptography']
 ---
 

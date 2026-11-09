@@ -1,7 +1,7 @@
 ---
 title: A Love Letter to Open Source Ecology
 date: "2022-05-24T00:00:00.000Z"
-description: "Exploring the world of open source and distributive enterprise."
+description: "Exploring the world of open source and distributive enterprise"
 tags: ['Personal', 'Open Source Ecology']
 ---
 
