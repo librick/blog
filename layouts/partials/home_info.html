@@ -13,12 +13,10 @@
         <div>
             <div class="entry-content">
                 <div class="home-name">{{ .Title }}</div>
-                Technologist · Software Architect · Consultant
+                <div class="home-roles">Technologist · Software Architect · Consultant</div>
+                {{ partial "social_icons.html" (dict "align" site.Params.homeInfoParams.AlignSocialIconsTo) }}
             </div>
         </div>
     </div>
-    <footer class="entry-footer">
-        {{ partial "social_icons.html" (dict "align" site.Params.homeInfoParams.AlignSocialIconsTo) }}
-    </footer>
 </article>
 {{- end -}}

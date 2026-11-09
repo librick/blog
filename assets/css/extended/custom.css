@@ -7,6 +7,9 @@
 
 :root {
 	--font-stack: -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, Oxygen, Ubuntu, Cantarell, "open sans", "helvetica neue", sans-serif;
+	--nav-width: var(--main-width);
+	--lead-col: 96px;
+	--lead-gap: 20px;
 	--primary-strong: #0b0b0c;
 	--link-underline: #c6c7cb;
 	--accent: #5b4bb5;
@@ -24,19 +27,32 @@
 	font-family: var(--font-stack);
 	font-size: 22px;
 	font-weight: 700;
+	line-height: 28px;
 	color: var(--primary-strong);
+}
+
+.home-roles {
+	line-height: 22px;
+}
+
+.home-info .entry-content {
+	display: flex;
+	flex-direction: column;
+	row-gap: 4px;
+	overflow: visible;
 }
 
 .social-icons {
 	display: flex;
 	flex-wrap: wrap;
 	column-gap: 18px;
-	margin-block: -12px;
+	row-gap: 24px;
 }
 
 .social-icons a {
+	position: relative;
 	display: inline-block;
-	padding: 12px 0;
+	padding: 0;
 	font-family: var(--font-stack);
 	font-size: 14px;
 	font-weight: 400;
@@ -47,6 +63,12 @@
 	text-underline-offset: 3px;
 	border-radius: 3px;
 	transition: text-decoration-color 120ms ease;
+}
+
+.social-icons a::after {
+	content: "";
+	position: absolute;
+	inset: -12px 0;
 }
 
 .social-icons a:hover,
@@ -102,8 +124,8 @@ article.post-entry:has(.entry-link:focus-visible) header h2 {
 }
 
 article.first-entry.home-info {
-    padding: 0;
-    margin: calc(var(--gap) * 1.5) 0;
+	padding: 0;
+	margin: var(--gap) 0 calc(var(--gap) * 2);
 	min-height: auto;
 }
 
@@ -124,13 +146,14 @@ article.first-entry.home-info {
 
 div.bio-cols {
 	display: grid;
-	grid-template-columns: 128px 1fr;
+	grid-template-columns: 5rem 1fr;
 	justify-content: center;
+	align-items: center;
 	gap: var(--gap);
-	margin-bottom: calc(var(--gap) * 0.33);
 }
 div.bio-cols img#profile {
-	width: auto;
+	width: 5rem;
+	height: 5rem;
 	border-radius: var(--radius);
 }
 div.banner {
@@ -170,11 +193,28 @@ div.banner .subtitle {
 	color: var(--accent);
 }
 
+.logo {
+	flex: 1;
+}
+
+.logo-switches {
+	margin-inline-start: auto;
+}
+
+#menu:not(:has(li)) {
+	display: none;
+}
+
 .posts-desktop {
 	display: none;
 }
 
 @media (min-width: 769px) and (pointer: fine) {
+	div.bio-cols {
+		grid-template-columns: var(--lead-col) 1fr;
+		column-gap: var(--lead-gap);
+	}
+
 	.posts-mobile {
 		display: none;
 	}
@@ -188,8 +228,8 @@ div.banner .subtitle {
 
 	.posts-desktop a {
 		display: grid;
-		grid-template-columns: 96px 1fr;
-		column-gap: 20px;
+		grid-template-columns: var(--lead-col) 1fr;
+		column-gap: var(--lead-gap);
 		align-items: baseline;
 		padding: 6px 12px;
 		margin: 0 -12px;
