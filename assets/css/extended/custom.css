@@ -12,6 +12,8 @@
 	--lead-gap: 20px;
 	--primary-strong: #0b0b0c;
 	--link-underline: #c6c7cb;
+	--control-border: #d5d6da;
+	--text-faint: #a4a5a9;
 	--accent: #5b4bb5;
 	--accent-tint: #efecfb;
 	--accent-tap: rgba(91, 75, 181, 0.15);
@@ -20,6 +22,8 @@
 :root[data-theme="dark"] {
 	--primary-strong: #ededee;
 	--link-underline: #55565a;
+	--control-border: #3d3e44;
+	--text-faint: #6b6c70;
 	--accent: #c3b9f7;
 	--accent-tint: #2b2a38;
 	--accent-tap: rgba(195, 185, 247, 0.15);
@@ -30,7 +34,7 @@
 	font-family: var(--font-stack);
 	font-size: 22px;
 	font-weight: 700;
-	line-height: 28px;
+	line-height: calc(28 / 22);
 	color: var(--primary-strong);
 }
 
@@ -38,7 +42,7 @@
 	grid-area: roles;
 	margin-top: 4px;
 	font-size: 16px;
-	line-height: 22px;
+	line-height: calc(22 / 16);
 	color: var(--secondary);
 }
 
@@ -51,14 +55,15 @@
 	row-gap: 24px;
 }
 
-.social-icons a {
+.social-icons a,
+.share-links a {
 	position: relative;
 	display: inline-block;
 	padding: 0;
 	font-family: var(--font-stack);
 	font-size: 14px;
 	font-weight: 400;
-	line-height: 20px;
+	line-height: calc(20 / 14);
 	color: var(--primary);
 	text-decoration: underline;
 	text-decoration-color: var(--link-underline);
@@ -67,19 +72,128 @@
 	transition: text-decoration-color 120ms ease;
 }
 
-.social-icons a::after {
+.social-icons a::after,
+.share-links a::after {
 	content: "";
 	position: absolute;
 	inset: -12px 0;
 }
 
 .social-icons a:hover,
-.social-icons a:focus-visible {
+.social-icons a:focus-visible,
+.share-links a:hover,
+.share-links a:focus-visible {
 	text-decoration-color: var(--accent);
 }
 
-.social-icons a:focus-visible {
+.social-icons a:focus-visible,
+.share-links a:focus-visible {
 	outline-offset: 2px;
+}
+
+.share-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px 18px;
+}
+
+.share-button {
+	display: inline-flex;
+	align-items: center;
+	column-gap: 8px;
+	min-height: 40px;
+	padding: 7px 16px;
+	background: transparent;
+	border: 1px solid var(--control-border);
+	border-radius: 6px;
+	font-family: var(--font-stack);
+	font-size: 15px;
+	color: var(--primary);
+	cursor: pointer;
+	transition: border-color 120ms ease, color 120ms ease;
+}
+
+.share-button[hidden] {
+	display: none;
+}
+
+.share-button svg {
+	flex: none;
+	width: calc(16em / 15);
+	height: calc(16em / 15);
+}
+
+.share-button:focus-visible {
+	border-color: var(--accent);
+	color: var(--accent);
+	outline-offset: 2px;
+}
+
+.share-copy {
+	display: inline-grid;
+	justify-items: center;
+}
+
+.share-idle,
+.share-done {
+	grid-area: 1 / 1;
+	display: inline-flex;
+	align-items: center;
+	column-gap: 8px;
+}
+
+.share-done,
+.share-copy.is-copied .share-idle {
+	visibility: hidden;
+}
+
+.share-copy.is-copied .share-done {
+	visibility: visible;
+}
+
+.share-links {
+	--share-link-pad: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	row-gap: 24px;
+	margin-left: calc(-1 * var(--share-link-pad));
+	font-size: 15px;
+}
+
+.share-links a {
+	padding: 0 var(--share-link-pad);
+	font-size: 15px;
+	line-height: calc(20 / 15);
+}
+
+.share-links a:last-of-type {
+	padding-right: 24px;
+	margin-right: -24px;
+}
+
+.share-label {
+	padding-left: var(--share-link-pad);
+	margin-right: calc(8px - var(--share-link-pad));
+	color: var(--secondary);
+}
+
+.share-sep {
+	display: inline-flex;
+	justify-content: center;
+	width: 0;
+	color: var(--text-faint);
+	pointer-events: none;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
 }
 
 div.logo a {
@@ -139,6 +253,11 @@ article.post-entry:has(.entry-link:focus-visible) header h2 {
 
 	.posts-desktop a:hover {
 		background-color: var(--accent-tint);
+	}
+
+	.share-button:hover {
+		border-color: var(--accent);
+		color: var(--accent);
 	}
 
 	.posts-desktop a:hover span {
@@ -224,6 +343,7 @@ div.bio-cols img#profile {
 	.home-roles {
 		margin-top: 12px;
 		font-size: 14px;
+		line-height: calc(22 / 14);
 	}
 }
 

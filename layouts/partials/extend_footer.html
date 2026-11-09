@@ -1,0 +1,4 @@
+{{- if and .IsPage (eq .Type "posts") (ne .Params.disableShare true) }}
+{{- $share := resources.Get "js/share.js" | minify | fingerprint }}
+<script src="{{ $share.RelPermalink }}" integrity="{{ $share.Data.Integrity }}"></script>
+{{- end }}

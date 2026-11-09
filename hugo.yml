@@ -29,7 +29,6 @@ params:
     ShowToc: true
     ShowPostNavLinks: true
     ShowCodeCopyButtons: true
-    ShowShareButtons: true
     hideSummary: true
     defaultTheme: dark
     label:

@@ -1,0 +1,45 @@
+{{- $url := .Permalink }}
+{{- $title := .Title | plainify | htmlUnescape }}
+{{- $qURL := urlquery $url | replaceRE `\+` "%20" }}
+{{- $qTitle := urlquery $title | replaceRE `\+` "%20" }}
+{{- $qText := urlquery (printf "%s %s" $title $url) | replaceRE `\+` "%20" }}
+{{- $services := slice
+  (dict "name" "Bluesky" "spoken" "Share via Bluesky" "newTab" true "href" (printf "https://bsky.app/intent/compose?text=%s" $qText))
+  (dict "name" "LinkedIn" "spoken" "Share via LinkedIn" "newTab" true "href" (printf "https://www.linkedin.com/sharing/share-offsite/?url=%s" $qURL))
+  (dict "name" "Email" "spoken" "Share via email" "newTab" false "href" (printf "mailto:?subject=%s&body=%s" $qTitle $qURL))
+  (dict "name" "X" "spoken" "Share via X" "newTab" true "href" (printf "https://x.com/intent/post?text=%s&url=%s" $qTitle $qURL))
+}}
+{{/* Icons from Feather (https://feathericons.com), MIT License */}}
+<div class="share-row" data-url="{{ $url }}" data-title="{{ $title }}">
+  <button type="button" class="share-button share-copy" hidden>
+    <span class="share-idle">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+      </svg>
+      Copy link
+    </span>
+    <span class="share-done">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="20 6 9 17 4 12" />
+      </svg>
+      Link copied
+    </span>
+  </button>
+  <button type="button" class="share-button share-native" hidden>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+      <polyline points="16 6 12 2 8 6" />
+      <line x1="12" y1="2" x2="12" y2="15" />
+    </svg>
+    Share…
+  </button>
+  <div class="share-links">
+    <span class="share-label" aria-hidden="true">or share via</span>
+    {{- range $i, $service := $services }}
+    {{- if $i }}<span class="share-sep" aria-hidden="true">·</span>{{ end -}}
+    <a href="{{ $service.href | safeURL }}"{{ if $service.newTab }} target="_blank" rel="noopener noreferrer"{{ end }}><span class="visually-hidden">{{ $service.spoken }}{{ if $service.newTab }} (opens in a new tab){{ end }}</span><span aria-hidden="true">{{ $service.name }}</span></a>
+    {{- end }}
+  </div>
+  <span class="share-status visually-hidden" aria-live="polite"></span>
+</div>
