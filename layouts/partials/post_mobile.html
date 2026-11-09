@@ -21,7 +21,9 @@
   {{- end }}
   {{- if not (.Param "hideMeta") }}
   <footer class="entry-footer">
-    {{- partial "post_meta.html" . -}}
+    {{- if not .Date.IsZero }}
+    <span title='{{ .Date }}'>{{ .Date | time.Format (default ":date_long" site.Params.DateFormat) }}</span>
+    {{- end }}
   </footer>
   {{- end }}
   <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
