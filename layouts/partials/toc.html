@@ -1,0 +1,19 @@
+{{- with .Fragments.HeadingsMap }}
+{{- $start := 6 }}
+{{- range . }}
+{{- if lt .Level $start }}{{ $start = .Level }}{{ end }}
+{{- end }}
+{{- $toc := $.Fragments.ToHTML $start 6 false | replaceRE `^\s*<nav id="TableOfContents">\s*|\s*</nav>\s*$` "" | replaceRE `<ul>` `<ul role="list">` }}
+{{/* Icon from Feather (https://feathericons.com), MIT License */}}
+<nav class="post-toc" aria-label="Contents">
+  <details{{ if $.Param "TocOpen" }} open{{ end }}>
+    <summary>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="9 18 15 12 9 6" />
+      </svg>
+      <span class="section-heading">Contents</span>
+    </summary>
+    {{ $toc | safeHTML }}
+  </details>
+</nav>
+{{- end }}

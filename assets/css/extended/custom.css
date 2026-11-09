@@ -56,20 +56,25 @@
 }
 
 .social-icons a,
-.link-line a {
-	position: relative;
-	display: inline-block;
-	padding: 0;
+.link-line a,
+.post-toc a {
 	font-family: var(--font-stack);
-	font-size: 14px;
 	font-weight: 400;
-	line-height: calc(20 / 14);
 	color: var(--primary);
 	text-decoration: underline;
 	text-decoration-color: var(--link-underline);
 	text-underline-offset: 3px;
 	border-radius: 3px;
 	transition: text-decoration-color 120ms ease;
+}
+
+.social-icons a,
+.link-line a {
+	position: relative;
+	display: inline-block;
+	padding: 0;
+	font-size: 14px;
+	line-height: calc(20 / 14);
 }
 
 .social-icons a::after,
@@ -82,12 +87,15 @@
 .social-icons a:hover,
 .social-icons a:focus-visible,
 .link-line a:hover,
-.link-line a:focus-visible {
+.link-line a:focus-visible,
+.post-toc a:hover,
+.post-toc a:focus-visible {
 	text-decoration-color: var(--accent);
 }
 
 .social-icons a:focus-visible,
-.link-line a:focus-visible {
+.link-line a:focus-visible,
+.post-toc a:focus-visible {
 	outline-offset: 2px;
 }
 
@@ -199,6 +207,75 @@
 	margin-bottom: 8px;
 }
 
+.post-toc {
+	margin: 32px 0;
+}
+
+.post-toc summary {
+	display: flex;
+	align-items: center;
+	column-gap: 8px;
+	width: fit-content;
+	padding: 12px 0;
+	margin: -12px 0;
+	list-style: none;
+	cursor: pointer;
+}
+
+.post-toc summary::-webkit-details-marker {
+	display: none;
+}
+
+.post-toc summary svg {
+	flex: none;
+	width: 14px;
+	height: 14px;
+	color: var(--secondary);
+	transition: transform 120ms ease;
+}
+
+.post-toc details[open] > summary svg {
+	transform: rotate(90deg);
+}
+
+.post-toc summary:focus-visible .section-heading {
+	color: var(--primary);
+}
+
+.post-toc details > ul {
+	padding-top: 10px;
+}
+
+.post-toc + .post-content > :first-child {
+	margin-top: 0;
+}
+
+.post-toc ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.post-toc ul ul {
+	padding-left: 20px;
+}
+
+.post-toc li {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.post-toc a {
+	padding: 4px 0;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.post-toc ul ul a {
+	font-size: 15px;
+}
+
 .link-line-label {
 	padding-left: var(--link-line-pad);
 	margin-right: calc(8px - var(--link-line-pad));
@@ -288,6 +365,16 @@ article.post-entry:has(.entry-link:focus-visible) header h2 {
 
 	.posts-desktop a:hover span {
 		color: var(--accent);
+	}
+
+	.post-toc summary:hover .section-heading {
+		color: var(--primary);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.post-toc summary svg {
+		transition: none;
 	}
 }
 

@@ -5,7 +5,7 @@ description: "My calendar setup."
 tags: ['Google', 'Calendars', 'CalDAV', 'CardDAV', 'Home Assistant']
 ---
 
-# Introduction
+## Introduction
 
 Calendars are annoying. I've found that my desire to have access to multiple disparate calendars in one spot, on all of my devices, without being constrained within a walled garden, and with voice-controlled scheduling, has been deceptively challenging to realize.
 

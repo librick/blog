@@ -133,7 +133,7 @@ One of the benefits of living among engineers and problem-solvers was that, when
  
 I found myself to be comfortable at HabLab. Any issues that did arise only served to strengthen group cohesion and encourage problem-solving and dialogue. The environment we shared was the environment we created.
 
-### Wrapping Up
+## Wrapping Up
 
 Open Source Ecology encompasses a large body of work by Marcin Jakubowski, his wife Catarina Mota, and many others. Each project under the umbrella of Open Source Ecology has varying names and scopes which can be difficult to convey in the span of casual conversation. Further, Open Source Ecology and related movements such as the free software movement and distributive enterprise (DE) are interrelated in ways unobvious to outsiders.
 

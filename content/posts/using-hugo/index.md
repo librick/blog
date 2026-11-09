@@ -5,7 +5,7 @@ date: 2023-05-30
 tags: ['Blog', 'Continuous Integration', 'Node.js', 'Hugo', 'Gatsby']
 ---
 ![Hugo](hugo-logo-wide.svg "Switching to Hugo from Gatsby")
-# I Switched to Hugo
+## I Switched to Hugo
 This blog used to use Gatsby. Now it uses Hugo.
 
 ## What I like about Hugo

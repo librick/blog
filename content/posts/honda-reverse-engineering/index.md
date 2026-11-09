@@ -5,7 +5,7 @@ description: "Reverse engineering a 2021 Honda Civic and thoughts on the state o
 tags: ['Security', 'Cryptography', 'Android', 'Honda', 'Reverse Engineering']
 ---
 
-# Introduction
+## Introduction
 Last week, I published a GitHub repo containing reverse engineering information for the
 head unit of my car, a 2021 Honda Civic: https://github.com/librick/ic1101/.
 
