@@ -1,13 +1,7 @@
 <div class="social-icons" {{ with .align}}align="{{.}}" {{- end }}>
     {{- range site.Params.socialIcons }}
-    {{- $custom := printf "social/%s.html" (trim .name " " | lower) }}
-    <a href="{{ trim .url " " | safeURL }}" target="_blank" rel="noopener noreferrer me"
-        title="{{ (.title | default .name) | title }}">
-        {{- if templates.Exists (printf "partials/%s" $custom) }}
-        {{ partial $custom . }}
-        {{- else }}
-        {{ partial "svg.html" . }}
-        {{- end }}
+    <a href="{{ trim .url " " | safeURL }}" target="_blank" rel="noopener noreferrer me">
+        {{- .name -}}
     </a>
     {{- end }}
 </div>

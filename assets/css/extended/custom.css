@@ -8,12 +8,14 @@
 :root {
 	--font-stack: -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, Oxygen, Ubuntu, Cantarell, "open sans", "helvetica neue", sans-serif;
 	--primary-strong: #0b0b0c;
+	--link-underline: #c6c7cb;
 	--accent: #5b4bb5;
 	--accent-tint: #efecfb;
 }
 
 :root[data-theme="dark"] {
 	--primary-strong: #ededee;
+	--link-underline: #55565a;
 	--accent: #c3b9f7;
 	--accent-tint: #2b2a38;
 }
@@ -23,6 +25,37 @@
 	font-size: 22px;
 	font-weight: 700;
 	color: var(--primary-strong);
+}
+
+.social-icons {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 18px;
+	margin-block: -12px;
+}
+
+.social-icons a {
+	display: inline-block;
+	padding: 12px 0;
+	font-family: var(--font-stack);
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	color: var(--primary);
+	text-decoration: underline;
+	text-decoration-color: var(--link-underline);
+	text-underline-offset: 3px;
+	border-radius: 3px;
+	transition: text-decoration-color 120ms ease;
+}
+
+.social-icons a:hover,
+.social-icons a:focus-visible {
+	text-decoration-color: var(--accent);
+}
+
+.social-icons a:focus-visible {
+	outline-offset: 2px;
 }
 
 div.logo a {
