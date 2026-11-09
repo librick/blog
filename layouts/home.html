@@ -1,0 +1,6 @@
+{{- define "main" }}
+{{- partial "home_info.html" . }}
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
+{{- partial "post_list.html" $pages }}
+{{- end }}

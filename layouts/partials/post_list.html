@@ -1,0 +1,10 @@
+<ol class="posts-desktop">
+  {{- range . }}
+  {{ partial "post_desktop.html" . }}
+  {{- end }}
+</ol>
+<div class="posts-mobile">
+  {{- range . }}
+  {{ partial "post_mobile.html" . }}
+  {{- end }}
+</div>
